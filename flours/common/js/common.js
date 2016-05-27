@@ -39,6 +39,147 @@
 
 	App.ui = {
 
+		/**
+		 * カルーセル
+		 */
+		carousel: function() {
+			var $el = {};
+			var $imageList = {};
+			var $item = {};
+			var $btnList = {};
+			var $btn = {};
+			var autoSlide = {};
+			var itemLength = 0;
+			var slideWidth = 0;
+			var viewNum = 0;
+			var slideSpeed = 500;
+			var intervalTime = 5000;
+			var isAnimate = false;
+			var isResize = false;
+			var isAuto = true;
+			var init = function(args) {
+				slideSpeed = args.slideSpeed || slideSpeed;
+				intervalTime = args.intervalTime || intervalTime;
+				isAuto = args.autoSlide || isAuto;
+				setEl(args.el);
+				render();
+				if(isAuto) {
+					setAutoSlide();
+				}
+				setEvents();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				$imageList = $el.find('.js-carouselImageList');
+				$btnList = $el.find('.js-carouselBtnList');
+				$item = $imageList.children();
+				return this;
+			};
+			var render = function() {
+				itemLength = $item.length;
+				imageListRender();
+				btnListRender();
+				return this;
+			};
+			var imageListRender = function() {
+				slideWidth = $item.first().width();
+				$item.each(function() {
+					$(this).width(slideWidth);
+				});
+				$imageList.css({
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					width: slideWidth * (itemLength+1)
+				});
+				$imageList.append($item.first().clone());
+				$el.css({
+					height: $item.first().height()
+				});
+				return this;
+			};
+			var btnListRender = function() {
+				var btnListArray = [];
+				for(var i=0; i<itemLength; i++) {
+					btnListArray.push('<li>' + (i+1) + '</li>');
+				}
+				$btnList.append(btnListArray.join('')).promise().done(function() {
+					$btn = $btnList.children();
+					$btn.first().addClass('active');
+				});
+				return this;
+			};
+			var setEvents = function() {
+				$btn.off('click').on('click', function() {
+					if(!isAnimate) {
+						animateSlide(this);
+						isAnimate = false;
+					}
+				});
+				$(window).resize(function() {
+					if(!isResize) {
+						resize();
+						isResize = false;
+					}
+				});
+				return this;
+			};
+			var animateSlide = function(that) {
+				isAnimate = true;
+				if(that) {
+					viewNum = $(that).index();
+				}
+				$imageList.animate({
+					left: -(slideWidth*viewNum)
+				}, 500 , function() {
+					if(viewNum === itemLength) {
+						$imageList.css({
+							left: 0
+						});
+					}
+				});
+				$btnList.find('.active').removeClass('active');
+				$btn.eq(viewNum === itemLength ? 0 : viewNum).addClass('active');
+				return this;
+			};
+			var setAutoSlide = function() {
+				if(isAuto) {
+					autoSlide = setInterval(function() {
+						viewNum = viewNum < itemLength ? viewNum+1 : 1;
+						animateSlide();
+						isAnimate = false;
+					}, 2000);
+				} else {
+					clearInterval(autoSlide);
+					isAuto = true;
+				}
+				return this;
+			};
+			var resize = function() {
+				isResize = true;
+				reset();
+				imageListRender();
+				return this;
+			};
+			var reset = function() {
+				$el.css({
+					height: 'auto'
+				});
+				$imageList.css({
+					position: 'relative',
+					width: 'auto'
+				});
+				$item.each(function() {
+					$(this).css({
+						width: 'auto'
+					});
+				});
+				return this;
+			};
+			return { init: init };
+		}
+
 	};
 
 
@@ -87,7 +228,7 @@
 				var that = this;
 				this.$anchor.off('click').on('click', function() {
 					if(!that.isScroll) {
-						that.smoothScroll($(this).attr(href));
+						that.smoothScroll($(this).attr('href'));
 						that.isScroll = false;
 					}
 					return false;

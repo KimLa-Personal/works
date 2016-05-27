@@ -16,15 +16,15 @@
 	var pageInit = function() {
 
 		/* トップ */
-		var topView = new TopView();
-		topView.init('#TopView');
+		var pageView = new PageView();
+		pageView.init('#PageView');
 
 	};
 
 	/**
 	 * トップ
 	 */
-	var TopView = (function() {
+	var PageView = (function() {
 		var constructor = function() {
 			return this;
 		};
@@ -32,12 +32,21 @@
 		proto.render = function() {
 			views.PageView.prototype.render.apply(this);
 
+			/* トップビジュアル */
+			var topVisual = new ui.carousel();
+			topVisual.init({
+				el: '.js-carousel',
+				slideSpeed: 500,
+				intervalTime: 5000,
+				autoSlide: false
+			});
+
 			return this;
 		};
 		return constructor;
 	})();
 
-/* 初期処理 */
-pageInit();
+	/* 初期処理 */
+	pageInit();
 
 })();

@@ -9,15 +9,31 @@
  共通
 ***********************************************************************/
 
-/*----------------------------------------------------------
- base
-------------------------------------------------------------*/
 
 
+/**********************************************************************
+ PC 画面の横幅が769px以上
+***********************************************************************/
+@media screen and (min-width: 769px){
 
 /*----------------------------------------------------------
  topVisual
 ------------------------------------------------------------*/
+
+.topVisual {
+	position: relative;
+	overflow: hidden;
+}
+
+.topVisual-list {
+	overflow: hidden;
+}
+
+.topVisual-list li {
+	float: left;
+}
+
+.topVisual-list a:hover img { opacity: 0.8; }
 
 .topVisual-list figure {
 	display: block;
@@ -32,9 +48,55 @@
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	padding: 11px 20px;
 	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
 	color: #fff;
 	text-align: right;
+}
+
+.topVisual-btn {
+	position: absolute;
+	top: 18px;
+	right: 15px;
+}
+
+.topVisual-btn li {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin-left: 20px;
+	background: #fff;
+	border-radius: 11px;
+	text-indent: -9999px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.topVisual-btn li:hover,
+.topVisual-btn li.active {
+	opacity: 1;
+}
+
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+
+.main-description {
+	margin-bottom: 80px;
+	padding: 0 30px;
+}
+
+.main-description-catch {
+	font-size: 27px;
+}
+
+.main-description-text {
+	margin-top: 40px;
+	font-size: 20px;
+	line-height: 1.8em;
+	color: #4d4d4d;
 }
 
 
@@ -47,6 +109,8 @@
 }
 
 .main-section-title {
+	padding: 10px 0;
+	font-size: 21px;
 	color: #fff;
 	font-weight: normal;
 }
@@ -63,102 +127,27 @@
 }
 
 .searchArea-area {
-	padding: 15px 155px 35px;
+	padding: 15px 0 35px 17px;
 }
 
 .searchArea-area-list {
+	max-width: 973px;
+	margin: 0 auto;
 	overflow: hidden;
 }
 
 .searchArea-area-list li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	float: left;
-	max-width: 310px;
-	min-width: 30%;
-	margin: 15px 6px 0;
+	width: 33%;
+	margin-top: 15px;
+	padding-right: 13px;
 }
 
 .searchArea-area-list li a {
 	display: block;
-	padding: 30px 0;
-	background: #fff;
-	font-size: 21px;
-	color: #4d4d4d;
-	text-decoration: none;
-}
-
-
-
-
-/**********************************************************************
- PC 画面の横幅が769px以上
-***********************************************************************/
-@media screen and (min-width: 769px){
-
-
-/*----------------------------------------------------------
- topVisual
-------------------------------------------------------------*/
-
-.topVisual-list figcaption {
-	padding: 11px 20px;
-	font-size: 22px;
-}
-
-
-/*----------------------------------------------------------
- main
-------------------------------------------------------------*/
-
-.main-description {
-	margin-bottom: 80px;
-}
-
-.main-description-catch {
-	font-size: 27px;
-}
-
-.main-description-text {
-	margin-top: 40px;
-	font-size: 20px;
-	color: #4d4d4d;
-}
-
-
-/*----------------------------------------------------------
- section
-------------------------------------------------------------*/
-
-.main-section-title {
-	padding: 10px 0;
-	font-size: 21px;
-}
-
-
-/* searchArea
---------------------------------------------------*/
-
-.searchArea {
-
-}
-
-.searchArea-area {
-	padding: 15px 155px 35px;
-}
-
-.searchArea-area-list {
-	overflow: hidden;
-}
-
-.searchArea-area-list li {
-	float: left;
-	max-width: 310px;
-	min-width: 30%;
-	margin: 15px 6px 0;
-}
-
-.searchArea-area-list li a {
-	display: block;
-	padding: 30px 0;
+	padding: 30px 10px;
 	background: #fff;
 	font-size: 21px;
 	color: #4d4d4d;
@@ -212,28 +201,234 @@
 /**********************************************************************
  タブレット 画面の横幅が768pxまで
 ***********************************************************************/
-
 @media screen and (max-width: 768px){
-
-
-
-}
-
-
-/**********************************************************************
- スマートフォン 画面の横幅が640pxまで
-***********************************************************************/
-
-@media screen and (max-width: 640px){
-
 
 /*----------------------------------------------------------
  topVisual
 ------------------------------------------------------------*/
 
+.topVisual {
+	position: relative;
+	overflow: hidden;
+}
+
+.topVisual-list {
+	overflow: hidden;
+}
+
+.topVisual-list li {
+	float: left;
+}
+
+.topVisual-list a:hover img { opacity: 0.8; }
+
+.topVisual-list figure {
+	display: block;
+	position: relative;
+}
+
 .topVisual-list figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 5px 50px;
+	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
+	color: #fff;
+	text-align: right;
+}
+
+.topVisual-btn {
+	position: absolute;
+	top: 18px;
+	right: 15px;
+}
+
+.topVisual-btn li {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin-left: 20px;
+	background: #fff;
+	border-radius: 11px;
+	text-indent: -9999px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.topVisual-btn li:hover,
+.topVisual-btn li.active {
+	opacity: 1;
+}
+
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+
+.main-description {
+	margin-bottom: 60px;
+	padding: 0 15px;
+}
+
+.main-description-catch {
+	font-size: 27px;
+}
+
+.main-description-text {
+	margin-top: 40px;
+	font-size: 20px;
+	line-height: 1.8em;
+	color: #4d4d4d;
+}
+
+
+/*----------------------------------------------------------
+ section
+------------------------------------------------------------*/
+
+.main-section {
+	background: #dbdcdc;
+}
+
+.main-section-title {
+	padding: 10px 0;
+	font-size: 21px;
+	color: #fff;
+	font-weight: normal;
+}
+
+.searchArea .main-section-title { background: #e978a9; }
+.galleryArea .main-section-title { background: #4f92ce; }
+
+
+/* searchArea
+--------------------------------------------------*/
+
+.searchArea {
+
+}
+
+.searchArea-area {
+	padding: 15px 0 35px 17px;
+}
+
+.searchArea-area-list {
+	overflow: hidden;
+}
+
+.searchArea-area-list li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	width: 33%;
+	margin-top: 15px;
+	padding-right: 12px;
+}
+
+.searchArea-area-list li a {
+	display: block;
+	padding: 30px 10px;
+	background: #fff;
+	font-size: 21px;
+	color: #4d4d4d;
+	text-decoration: none;
+}
+
+
+/* galleryArea
+--------------------------------------------------*/
+
+.galleryArea {
+
+}
+
+.galleryArea-gallery {
+	overflow: hidden;
+}
+
+.galleryArea-gallery li {
+	float: left;
+	width: 25%;
+}
+
+
+
+}
+/**********************************************************************
+ スマートフォン 画面の横幅が640pxまで
+***********************************************************************/
+@media screen and (max-width: 640px){
+
+/*----------------------------------------------------------
+ topVisual
+------------------------------------------------------------*/
+
+.topVisual {
+	position: relative;
+	overflow: hidden;
+}
+
+.topVisual-list {
+	overflow: hidden;
+}
+
+.topVisual-list li {
+	float: left;
+}
+
+.topVisual-list a:hover img { opacity: 0.8; }
+
+.topVisual-list figure {
+	display: block;
+	position: relative;
+}
+
+.topVisual-list figure {
+	display: block;
+	position: relative;
+}
+
+.topVisual-list figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 	padding: 5px;
+	background: rgba(0, 0, 0, 0.3);
 	font-size: 12px;
+	color: #fff;
+	text-align: right;
+}
+
+.topVisual-btn {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.topVisual-btn li {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-left: 8px;
+	background: #fff;
+	border-radius: 3px;
+	text-indent: -9999px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.topVisual-btn li:hover,
+.topVisual-btn li.active {
+	opacity: 1;
 }
 
 
@@ -262,10 +457,19 @@
  section
 ------------------------------------------------------------*/
 
+.main-section {
+	background: #dbdcdc;
+}
+
 .main-section-title {
 	padding: 5px 10px;
 	font-size: 14px;
+	color: #fff;
+	font-weight: normal;
 }
+
+.searchArea .main-section-title { background: #e978a9; }
+.galleryArea .main-section-title { background: #4f92ce; }
 
 
 /* searchArea
@@ -276,7 +480,7 @@
 }
 
 .searchArea-area {
-	padding: 5px 0 14px 18px;
+	padding: 5px 0 35px 15px;
 }
 
 .searchArea-area-list {
@@ -284,9 +488,12 @@
 }
 
 .searchArea-area-list li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	float: left;
-	width: 45%;
-	margin: 10px 13px 0 0;
+	width: 50%;
+	margin-top: 10px;
+	padding-right: 15px;
 }
 
 .searchArea-area-list li a {
