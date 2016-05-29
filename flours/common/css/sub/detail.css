@@ -1,0 +1,583 @@
+@charset "UTF-8";
+/* ===================================================================
+
+ contents.css
+
+======================================================================*/
+
+/**********************************************************************
+ 共通
+***********************************************************************/
+
+
+
+/**********************************************************************
+ PC 画面の横幅が769px以上
+***********************************************************************/
+@media screen and (min-width: 769px){
+
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
+
+.header { display: none; }
+
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+
+.main { margin-right: 35px; }
+
+
+/* topicPath
+--------------------------------------------------*/
+
+.topicPath {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	text-align: right;
+}
+
+.topicPath li {
+	display: inline;
+	padding: 0 3px 0 5px;
+	border-left: 1px solid #888;
+	font-size: 12px;
+	color: #888;
+}
+.topicPath li:first-child { border: none; }
+
+.topicPath li a {
+	color: #888;
+}
+
+
+/* header
+--------------------------------------------------*/
+
+.main-header {
+	padding-left: 30px;
+	border-left: 13px solid #e978a9
+}
+
+.main-header-title {
+	font-size: 36px;
+	color: #333;
+}
+
+.main-header-lead {
+	margin-top: 15px;
+	font-size: 18px;
+	color: #888;
+}
+
+
+/* mainVisual
+--------------------------------------------------*/
+
+.mainVisual {
+	margin-top: 25px;
+}
+
+
+/* shopInfo
+--------------------------------------------------*/
+
+.shopInfo {
+	margin-top: 40px;
+}
+
+.shopInfo-lead {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.shopInfo-notes {
+	margin-top: 40px;
+	font-size: 18px;
+}
+
+
+/* galleryArea
+--------------------------------------------------*/
+
+.galleryArea {
+	margin-top: 40px;
+}
+
+
+/* location
+--------------------------------------------------*/
+
+.location {
+	margin-top: 40px;
+}
+
+.location-mapArea {
+	height: 580px;
+}
+
+.location-mapArea iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.location-info {
+	margin-top: 40px;
+	font-size: 22px;
+}
+
+.location-access {
+	list-style: decimal;
+	margin: 25px 0 0 30px;
+	font-size: 20px;
+	color: #4d4d4d;
+}
+
+.location-photo {
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+.location-photo li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding-right: 5px;
+}
+
+
+/* footer
+--------------------------------------------------*/
+
+.main-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 7px 0;
+	background: #4f92ce;
+}
+
+.main-footer-inner {
+	position: relative;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.main-footer-notes {
+	padding-right: 110px;
+	font-size: 19px;
+	color: #fff;
+	text-align: right;
+}
+
+.main-footer-btn {
+	position: absolute;
+	right: 18px;
+	bottom: 9px;
+	width: 84px;
+	height: 84px;
+	background: url("/common/img/btn_tel.png") no-repeat 0 0;
+	text-indent: -9999px;
+}
+
+
+}
+/**********************************************************************
+ タブレット 画面の横幅が768pxまで
+***********************************************************************/
+@media screen and (max-width: 768px){
+
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
+
+.header {
+	border-bottom: 2px solid #dbdcdc;
+}
+
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+
+.main {
+	padding: 30px 0;
+}
+
+.main-header,
+.main-section {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+/* topicPath
+--------------------------------------------------*/
+
+.topicPath {
+	display: block;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	text-align: right;
+}
+
+.topicPath li {
+	display: inline;
+	padding: 0 3px 0 5px;
+	border-left: 1px solid #888;
+	font-size: 12px;
+	color: #888;
+}
+.topicPath li:first-child { border: none; }
+
+.topicPath li a {
+	color: #888;
+}
+
+
+/* header
+--------------------------------------------------*/
+
+.main-header {
+	padding-left: 30px;
+	border-left: 13px solid #e978a9
+}
+
+.main-header-title {
+	font-size: 36px;
+	color: #333;
+}
+
+.main-header-lead {
+	margin-top: 5px;
+	font-size: 20px;
+	color: #888;
+}
+
+
+/* mainVisual
+--------------------------------------------------*/
+
+.mainVisual {
+	margin-top: 25px;
+}
+
+
+/* shopInfo
+--------------------------------------------------*/
+
+.shopInfo {
+	margin-top: 40px;
+}
+
+.shopInfo-lead {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.shopInfo-notes {
+	margin-top: 40px;
+	font-size: 18px;
+}
+
+
+/* galleryArea
+--------------------------------------------------*/
+
+.galleryArea {
+	margin-top: 40px;
+}
+
+
+/* location
+--------------------------------------------------*/
+
+.location {
+	margin-top: 40px;
+}
+
+.location-mapArea {
+	height: 580px;
+}
+
+.location-mapArea iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.location-info {
+	margin-top: 40px;
+	font-size: 22px;
+}
+
+.location-access {
+	list-style: decimal;
+	margin: 25px 0 0 30px;
+	font-size: 20px;
+	color: #4d4d4d;
+}
+
+.location-photo {
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+.location-photo li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding-right: 5px;
+}
+
+
+/* snsArea
+--------------------------------------------------*/
+
+.snsArea {
+	margin-top: 40px;
+	padding-top: 25px;
+	border-top: 1px solid #cbcbcb;
+}
+
+
+/* footer
+--------------------------------------------------*/
+
+.main-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 7px 0;
+	background: #4f92ce;
+}
+
+.main-footer-inner {
+	position: relative;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.main-footer-notes {
+	padding-right: 110px;
+	font-size: 19px;
+	color: #fff;
+	text-align: right;
+}
+
+.main-footer-btn {
+	position: absolute;
+	right: 18px;
+	bottom: 9px;
+	width: 84px;
+	height: 84px;
+	background: url("/common/img/btn_tel.png") no-repeat 0 0;
+	text-indent: -9999px;
+}
+
+
+}
+/**********************************************************************
+ スマートフォン 画面の横幅が640pxまで
+***********************************************************************/
+@media screen and (max-width: 640px){
+
+/*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
+
+.header {
+	border-bottom: 2px solid #dbdcdc;
+}
+
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+
+.main {
+	padding: 5px 0 15px;
+}
+
+
+/* topicPath
+--------------------------------------------------*/
+
+.topicPath {
+	display: block;
+	margin: 0 5px;
+	text-align: right;
+}
+
+.topicPath li {
+	display: inline;
+	padding: 0 3px 0 5px;
+	border-left: 1px solid #888;
+	font-size: 12px;
+	color: #888;
+}
+.topicPath li:first-child { border: none; }
+
+.topicPath li a {
+	color: #888;
+}
+
+
+/* header
+--------------------------------------------------*/
+
+.main-header {
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 5px solid #e978a9
+}
+
+.main-header-title {
+	font-size: 18px;
+	color: #333;
+}
+
+.main-header-lead {
+	margin-top: 5px;
+	font-size: 12px;
+	color: #888;
+}
+
+
+/* mainVisual
+--------------------------------------------------*/
+
+.mainVisual {
+	margin-top: 15px;
+}
+
+
+/* shopInfo
+--------------------------------------------------*/
+
+.shopInfo {
+	margin-top: 15px;
+}
+
+.shopInfo-lead {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.shopInfo-notes {
+	margin-top: 30px;
+	font-size: 14px;
+}
+
+
+/* galleryArea
+--------------------------------------------------*/
+
+.galleryArea {
+	margin-top: 30px;
+}
+
+
+/* location
+--------------------------------------------------*/
+
+.location {
+	margin-top: 15px;
+}
+
+.location-mapArea {
+	height: 230px;
+}
+
+.location-mapArea iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.location-info {
+	margin-top: 15px;
+	font-size: 16px;
+}
+
+.location-access {
+	list-style: decimal;
+	margin: 10px 0 0 20px;
+	font-size: 14px;
+	color: #4d4d4d;
+}
+
+.location-photo {
+	margin-top: 15px;
+	overflow: hidden;
+}
+
+.location-photo li {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding-right: 5px;
+}
+
+
+/* snsArea
+--------------------------------------------------*/
+
+.snsArea {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #cbcbcb;
+}
+
+
+/* footer
+--------------------------------------------------*/
+
+.main-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 7px 0;
+	background: #4f92ce;
+}
+
+.main-footer-inner {
+	position: relative;
+}
+
+.main-footer-notes {
+	padding-left: 25px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.main-footer-btn {
+	position: absolute;
+	right: 7px;
+	bottom: 9px;
+	width: 84px;
+	height: 84px;
+	background: url("/common/img/btn_tel.png") no-repeat 0 0;
+	text-indent: -9999px;
+}
+
+
+}

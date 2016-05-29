@@ -23,6 +23,8 @@
 
 	App.global = {
 
+		areanavPath: '/common/include/areanav.html'  // サイドバー内エリア一覧HTMLパス
+
 	};
 
 
@@ -60,8 +62,9 @@
 			var init = function(args) {
 				slideSpeed = args.slideSpeed || slideSpeed;
 				intervalTime = args.intervalTime || intervalTime;
-				isAuto = args.autoSlide || isAuto;
-				setEl(args.el);
+				isAuto = args.autoSlide !== undefined ? args.autoSlide : isAuto;
+				$el = args.$el;
+				setEl();
 				render();
 				if(isAuto) {
 					setAutoSlide();
@@ -69,8 +72,7 @@
 				setEvents();
 				return this;
 			};
-			var setEl = function(el) {
-				$el = $(el);
+			var setEl = function() {
 				$imageList = $el.find('.js-carouselImageList');
 				$btnList = $el.find('.js-carouselBtnList');
 				$item = $imageList.children();
@@ -132,7 +134,7 @@
 				}
 				$imageList.animate({
 					left: -(slideWidth*viewNum)
-				}, 500 , function() {
+				}, slideSpeed , function() {
 					if(viewNum === itemLength) {
 						$imageList.css({
 							left: 0
@@ -149,7 +151,7 @@
 						viewNum = viewNum < itemLength ? viewNum+1 : 1;
 						animateSlide();
 						isAnimate = false;
-					}, 2000);
+					}, intervalTime);
 				} else {
 					clearInterval(autoSlide);
 					isAuto = true;
@@ -188,6 +190,73 @@
 
 	App.utils = {
 
+		/**
+		 * ウィンドウ表示
+		 */
+		thickbox: function() {
+			var $el = {};
+			var $btn = {};
+			var $box = {};
+			var $filter = {};
+			var boxWidth = 0;
+			var boxHeight = 0;
+			var fadeSpeed = 500;
+			var isOpen = false;
+			var isAnimate = false;
+			var init = function(args) {
+				$el = args.$el;
+				setEl();
+				render();
+				setEvents();
+				return this;
+			};
+			var setEl = function() {
+				$btn = $el.find('.js-showBoxBtn');
+				$box = $el.find('.js-showBoxWindow');
+				return this;
+			};
+			var render = function() {
+				$el.append('<div class="js-thickboxFilter"></div>');
+				$filter = $el.find('.js-thickboxFilter');
+				$box.hide();
+				return this;
+			};
+			var setEvents = function() {
+				$btn.off('click').on('click', function() {
+					if(!isAnimate) {
+						if(!isOpen) {
+							openWindow();
+							isAnimate = false;
+							isOpen = true;
+						}
+					}
+				});
+				$filter.off('click').on('click', function() {
+					if(!isAnimate) {
+						if(isOpen) {
+							closeWindow();
+							isAnimate = false;
+							isOpen = false;
+						}
+					}
+				});
+				return this;
+			};
+			var openWindow = function() {
+				isAnimate = true;
+				$filter.fadeIn(fadeSpeed);
+				$box.fadeIn(fadeSpeed);
+				return this;
+			};
+			var closeWindow = function() {
+				isAnimate = true;
+				$filter.fadeOut(fadeSpeed);
+				$box.fadeOut(fadeSpeed);
+				return this;
+			};
+			return { init: init }
+		}
+
 	};
 
 
@@ -219,9 +288,19 @@
 				this.$el = $(el);
 				this.$anchor = this.$el.find('a[href^="#"]');
 				this.$imgBtn = this.$el.find('.btn');
+				this.areaList = this.$el.find('.js-areaNavList');
 				return this;
 			};
 			proto.render = function() {
+				this.showAreaList();
+				return this;
+			};
+			proto.showAreaList = function() {
+				if(this.areaList.length > 0 && App.global.areanavPath !== '') {
+					this.areaList.each(function() {
+						$(this).load(App.global.areanavPath);
+					});
+				}
 				return this;
 			};
 			proto.setEvents = function() {
@@ -255,6 +334,78 @@
 				var imgPath = imgSrc.split('/');
 				var imgFile = imgPath[imgPath.length -1];
 				$that.attr('src', (imgFile.indexOf('_on') == -1) ? imgSrc.replace(/(\.)(gif|jpg|png)/i, '_on$1$2') : imgSrc.replace(/(\_on)(.)(gif|jpg|png)/i, '$2$3'));
+				return this;
+			};
+			return constructor;
+		})(),
+
+		/**
+		 * サイドバー
+		 */
+		SideBarView: (function() {
+			var constructor = function() {
+				this.$el = {};
+				this.$btn = {};
+				this.$filter = {};
+				this.slideWidth = 0;
+				this.isOpen = false;
+				this.isAnimate = false;
+				return this;
+			};
+			var proto = constructor.prototype;
+			proto.init = function(args) {
+				this.setEl(args.el);
+				this.render();
+				this.setEvents();
+				return this;
+			};
+			proto.setEl = function(el) {
+				this.$el = $(el);
+				this.$btn = $('.js-btnSidebar');
+				this.$areaList = this.$el.find('.js-areaNavList');
+				return this;
+			};
+			proto.render = function() {
+				this.slideWidth = this.$el.outerWidth();
+				this.$el.after('<div class="side-mainFilter"></div>');
+				this.$filter = $('.side-mainFilter');
+				return this;
+			};
+			proto.setEvents = function() {
+				var that = this;
+				this.$btn.off('click').on('click', function() {
+					if(!this.isAnimate) {
+						that.onClickNavBtn();
+						that.isAnimate = false;
+					}
+				});
+				this.$filter.off('click').on('click', function() {
+					if(!this.isAnimate) {
+						that.onClickNavBtn();
+						that.isAnimate = false;
+					}
+				});
+				return this;
+			};
+			proto.onClickNavBtn = function() {
+				this.isAnimate = true;
+				this.isOpen ? this.closeSidebar() : this.showSidebar();
+				return this;
+			};
+			proto.showSidebar = function() {
+				this.$filter.fadeIn();
+				$('.page').animate({
+					left: this.slideWidth
+				});
+				this.isOpen = true;
+				return this;
+			};
+			proto.closeSidebar = function() {
+				this.$filter.fadeOut();
+				$('.page').animate({
+					left: 0
+				});
+				this.isOpen = false;
 				return this;
 			};
 			return constructor;

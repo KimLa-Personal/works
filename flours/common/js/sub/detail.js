@@ -32,17 +32,10 @@
 		proto.render = function() {
 			views.PageView.prototype.render.apply(this);
 
-			$(window).load(function() {
-
-				/* トップビジュアル */
-				var topVisual = new ui.carousel();
-				topVisual.init({
-					$el: $('.js-carousel'),
-					slideSpeed: 500,
-					intervalTime: 5000,
-					autoSlide: true
-				});
-
+			/* サイドバー */
+			var sideBarView = new views.SideBarView();
+			sideBarView.init({
+				el: '#SideView'
 			});
 
 			return this;

@@ -54,8 +54,7 @@ html { overflow-y: scroll; }
 body, input, select, textarea {
 	font-size: 75%;
 	color: #333;
-	font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
-	text-align: center;
+	font-family: "SourceHanSans", "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, th, td {
@@ -84,6 +83,23 @@ a:active,
 a:hover {
 	color: #C33;
 	text-decoration: none;
+}
+
+
+/*----------------------------------------------------------
+ Fonts
+------------------------------------------------------------*/
+
+@font-face {
+	font-family: "SourceHanSans";
+	src: url("/common/fonts/SourceHanSansJP-Normal.otf");
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "SourceHanSans";
+	src: url("/common/fonts/SourceHanSansJP-Bold.otf");
+	font-style: bold;
 }
 
 
