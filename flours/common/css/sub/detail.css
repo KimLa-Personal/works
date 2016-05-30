@@ -152,6 +152,12 @@
 }
 
 
+/* snsArea
+--------------------------------------------------*/
+
+.main-snsArea { display: none; }
+
+
 /* footer
 --------------------------------------------------*/
 
@@ -343,7 +349,7 @@
 /* snsArea
 --------------------------------------------------*/
 
-.snsArea {
+.main-snsArea {
 	margin-top: 40px;
 	padding-top: 25px;
 	border-top: 1px solid #cbcbcb;
@@ -421,6 +427,7 @@
 
 .topicPath {
 	display: block;
+	position: static;
 	margin: 0 5px;
 	text-align: right;
 }
@@ -540,9 +547,7 @@
 /* snsArea
 --------------------------------------------------*/
 
-.snsArea {
-	margin-top: 10px;
-	padding-top: 10px;
+.main-snsArea {
 	border-top: 1px solid #cbcbcb;
 }
 
