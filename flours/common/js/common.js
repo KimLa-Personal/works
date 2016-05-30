@@ -293,6 +293,7 @@
 			};
 			proto.render = function() {
 				this.showAreaList();
+				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
 				return this;
 			};
 			proto.showAreaList = function() {
@@ -394,6 +395,7 @@
 			};
 			proto.showSidebar = function() {
 				this.$filter.fadeIn();
+				$('body').width($(window).width());
 				$('.page').animate({
 					left: this.slideWidth
 				});

@@ -751,7 +751,7 @@ a.btn-twitter {
 .side-snsArea .btn-instagram,
 .side-snsArea .btn-twitter {
 	min-width: auto;
-	width: 100%;
+	width: 200px;
 	padding-left: 5px;
 	padding-right: 5px;
 	font-size: 14px;
