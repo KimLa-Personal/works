@@ -173,6 +173,8 @@
 	background: url("/common/img/icon_tel.png") no-repeat 0 0;
 }
 
+.shopItem-map { display: none; }
+
 .shopItem-tel-no {
 	display: none;
 	position: absolute;
@@ -208,10 +210,23 @@
 @media screen and (max-width: 768px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 125px; }
+
+
+/*----------------------------------------------------------
  header
 ------------------------------------------------------------*/
 
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	background: #fff;
 	border-bottom: 2px solid #dbdcdc;
 }
 
@@ -408,6 +423,8 @@
 	background: url("/common/img/icon_tel.png") no-repeat 0 0;
 }
 
+.shopItem-map { display: none; }
+
 .shopItem-tel-no {
 	display: none;
 	position: absolute;
@@ -447,6 +464,7 @@
 ------------------------------------------------------------*/
 
 .page {
+	padding-top: 52px;
 	background: #f1f1f1;
 }
 
@@ -480,7 +498,7 @@
 
 .main-header {
 	margin-left: 10px;
-	padding-left: 10px;
+	padding: 0 10px;
 	border-left: 5px solid #e978a9
 }
 
@@ -638,6 +656,20 @@
 	color: #fff;
 	text-decoration: none;
 }
+.shopItem a:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	opacity: 0.8;
+}
 
 .shopItem-no {
 	position: absolute;
@@ -664,23 +696,49 @@
 .shopItem-mainImage { display: block; }
 .shopItem-image { display: none; }
 
-.shopItem-tel-btn {
+.shopItem-btn {
+	display: -webkit-box;
+	display: box;
+	overflow: hidden;
+}
+
+.shopItem-tel,
+.shopItem-map {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 50%;
+}
+
+.shopItem-tel-btn,
+.shopItem-map-btn {
 	display: block;
 	padding: 20px 10px;
 	background: none;
-	font-size: 24px;
+	font-size: 16px;
 	color: #333;
 	text-align: center;
 	text-decoration: none;
 }
-.shopItem-tel-btn:before {
+.shopItem-tel-btn:before,
+.shopItem-map-btn:before {
 	content: "";
 	display: inline-block;
-	width: 34px;
-	height: 34px;
-	margin: -3px 18px 0 0;
 	vertical-align: middle;
+}
+.shopItem-tel-btn:before {
+	width: 20px;
+	height: 20px;
+	margin: -3px 18px 0 0;
 	background: url("/common/img/icon_tel.png") no-repeat 0 0;
+	background-size: 20px 20px;
+}
+.shopItem-map-btn:before {
+	width: 14px;
+	height: 20px;
+	margin: -3px 18px 0 0;
+	background: url("/common/img/icon_map.png") no-repeat 0 0;
+	background-size: 13px 20px;
 }
 
 .shopItem-tel-no {
@@ -715,22 +773,22 @@
 
 .shopMainImage-list li {
 	float: left;
-	max-height: 280px;
+	height: 280px;
 }
 
 .shopMainImage-btn {
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 18px;
+	right: 15px;
 }
 
 .shopMainImage-btn li {
 	display: inline-block;
-	width: 6px;
-	height: 6px;
-	margin-left: 8px;
+	width: 20px;
+	height: 20px;
+	margin-left: 20px;
 	background: #fff;
-	border-radius: 3px;
+	border-radius: 10px;
 	text-indent: -9999px;
 	opacity: 0.5;
 	cursor: pointer;

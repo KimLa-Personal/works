@@ -162,6 +162,7 @@
 --------------------------------------------------*/
 
 .main-footer {
+	display: none;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -201,10 +202,23 @@
 @media screen and (max-width: 768px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 125px; }
+
+
+/*----------------------------------------------------------
  header
 ------------------------------------------------------------*/
 
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	background: #fff;
 	border-bottom: 2px solid #dbdcdc;
 }
 
@@ -360,6 +374,7 @@
 --------------------------------------------------*/
 
 .main-footer {
+	display: none;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -375,7 +390,7 @@
 }
 
 .main-footer-notes {
-	padding-right: 110px;
+	padding-right: 95px;
 	font-size: 19px;
 	color: #fff;
 	text-align: right;
@@ -402,15 +417,14 @@
  base
 ------------------------------------------------------------*/
 
+.page { padding-top: 52px; }
 
 
 /*----------------------------------------------------------
  header
 ------------------------------------------------------------*/
 
-.header {
-	border-bottom: 2px solid #dbdcdc;
-}
+.header { border-bottom: 2px solid #dbdcdc; }
 
 
 /*----------------------------------------------------------
@@ -556,6 +570,7 @@
 --------------------------------------------------*/
 
 .main-footer {
+	display: none;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -569,7 +584,7 @@
 }
 
 .main-footer-notes {
-	padding-left: 25px;
+	padding-left: 10px;
 	font-size: 14px;
 	color: #fff;
 }

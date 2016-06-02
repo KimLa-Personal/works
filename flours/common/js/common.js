@@ -23,7 +23,8 @@
 
 	App.global = {
 
-		areanavPath: '/common/include/areanav.html'  // サイドバー内エリア一覧HTMLパス
+		areanavPath: '/common/include/areanav.html',  // サイドバー内エリア一覧HTMLパス
+		isShowSide: false
 
 	};
 
@@ -86,6 +87,7 @@
 			};
 			var imageListRender = function() {
 				slideWidth = $item.first().width();
+				var itemHeight = $item.first().height();
 				$item.each(function() {
 					$(this).width(slideWidth);
 				});
@@ -97,7 +99,13 @@
 				});
 				$imageList.append($item.first().clone());
 				$el.css({
-					height: $item.first().height()
+					height: itemHeight
+				});
+				$item.find('img').each(function() {
+					$(this).css({
+						width: 'auto',
+						height: itemHeight
+					});
 				});
 				return this;
 			};
@@ -390,7 +398,7 @@
 			};
 			proto.onClickNavBtn = function() {
 				this.isAnimate = true;
-				this.isOpen ? this.closeSidebar() : this.showSidebar();
+				App.global.isShowSide ? this.closeSidebar() : this.showSidebar();
 				return this;
 			};
 			proto.showSidebar = function() {
@@ -399,7 +407,10 @@
 				$('.page').animate({
 					left: this.slideWidth
 				});
-				this.isOpen = true;
+				$('.header').animate({
+					left: this.slideWidth
+				});
+				App.global.isShowSide = true;
 				return this;
 			};
 			proto.closeSidebar = function() {
@@ -407,7 +418,10 @@
 				$('.page').animate({
 					left: 0
 				});
-				this.isOpen = false;
+				$('.header').animate({
+					left: 0
+				});
+				App.global.isShowSide = false;
 				return this;
 			};
 			return constructor;
