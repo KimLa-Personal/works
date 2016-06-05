@@ -39,6 +39,15 @@ body { background: #fff; }
 	background: rgba(0, 0, 0, 0.5);
 }
 
+.js-loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("/common/img/loading.gif") no-repeat 50% 50%;
+}
+
 
 /**********************************************************************
  PC 画面の横幅が769px以上
@@ -50,6 +59,13 @@ body { background: #fff; }
 ------------------------------------------------------------*/
 
 body { background: #f1f1f1; }
+
+
+/*----------------------------------------------------------
+ parts
+------------------------------------------------------------*/
+
+.hidePc { display: none; }
 
 
 /*----------------------------------------------------------
@@ -597,7 +613,7 @@ a.btn-twitter {
 }
 
 .header-logo {
-	width: 180px;
+	width: 150px;
 	margin: 0 auto;
 }
 
@@ -728,6 +744,24 @@ a.btn-twitter {
 	background: #000;
 	opacity: 0.5;
 }
+
+
+/* side-areaNav
+--------------------------------------------------*/
+
+.side-areaNav-title {
+	font-size: 18px;
+	color: #4D4D4D;
+}
+
+.side-areaNav-list a {
+	display: block;
+	padding: 20px 5px;
+	font-size: 16px;
+	color: #333;
+	text-decoration: none;
+}
+
 
 /* side-snsArea
 --------------------------------------------------*/

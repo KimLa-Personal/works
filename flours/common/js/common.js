@@ -43,6 +43,51 @@
 	App.ui = {
 
 		/**
+		 * プリローダー
+		 */
+		preloader: function() {
+			var $el = {};
+			var $loader = {};
+			var callback = {};
+			var loadUrl = '';
+			var isLoad = false;
+			var init = function(args) {
+				callback = args.callback || {};
+				setEl(args.el);
+				//render();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				return this;
+			};
+			var render = function() {
+				loadUrl = $el.data('src');
+				$el.css({
+					position: 'relative'
+				}).append('<div class="js-loader"></div>').promise().done(function() {
+					$loader = $el.find('js-loader');
+				});
+				$el.on('load', function() {
+					onLoad();
+				});
+				return this;
+			};
+			var onLoad = function() {
+				$loader.fadeOut();
+				$el.append('<iframe src="' + loadUrl + '"></iframe>');
+				//callback;
+				removeLoader();
+				return this;
+			};
+			var removeLoader = function() {
+				$loader.remove();
+				return this;
+			};
+			return { init: init };
+		},
+
+		/**
 		 * カルーセル
 		 */
 		carousel: function() {
@@ -185,6 +230,36 @@
 						width: 'auto'
 					});
 				});
+				return this;
+			};
+			return { init: init };
+		},
+
+		/**
+		 * thickbox
+		 */
+		thickbox: function() {
+			var $el = {};
+			var $child = {};
+			var collection = [];
+			var init = function(args) {
+				setEl(args.el);
+				render();
+				setEvents();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				$child = $el.children();
+				return this;
+			};
+			var render = function() {
+				$child.find('img').each(function() {
+					collection.push($(this).attr('src'));
+				});
+				return this;
+			};
+			var setEvents = function() {
 				return this;
 			};
 			return { init: init };

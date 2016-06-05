@@ -361,6 +361,7 @@ body { text-align: center; }
 }
 
 .topVisual-list li {
+	position: relative;
 	float: left;
 	height: 280px;
 }
@@ -370,6 +371,7 @@ body { text-align: center; }
 .topVisual-list figure {
 	display: block;
 	position: relative;
+	width: 100%;
 }
 
 .topVisual-list figure {
@@ -386,9 +388,16 @@ body { text-align: center; }
 	bottom: 0;
 	width: 100%;
 	padding: 5px;
-	background: rgba(0, 0, 0, 0.3);
-	font-size: 12px;
+	background: -webkit-gradient(
+					linear,
+					left top, left bottom,
+					from(rgba(0, 0, 0, 0)),
+						color-stop(0.5, rgba(0, 0, 0, 0)),
+					to(rgba(0, 0, 0, 0.3))
+				);
+	font-size: 14px;
 	color: #fff;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 	text-align: right;
 }
 
@@ -400,11 +409,11 @@ body { text-align: center; }
 
 .topVisual-btn li {
 	display: inline-block;
-	width: 16px;
-	height: 16px;
+	width: 10px;
+	height: 10px;
 	margin-left: 8px;
 	background: #fff;
-	border-radius: 8px;
+	border-radius: 5px;
 	text-indent: -9999px;
 	opacity: 0.5;
 	cursor: pointer;
@@ -426,7 +435,7 @@ body { text-align: center; }
 }
 
 .main-description-catch {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .main-description-text {

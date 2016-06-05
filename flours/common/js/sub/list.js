@@ -38,6 +38,11 @@
 				el: '#SideView'
 			});
 
+			var googleMap = new ui.preloader();
+			googleMap.init({
+				el: '.js-mapArea'
+			});
+
 			$(window).load(function() {
 
 				/* 店舗カセット 1番目 */

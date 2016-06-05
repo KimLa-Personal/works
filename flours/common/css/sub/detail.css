@@ -424,7 +424,7 @@
  header
 ------------------------------------------------------------*/
 
-.header { border-bottom: 2px solid #dbdcdc; }
+.header { border-bottom: 1px solid #dbdcdc; }
 
 
 /*----------------------------------------------------------
@@ -457,6 +457,7 @@
 
 .topicPath li a {
 	color: #888;
+	text-decoration: none;
 }
 
 
@@ -523,7 +524,7 @@
 }
 
 .location-mapArea {
-	height: 230px;
+	height: 300px;
 }
 
 .location-mapArea iframe {
@@ -575,7 +576,7 @@
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	padding: 7px 0;
+	padding: 4px 0;
 	background: #4f92ce;
 }
 
