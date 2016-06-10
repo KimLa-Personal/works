@@ -38,25 +38,16 @@
 				el: '#SideView'
 			});
 
-			var googleMap = new ui.preloader();
-			googleMap.init({
-				el: '.js-mapArea'
+			/* 店舗カセット 1番目 */
+			var shopItemFirstView = new ShopItemView();
+			shopItemFirstView.init({
+				el: '#ShopItemFirstView'
 			});
 
-			$(window).load(function() {
-
-				/* 店舗カセット 1番目 */
-				var shopItemFirstView = new ShopItemView();
-				shopItemFirstView.init({
-					el: '#ShopItemFirstView'
-				});
-
-				/* 店舗カセット 2番目 */
-				var shopItemSecoundView = new ShopItemView();
-				shopItemSecoundView.init({
-					el: '#ShopItemSecoundView'
-				});
-
+			/* 店舗カセット 2番目 */
+			var shopItemSecoundView = new ShopItemView();
+			shopItemSecoundView.init({
+				el: '#ShopItemSecoundView'
 			});
 
 			return this;
@@ -75,13 +66,16 @@
 		};
 		var proto = constructor.prototype;
 		proto.init = function(args) {
-			this.setEl(args.el);
-			this.render();
-			this.setEvents();
+			var that = this;
+			this.$el = $(args.el);
+			this.$el.ready(function() {
+				that.setEl();
+				that.render();
+				that.setEvents();
+			});
 			return this;
 		};
 		proto.setEl = function(el) {
-			this.$el = $(el);
 			this.$imageList = this.$el.find('.js-carousel');
 			this.$btnTel = this.$el.find('.js-onClickShowTel');
 			return this;

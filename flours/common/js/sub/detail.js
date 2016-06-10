@@ -38,14 +38,10 @@
 				el: '#SideView'
 			});
 
-			$(window).load(function() {
-
-				/* メイン */
-				var mainView = new MainView();
-				mainView.init({
-					el: '#MainView'
-				});
-
+			/* メイン */
+			var mainView = new MainView();
+			mainView.init({
+				el: '#MainView'
 			});
 
 			return this;
@@ -68,17 +64,26 @@
 		};
 		var proto = constructor.prototype;
 		proto.init = function(args) {
-			this.setEl(args.el);
-			this.render();
-			this.setEvents();
+			var that = this;
+			this.$el = $(args.el);
+			this.$el.ready(function() {
+				that.setEl();
+				that.render();
+				that.setEvents();
+			});
 			return this;
 		};
-		proto.setEl = function(el) {
-			this.$el = $(el);
+		proto.setEl = function() {
 			this.$floatingBtn = this.$el.find('.js-floatingBtn');
 			return this;
 		};
 		proto.render = function() {
+
+			var googleMap = new ui.preloader();
+			googleMap.init({
+				el: '.js-mapArea'
+			});
+
 			this.$floatingBtn.hide();
 			this.showScrollStart = $('.header').outerHeight();
 			this.showScrollEnd = $('body').outerHeight() - ($(window).height()+$('.footer').outerHeight());

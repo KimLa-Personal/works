@@ -47,6 +47,7 @@
 		 */
 		preloader: function() {
 			var $el = {};
+			var $child = {};
 			var $loader = {};
 			var callback = {};
 			var loadUrl = '';
@@ -59,24 +60,31 @@
 			};
 			var setEl = function(el) {
 				$el = $(el);
+				$child = $el.children();
 				return this;
 			};
 			var render = function() {
-				loadUrl = $el.data('src');
+				var isIframe = $child.get(0).tagName.toLowerCase() === iframe ? true : false;
 				$el.css({
 					position: 'relative'
 				}).append('<div class="js-loader"></div>').promise().done(function() {
-					$loader = $el.find('js-loader');
-				});
-				$el.on('load', function() {
-					onLoad();
+					$loader = $el.find('.js-loader');
+					if(isIframe) {
+						$child.load(function() {
+							onLoad();
+						});
+					} else {
+						$child.ready(function() {
+							onLoad();
+						});
+					}
+
 				});
 				return this;
 			};
 			var onLoad = function() {
 				$loader.fadeOut();
-				$el.append('<iframe src="' + loadUrl + '"></iframe>');
-				//callback;
+				callback;
 				removeLoader();
 				return this;
 			};
@@ -100,9 +108,12 @@
 			var itemLength = 0;
 			var slideWidth = 0;
 			var viewNum = 0;
+			var swipeStart = 0;
+			var swipeEnd = 0;
 			var slideSpeed = 500;
 			var intervalTime = 5000;
 			var isAnimate = false;
+			var isSwipe = false;
 			var isResize = false;
 			var isAuto = true;
 			var init = function(args) {
@@ -110,12 +121,14 @@
 				intervalTime = args.intervalTime || intervalTime;
 				isAuto = args.autoSlide !== undefined ? args.autoSlide : isAuto;
 				$el = args.$el;
-				setEl();
-				render();
-				if(isAuto) {
-					setAutoSlide();
-				}
-				setEvents();
+				$el.ready(function() {
+					setEl();
+					render();
+					if(isAuto) {
+						setAutoSlide();
+					}
+					setEvents();
+				});
 				return this;
 			};
 			var setEl = function() {
@@ -172,12 +185,50 @@
 						isAnimate = false;
 					}
 				});
+				$imageList.on('touchstart', function(e) {
+					if(!isSwipe) {
+						onTouchStart(e, this);
+					}
+				});
+				$imageList.on('touchmove', function(e) {
+					if(isSwipe) {
+						onTouchMove(e, this);
+					}
+				});
+				$imageList.on('touchend', function(e) {
+					if(isSwipe) {
+						onTouchEnd(e, this);
+						isSwipe = false;
+					}
+				});
 				$(window).resize(function() {
 					if(!isResize) {
 						resize();
 						isResize = false;
 					}
 				});
+				return this;
+			};
+			var onTouchStart = function(event, that) {
+				isSwipe = true;
+				swipeStart = Math.floor(event.originalEvent.touches[0].pageX);
+				return this;
+			};
+			var onTouchMove = function(event, that) {
+				swipeEnd = Math.floor(event.originalEvent.touches[0].pageX);
+				return this;
+			};
+			var onTouchEnd = function(event, that) {
+				viewNum = (swipeStart - swipeEnd) < 0 ? viewNum-1 : viewNum+1;
+				if(isAuto) {
+					isAuto = false;
+					animateSlide();
+					stopAutoSlide();
+					startAutoSlide();
+				} else {
+					animateSlide();
+				}
+				animateSlide();
 				return this;
 			};
 			var animateSlide = function(that) {
@@ -200,15 +251,23 @@
 			};
 			var setAutoSlide = function() {
 				if(isAuto) {
-					autoSlide = setInterval(function() {
-						viewNum = viewNum < itemLength ? viewNum+1 : 1;
-						animateSlide();
-						isAnimate = false;
-					}, intervalTime);
+					startAutoSlide();
 				} else {
-					clearInterval(autoSlide);
-					isAuto = true;
+					stopAutoSlide();
 				}
+				return this;
+			};
+			var startAutoSlide = function() {
+				autoSlide = setInterval(function() {
+					viewNum = viewNum < itemLength ? viewNum+1 : 1;
+					animateSlide();
+					isAnimate = false;
+				}, intervalTime);
+				return this;
+			};
+			var stopAutoSlide = function() {
+				clearInterval(autoSlide);
+				isAuto = true;
 				return this;
 			};
 			var resize = function() {
