@@ -41,6 +41,10 @@
 				autoSlide: true
 			});
 
+			/* Instagram表示 */
+			var instashow = ui.setInstashow();
+			instashow.init('.js-instashowView');
+
 			return this;
 		};
 		return constructor;

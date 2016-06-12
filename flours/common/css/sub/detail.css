@@ -120,10 +120,9 @@
 	height: 580px;
 }
 
-.location-mapArea iframe {
+.location-mapArea-canvas {
 	width: 100%;
 	height: 100%;
-	border: none;
 }
 
 .location-info {
@@ -328,10 +327,9 @@
 	height: 580px;
 }
 
-.location-mapArea iframe {
+.location-mapArea-canvas {
 	width: 100%;
 	height: 100%;
-	border: none;
 }
 
 .location-info {
@@ -527,10 +525,9 @@
 	height: 300px;
 }
 
-.location-mapArea iframe {
+.location-mapArea-canvas {
 	width: 100%;
 	height: 100%;
-	border: none;
 }
 
 .location-info {

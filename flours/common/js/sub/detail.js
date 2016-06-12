@@ -44,6 +44,10 @@
 				el: '#MainView'
 			});
 
+			/* Instagram表示 */
+			var instashow = new ui.setInstashow();
+			instashow.init('.js-instashowView');
+
 			return this;
 		};
 		return constructor;
@@ -79,10 +83,9 @@
 		};
 		proto.render = function() {
 
-			var googleMap = new ui.preloader();
-			googleMap.init({
-				el: '.js-mapArea'
-			});
+			/* GoogleMap表示 */
+			var googleMap = new ui.setGoogleMap();
+			googleMap.init('.js-googleMapView');
 
 			this.$floatingBtn.hide();
 			this.showScrollStart = $('.header').outerHeight();

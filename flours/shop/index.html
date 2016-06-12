@@ -78,13 +78,13 @@
 		</section><!--/.shopInfo -->
 
 		<section class="main-section galleryArea">
-			<div data-is data-is-api="/common/api/" data-is-source="@muradosmann"></div>
+			<div class="js-instashowView" data-hash=""></div>
 		</section>
 
 		<section class="main-section location">
 
-			<div class="location-mapArea js-mapArea" data-src="https://www.google.com/maps/d/u/2/embed?mid=zYJ4gXbcSkdw.kIq9LftoCpqM">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d810.597087278194!2d139.66861009400594!3d35.64280247719878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f49f310c3079%3A0x21a82768b7cc8bad!2z44CSMTU0LTAwMjQg5p2x5Lqs6YO95LiW55Sw6LC35Yy65LiJ6LuS6Iy25bGL77yS5LiB55uu77yR77yUIOiKseWQvuWxiw!5e0!3m2!1sja!2sjp!4v1465032660068&iwloc=B" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<div class="location-mapArea js-googleMapView" data-name="ayase" data-x="139.8306223" data-y="35.7640283">
+				<div class="location-mapArea-canvas js-googleMapCanvas"></div>
 			</div>
 
 			<p class="location-info">営業時間 11:00~22:00(水曜定休日) ※ご来店前にお電話でご確認下さい。</p>
@@ -114,7 +114,6 @@
 				</div>
 			</div>
 			<div class="main-snsArea-instagram">
-				<div data-is data-is-api="./instashow/api/" data-is-source="@muradosmann"></div>
 				<a href="" class="btn-instagram">Instagramでfloursをフォローする</a>
 			</div>
 			<div class="main-snsArea-twitter">
@@ -140,6 +139,7 @@
 <script src="/common/js/lib/jquery-2.1.1.min.js"></script>
 <script src="/common/js/lib/fotorama.js"></script>
 <script src="/common/js/lib/jquery.instashow.packaged.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3.12&sensor=false"></script>
 <script src="/common/js/common.js"></script>
 <script src="/common/js/sub/detail.js"></script>
 </body>

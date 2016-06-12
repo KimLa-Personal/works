@@ -295,6 +295,147 @@
 		},
 
 		/**
+		 * GoogleMap表示
+		 */
+		setGoogleMap: function() {
+			var $el = {};
+			var $canvas = {};
+			var map = {};
+			var marker = {};
+			var options = {};
+			var positions = {};
+			var init = function(el) {
+				setEl(el);
+				setOptions();
+				render();
+				setMarker();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				$canvas = $el.find('.js-googleMapCanvas');
+				return this;
+			};
+			var setOptions = function() {
+				positions = {
+					x: $el.data('x'),
+					y: $el.data('y')
+				};
+				options = {
+					zoom: 13,
+					center: new google.maps.LatLng(positions.y, positions.x),
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					mapTypeControl: false,
+					draggable: false
+				};
+				return this;
+			};
+			var render = function() {
+				map = new google.maps.Map($canvas.get(0), options);
+				return this;
+			};
+			var setMarker = function() {
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(positions.y, positions.x),
+					map: map
+				});
+				return this;
+			};
+			return { init: init };
+		},
+
+		/**
+		 * Instagram表示
+		 */
+		setInstashow: function() {
+			var $el = {};
+			var $canvas = {};
+			var options = {};
+			var colors = {};
+			var init = function(el) {
+				setEl(el);
+				setOptions();
+				render();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				$canvas = $el.find('js-instaCanvas');
+				return this;
+			};
+			var setOptions = function() {
+				options = {
+					api: '/common/api/',
+					source: '@flowers.tokyo',
+					filterOnly: $el.data('hash'),
+					columns: '3',
+					rows: '3',
+					dragCntrol: 'false',
+					direction: 'vertical',
+					info: 'likesCounter, description'
+				};
+				colors = {
+					galleryCounters: 'rgb(0, 0, 0)',
+					galleryDescription: 'rgb(0, 0, 0)',
+					galleryOverlay: 'rgba(237, 237, 237, 0.9)',
+					galleryArrows: 'rgb(0, 156, 255)',
+					galleryArrowsHover: 'rgb(0, 0, 0)',
+					galleryArrowsBg: 'rgb(255, 255, 255)',
+					popupOverlay: 'rgba(228, 228, 228, 0.9)',
+					popupUsername: 'rgb(0, 156, 255)',
+					popupUsernameHover: 'rgb(0, 0, 0)',
+					popupInstagramLink: 'rgb(0, 156, 255)',
+					popupInstagramLinkHover: 'rgb(0, 0, 0)',
+					popupCounters: 'rgb(68, 68, 68)',
+					popupAnchor: 'rgb(0, 156, 255)',
+					popupAnchorHover: 'rgb(0, 0, 0)',
+					popupText: 'rgb(68, 68, 68)',
+					popupControls: 'rgb(147, 195, 225)',
+					popupControlsHover: 'rgb(68, 68, 68)',
+					popupMobileControls: 'rgb(147, 195, 225)'
+				};
+				return this;
+			};
+			var render = function() {
+				$el.append('<div class="js-instaCanvas" data-is ' + setOptionData() + '></div>').promise().done(function() {
+					$canvas = $el.find('.js-instaCanvas');
+				});
+				return this;
+			};
+			var setOptionData = function() {
+				var setData = '';
+				setData += 'data-is-api="' + options.api + '" ';
+				setData += 'data-is-source="' + options.source + '" ';
+				setData += 'data-is-filter-only="' + options.filterOnly + '"';
+				setData += 'data-is-columns="' + options.columns + '" ';
+				setData += 'data-is-rows="' + options.rows + '" ';
+				setData += 'data-is-drag-control="' + options.dragCntrol + '" ';
+				setData += 'data-is-direction="' + options.direction + '" ';
+				setData += 'data-is-info="' + options.info + '" ';
+				setData += 'data-is-color-gallery-counters="' + colors.galleryCounters + '" ';
+				setData += 'data-is-color-gallery-description="' + colors.galleryDescription + '" ';
+				setData += 'data-is-color-gallery-overlay="' + colors.galleryOverlay + '" ';
+				setData += 'data-is-color-gallery-arrows="' + colors.galleryArrows + '" ';
+				setData += 'data-is-color-gallery-arrows-hover="' + colors.galleryArrowsHover + '" ';
+				setData += 'data-is-color-gallery-arrows-bg="' + colors.galleryArrowsBg + '" ';
+				setData += 'data-is-color-popup-overlay="' + colors.popupOverlay + '" ';
+				setData += 'data-is-color-popup-username="' + colors.popupUsername + '" ';
+				setData += 'data-is-color-popup-username-hover="' + colors.popupUsernameHover + '" ';
+				setData += 'data-is-color-popup-instagram-link="' + colors.popupInstagramLink + '" ';
+				setData += 'data-is-color-popup-instagram-link-hover="' + colors.popupInstagramLinkHover + '" ';
+				setData += 'data-is-color-popup-counters="' + colors.popupCounters + '" ';
+				setData += 'data-is-color-popup-anchor="' + colors.popupAnchor + '" ';
+				setData += 'data-is-color-popup-anchor-hover="' + colors.popupAnchorHover + '" ';
+				setData += 'data-is-color-popup-text="' + colors.popupText + '" ';
+				setData += 'data-is-color-popup-controls="' + colors.popupControls + '" ';
+				setData += 'data-is-color-popup-controls-hover="' + colors.popupControlsHover + '" ';
+				setData += 'data-is-color-popup-mobile-controls="' + colors.popupMobileControls + '"';
+				return setData;
+			};
+			return { init: init };
+		},
+
+		/**
 		 * thickbox
 		 */
 		thickbox: function() {
