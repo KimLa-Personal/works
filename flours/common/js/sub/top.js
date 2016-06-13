@@ -31,20 +31,27 @@
 		var proto = constructor.prototype = new views.PageView();
 		proto.render = function() {
 			views.PageView.prototype.render.apply(this);
+			var that = this;
+			$('.js-carousel').ready(function() {
 
-			/* トップビジュアル */
-			var topVisual = new ui.carousel();
-			topVisual.init({
-				$el: $('.js-carousel'),
-				slideSpeed: 500,
-				intervalTime: 5000,
-				autoSlide: true
+				/* トップビジュアル */
+				var topVisual = new ui.carousel();
+				topVisual.init({
+					el: '.js-carousel',
+					width: that.$el.width()
+				});
+
 			});
 
 			/* Instagram表示 */
 			var instashow = ui.setInstashow();
 			instashow.init('.js-instashowView');
 
+			return this;
+		};
+		proto.onResize = function() {
+			this.isResize = true;
+			this.renderMain();
 			return this;
 		};
 		return constructor;

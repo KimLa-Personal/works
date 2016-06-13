@@ -78,7 +78,6 @@
 							onLoad();
 						});
 					}
-
 				});
 				return this;
 			};
@@ -98,12 +97,174 @@
 		/**
 		 * カルーセル
 		 */
-		carousel: function() {
+		carousel: (function() {
+			var constructor = function() {
+				this.$el = {};
+				this.$imgList = {};
+				this.$item = {};
+				this.$ctlBtnNext= {};
+				this.$ctlBtnPrev = {};
+				this.slideWidth = 0;
+				this.itemLength = 0;
+				this.viewNum = 0;
+				this.isAnimate = false;
+				this.autoSlideFn = {};
+				this.isAuto = true;
+				this.intervalTime = 5000;
+				return this;
+			};
+			var proto = constructor.prototype;
+			proto.init = function(args) {
+				this.slideWidth = args.width;
+				this.setEl(args.el);
+				this.render();
+				this.setAutoSlide();
+				this.setEvents();
+				return this;
+			};
+			proto.setEl = function(el) {
+				this.$el = $(el);
+				this.$imgList = this.$el.find('.js-carouselImageList');
+				this.$item = this.$imgList.find('li');
+				return this;
+			};
+			proto.onBeforeRender = function() {
+				return this;
+			};
+			proto.render = function() {
+				this.setStyle();
+				this.renderCtlBtn();
+				this.viewCtlBtn();
+				return this;
+			};
+			proto.setStyle = function() {
+				var that = this;
+				this.$item.each(function() {
+					$(this).width(that.slideWidth);
+				});
+				this.$el.css({
+					width: this.slideWidth,
+					height: this.$item.first().height()
+				});
+				this.$imgList.css({
+					left: 0,
+					width: this.slideWidth * this.itemLength
+				});
+				return this;
+			};
+			proto.renderCtlBtn = function() {
+				var that = this;
+				var tmpl = [];
+				tmpl.push('<ul class="carousel-ctlBtnList">');
+				tmpl.push('  <li class="carousel-ctlBtnList-btnPrev js-carouselBtnPrev"><span>前へ</span></li>');
+				tmpl.push('  <li class="carousel-ctlBtnList-btnNext js-carouselBtnNext"><span>次へ</span></li>');
+				tmpl.push('</ul>');
+				this.$el.append(tmpl.join('')).promise().done(function() {
+					that.$ctlBtnPrev = that.$el.find('.js-carouselBtnPrev');
+					that.$ctlBtnNext = that.$el.find('.js-carouselBtnNext');
+				});
+				return this;
+			};
+			proto.setEvents = function() {
+				var that = this;
+				this.$ctlBtnPrev.off('click').on('click', function() {
+					if(!that.isAnimate) {
+						that.onClickSlidePrev();
+						that.isAnimate = false;
+					}
+				});
+				this.$ctlBtnNext.off('click').on('click', function() {
+					if(!that.isAnimate) {
+						that.onClickSlideNext();
+						that.isAnimate = false;
+					}
+				});
+				$(window).resize(function() {
+					that.onResize();
+				});
+				return this;
+			};
+			proto.onClickSlideNext = function() {
+				if(this.viewNum < this.itemLength-1) {
+					this.viewNum++;
+					this.animateSlide();
+					this.stopAutoSlide();
+					this.startAutoSlide();
+				}
+				return this;
+			};
+			proto.onClickSlidePrev = function() {
+				if(this.viewNum !== 0) {
+					this.viewNum--;
+					this.animateSlide();
+					this.stopAutoSlide();
+					this.startAutoSlide();
+				}
+				return this;
+			};
+			proto.animateSlide = function() {
+				var that = this;
+				this.isAnimate = true;
+				this.$imgList.animate({
+					left: -(that.slideWidth * that.viewNum)
+				});
+				this.viewCtlBtn();
+				return this;
+			};
+			proto.viewCtlBtn = function() {
+				if(this.viewNum === 0) {
+					this.$ctlBtnPrev.hide();
+				} else {
+					this.$ctlBtnPrev.show();
+				}
+				if(this.viewNum === this.itemLength-1) {
+					this.$ctlBtnNext.hide();
+				} else {
+					this.$ctlBtnNext.show();
+				}
+				return this;
+			};
+			proto.setAutoSlide = function() {
+				if(this.isAuto) {
+					this.startAutoSlide();
+				} else {
+					this.stopAutoSlide();
+				}
+				return this;
+			};
+			proto.startAutoSlide = function() {
+				var that = this;
+				this.autoSlideFn = setInterval(function() {
+					that.viewNum = that.viewNum < that.itemLength-1 ? that.viewNum+1 : 0;
+					that.animateSlide();
+					that.isAnimate = false;
+				}, that.intervalTime);
+				return this;
+			};
+			proto.stopAutoSlide = function() {
+				clearInterval(this.autoSlideFn);
+				this.isAuto = true;
+				return this;
+			};
+			proto.onResize = function() {
+				//this.setStyle();
+				return this;
+			};
+			return constructor;
+		})(),
+
+		/**
+		 * カルーセル
+		 */
+
+		aacarousel: function() {
 			var $el = {};
 			var $imageList = {};
 			var $item = {};
 			var $btnList = {};
 			var $btn = {};
+			var $btnNext = {};
+			var $btnPrev = {};
 			var autoSlide = {};
 			var itemLength = 0;
 			var slideWidth = 0;
@@ -119,7 +280,7 @@
 			var init = function(args) {
 				slideSpeed = args.slideSpeed || slideSpeed;
 				intervalTime = args.intervalTime || intervalTime;
-				isAuto = args.autoSlide !== undefined ? args.autoSlide : isAuto;
+				isAuto = false;//args.autoSlide !== undefined ? args.autoSlide : isAuto;
 				$el = args.$el;
 				$el.ready(function() {
 					setEl();
@@ -139,8 +300,31 @@
 			};
 			var render = function() {
 				itemLength = $item.length;
+				controlBtnRender();
 				imageListRender();
 				btnListRender();
+				viewControlBtn();
+				return this;
+			};
+			var controlBtnRender = function() {
+				var tmpl = [];
+				tmpl.push('<div class="topVisual-list-ctlBtnNext js-controlBtnNext"><span>次へ</span></div>');
+				tmpl.push('<div class="topVisual-list-ctlBtnPrev js-controlBtnPrev"><span>前へ</span></div>');
+				$el.append(tmpl.join('')).promise().done(function() {
+					$btnNext = $el.find('.js-controlBtnNext');
+					$btnPrev = $el.find('.js-controlBtnPrev');
+				});
+				return this;
+			};
+			var viewControlBtn = function() {
+				$btnNext.show();
+				$btnPrev.show();
+				if(viewNum < 1) {
+					$btnPrev.hide();
+				}
+				if(viewNum === itemLength-1) {
+					$btnNext.hide();
+				}
 				return this;
 			};
 			var imageListRender = function() {
@@ -155,7 +339,6 @@
 					left: 0,
 					width: slideWidth * (itemLength+1)
 				});
-				$imageList.append($item.first().clone());
 				$el.css({
 					height: itemHeight
 				});
@@ -165,6 +348,7 @@
 						height: itemHeight
 					});
 				});
+				$imageList.append($item.first().clone());
 				return this;
 			};
 			var btnListRender = function() {
@@ -179,14 +363,30 @@
 				return this;
 			};
 			var setEvents = function() {
+				var isSlide = !isSwipe && !isAnimate;
 				$btn.off('click').on('click', function() {
-					if(!isAnimate) {
+					if(!isSwipe && !isAnimate) {
 						animateSlide(this);
 						isAnimate = false;
 					}
 				});
+				$btnNext.off('click').on('click', function() {
+					if(!isSwipe && !isAnimate) {
+						viewNum++;
+						animateSlide();
+						isAnimate = false;
+					}
+				});
+				$btnPrev.off('click').on('click', function() {
+					if(!isSwipe && !isAnimate) {
+						viewNum--;
+						animateSlide();
+						isAnimate = false;
+					}
+				});
+/*
 				$imageList.on('touchstart', function(e) {
-					if(!isSwipe) {
+					if(!isSwipe && !isAnimate) {
 						onTouchStart(e, this);
 					}
 				});
@@ -203,10 +403,11 @@
 				});
 				$(window).resize(function() {
 					if(!isResize) {
-						resize();
+						onResize();
 						isResize = false;
 					}
 				});
+*/
 				return this;
 			};
 			var onTouchStart = function(event, that) {
@@ -228,7 +429,6 @@
 				} else {
 					animateSlide();
 				}
-				animateSlide();
 				return this;
 			};
 			var animateSlide = function(that) {
@@ -247,6 +447,7 @@
 				});
 				$btnList.find('.active').removeClass('active');
 				$btn.eq(viewNum === itemLength ? 0 : viewNum).addClass('active');
+				viewControlBtn();
 				return this;
 			};
 			var setAutoSlide = function() {
@@ -270,7 +471,7 @@
 				isAuto = true;
 				return this;
 			};
-			var resize = function() {
+			var onResize = function() {
 				isResize = true;
 				reset();
 				imageListRender();
@@ -558,12 +759,14 @@
 				this.$imgBtn = {};
 				this.scrollSpeed = 500;
 				this.isScroll = false;
+				this.isResize = false;
 				return this;
 			};
 			var proto = constructor.prototype;
 			proto.init = function(el) {
 				this.setEl(el);
 				this.render();
+				this.onRender();
 				this.setEvents();
 				return this;
 			};
@@ -577,6 +780,9 @@
 			proto.render = function() {
 				this.showAreaList();
 				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
+				return this;
+			};
+			proto.onRender = function() {
 				return this;
 			};
 			proto.showAreaList = function() {
@@ -601,6 +807,16 @@
 				}, function() {
 					that.imageRollover(this);
 				});
+				$(window).resize(function() {
+					if(!that.isResize) {
+						that.onResize();
+						that.isResize = false;
+					}
+				});
+				return this;
+			};
+			proto.onResize = function() {
+				this.isResize = true;
 				return this;
 			};
 			proto.smoothScroll = function(href) {

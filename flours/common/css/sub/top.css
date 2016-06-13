@@ -18,71 +18,14 @@ body { text-align: center; }
 @media screen and (min-width: 769px){
 
 /*----------------------------------------------------------
- topVisual
-------------------------------------------------------------*/
-
-.topVisual {
-	position: relative;
-	overflow: hidden;
-}
-
-.topVisual-list {
-	overflow: hidden;
-}
-
-.topVisual-list li {
-	float: left;
-}
-
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
-	display: block;
-	position: relative;
-}
-
-.topVisual-list figcaption {
-	display: block;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	padding: 11px 20px;
-	background: rgba(0, 0, 0, 0.3);
-	font-size: 22px;
-	color: #fff;
-	text-align: right;
-}
-
-.topVisual-btn {
-	position: absolute;
-	top: 18px;
-	right: 15px;
-}
-
-.topVisual-btn li {
-	display: inline-block;
-	width: 22px;
-	height: 22px;
-	margin-left: 20px;
-	background: #fff;
-	border-radius: 11px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
-
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
-}
-
-
-/*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
+
+.main {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
 
 .main-description {
 	margin-bottom: 80px;
@@ -184,71 +127,14 @@ body { text-align: center; }
 @media screen and (max-width: 768px){
 
 /*----------------------------------------------------------
- topVisual
-------------------------------------------------------------*/
-
-.topVisual {
-	position: relative;
-	overflow: hidden;
-}
-
-.topVisual-list {
-	overflow: hidden;
-}
-
-.topVisual-list li {
-	float: left;
-}
-
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
-	display: block;
-	position: relative;
-}
-
-.topVisual-list figcaption {
-	display: block;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	padding: 5px 50px;
-	background: rgba(0, 0, 0, 0.3);
-	font-size: 22px;
-	color: #fff;
-	text-align: right;
-}
-
-.topVisual-btn {
-	position: absolute;
-	top: 18px;
-	right: 15px;
-}
-
-.topVisual-btn li {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	margin-left: 20px;
-	background: #fff;
-	border-radius: 10px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
-
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
-}
-
-
-/*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
+
+.main {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
 
 .main-description {
 	margin-bottom: 60px;
@@ -348,86 +234,22 @@ body { text-align: center; }
 @media screen and (max-width: 640px){
 
 /*----------------------------------------------------------
- topVisual
+ header
 ------------------------------------------------------------*/
 
-.topVisual {
-	position: relative;
-	overflow: hidden;
-}
-
-.topVisual-list {
-	overflow: hidden;
-}
-
-.topVisual-list li {
-	position: relative;
-	float: left;
-	height: 280px;
-}
-
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
-	display: block;
-	position: relative;
-	width: 100%;
-}
-
-.topVisual-list figure {
-	display: block;
-	position: relative;
-}
-
-.topVisual-list figcaption {
-	display: block;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	padding: 5px;
-	background: -webkit-gradient(
-					linear,
-					left top, left bottom,
-					from(rgba(0, 0, 0, 0)),
-						color-stop(0.5, rgba(0, 0, 0, 0)),
-					to(rgba(0, 0, 0, 0.3))
-				);
-	font-size: 14px;
-	color: #fff;
-	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-	text-align: right;
-}
-
-.topVisual-btn {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-.topVisual-btn li {
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-	margin-left: 8px;
-	background: #fff;
-	border-radius: 5px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
-
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
-}
+.header-logo { margin-bottom: 20px; }
 
 
 /*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
+
+.main {
+	position: relative;
+	z-index: 2;
+	margin-top: 275px;
+	background: #fff;
+}
 
 .main-description {
 	margin-bottom: 20px;

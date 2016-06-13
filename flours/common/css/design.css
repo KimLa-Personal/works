@@ -76,11 +76,107 @@ body { background: #f1f1f1; }
 .header { padding: 40px 15px 35px; }
 
 .header-logo {
-	width: 330px;
-	margin: 0 auto;
+	width: 412px;
+	margin: 0 auto 40px;
 }
 
 .header-btnNav { display: none; }
+
+
+/*----------------------------------------------------------
+ carousel
+------------------------------------------------------------*/
+
+.carousel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.carousel-area {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.carousel-area-imageList {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+
+.carousel-area-imageList li { float: left; }
+
+.carousel-area-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.carousel-area-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 11px 20px;
+	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
+	color: #fff;
+	text-align: right;
+}
+
+.carousel-ctlBtnList li {
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	width: 50px;
+	height: 100%;
+	opacity: 0.7;
+}
+.carousel-ctlBtnList li:hover { opacity: 1; }
+
+.carousel-ctlBtnList-btnPrev { left: 0; }
+.carousel-ctlBtnList-btnNext { right: 0; }
+
+.carousel-ctlBtnList li span {
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	width: 26px;
+	height: 26px;
+	margin-top: -15px;
+	background: #ccc;
+	border-radius: 15px;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+.carousel-ctlBtnList-btnPrev span { left: 10px; }
+.carousel-ctlBtnList-btnNext span { right: 10px; }
+
+.carousel-ctlBtnList li span:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin-top: -5px;
+	border-style: solid;
+	border-color: #fff;
+}
+.carousel-ctlBtnList-btnPrev span:after {
+	left: 9px;
+	border-width: 3px 0 0 3px;
+	-webkit-transform: rotate(-45deg);
+}
+.carousel-ctlBtnList-btnNext span:after {
+	right: 9px;
+	border-width: 3px 3px 0 0;
+	-webkit-transform: rotate(45deg);
+}
 
 
 /*----------------------------------------------------------
@@ -339,8 +435,8 @@ a.btn-twitter {
 }
 
 .header-logo {
-	width: 330px;
-	margin: 0 auto;
+	width: 412px;
+	margin: 0 auto 30px;
 }
 
 .header-btnNav {
@@ -353,6 +449,103 @@ a.btn-twitter {
 	background: url("/common/img/btn_headerNav.png") no-repeat 50% 50%;
 	text-indent: -9999px;
 }
+
+
+/*----------------------------------------------------------
+ carousel
+------------------------------------------------------------*/
+
+.carousel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.carousel-area {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.carousel-area-imageList {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+
+.carousel-area-imageList li {
+	float: left;
+}
+
+.carousel-area-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.carousel-area-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 5px 50px;
+	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
+	color: #fff;
+	text-align: right;
+}
+
+.carousel-ctlBtnList li {
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	width: 50px;
+	height: 100%;
+	opacity: 0.7;
+}
+
+.carousel-ctlBtnList-btnPrev { left: 0; }
+.carousel-ctlBtnList-btnNext { right: 0; }
+
+.carousel-ctlBtnList li span {
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	width: 26px;
+	height: 26px;
+	margin-top: -15px;
+	background: #ccc;
+	border-radius: 15px;
+	text-indent: -9999px;
+}
+.carousel-ctlBtnList-btnPrev span { left: 10px; }
+.carousel-ctlBtnList-btnNext span { right: 10px; }
+
+.carousel-ctlBtnList li span:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin-top: -5px;
+	border-style: solid;
+	border-color: #fff;
+}
+.carousel-ctlBtnList-btnPrev span:after {
+	left: 9px;
+	border-width: 3px 0 0 3px;
+	-webkit-transform: rotate(-45deg);
+}
+.carousel-ctlBtnList-btnNext span:after {
+	right: 9px;
+	border-width: 3px 3px 0 0;
+	-webkit-transform: rotate(45deg);
+}
+
 
 /*----------------------------------------------------------
  main
@@ -614,7 +807,7 @@ a.btn-twitter {
 }
 
 .header-logo {
-	width: 150px;
+	width: 200px;
 	margin: 0 auto;
 }
 
@@ -628,6 +821,107 @@ a.btn-twitter {
 	background: url("/common/img/btn_headerNav.png") no-repeat 50% 50%;
 	background-size: 20px 16px;
 	text-indent: -9999px;
+}
+
+
+/*----------------------------------------------------------
+ carousel
+------------------------------------------------------------*/
+
+.carousel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.carousel-area {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.carousel-area-imageList {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+
+.carousel-area-imageList li { float: left; }
+
+.carousel-area-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.carousel-area-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 15px 5px 5px;
+	background: -webkit-gradient(
+					linear,
+					left top, left bottom,
+					from(rgba(0, 0, 0, 0)),
+						color-stop(0.3, rgba(0, 0, 0, 0)),
+					to(rgba(0, 0, 0, 0.3))
+				);
+	font-size: 14px;
+	color: #fff;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+	text-align: right;
+}
+
+.carousel-ctlBtnList li {
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	width: 50px;
+	height: 100%;
+	opacity: 0.7;
+}
+
+.carousel-ctlBtnList-btnPrev { left: 0; }
+.carousel-ctlBtnList-btnNext { right: 0; }
+
+.carousel-ctlBtnList li span {
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	width: 26px;
+	height: 26px;
+	margin-top: -15px;
+	background: #ccc;
+	border-radius: 15px;
+	text-indent: -9999px;
+}
+.carousel-ctlBtnList-btnPrev span { left: 10px; }
+.carousel-ctlBtnList-btnNext span { right: 10px; }
+
+.carousel-ctlBtnList li span:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin-top: -5px;
+	border-style: solid;
+	border-color: #fff;
+}
+.carousel-ctlBtnList-btnPrev span:after {
+	left: 9px;
+	border-width: 3px 0 0 3px;
+	-webkit-transform: rotate(-45deg);
+}
+.carousel-ctlBtnList-btnNext span:after {
+	right: 9px;
+	border-width: 3px 3px 0 0;
+	-webkit-transform: rotate(45deg);
 }
 
 
