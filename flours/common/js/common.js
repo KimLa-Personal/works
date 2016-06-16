@@ -43,459 +43,6 @@
 	App.ui = {
 
 		/**
-		 * プリローダー
-		 */
-		preloader: function() {
-			var $el = {};
-			var $child = {};
-			var $loader = {};
-			var callback = {};
-			var loadUrl = '';
-			var isLoad = false;
-			var init = function(args) {
-				callback = args.callback || {};
-				setEl(args.el);
-				//render();
-				return this;
-			};
-			var setEl = function(el) {
-				$el = $(el);
-				$child = $el.children();
-				return this;
-			};
-			var render = function() {
-				var isIframe = $child.get(0).tagName.toLowerCase() === iframe ? true : false;
-				$el.css({
-					position: 'relative'
-				}).append('<div class="js-loader"></div>').promise().done(function() {
-					$loader = $el.find('.js-loader');
-					if(isIframe) {
-						$child.load(function() {
-							onLoad();
-						});
-					} else {
-						$child.ready(function() {
-							onLoad();
-						});
-					}
-				});
-				return this;
-			};
-			var onLoad = function() {
-				$loader.fadeOut();
-				callback;
-				removeLoader();
-				return this;
-			};
-			var removeLoader = function() {
-				$loader.remove();
-				return this;
-			};
-			return { init: init };
-		},
-
-		/**
-		 * カルーセル
-		 */
-		carousel: (function() {
-			var constructor = function() {
-				this.$el = {};
-				this.$imgList = {};
-				this.$item = {};
-				this.$ctlBtnNext= {};
-				this.$ctlBtnPrev = {};
-				this.slideWidth = 0;
-				this.itemLength = 0;
-				this.viewNum = 0;
-				this.isAnimate = false;
-				this.autoSlideFn = {};
-				this.isAuto = true;
-				this.intervalTime = 5000;
-				return this;
-			};
-			var proto = constructor.prototype;
-			proto.init = function(args) {
-				this.slideWidth = args.width;
-				this.setEl(args.el);
-				this.render();
-				this.setAutoSlide();
-				this.setEvents();
-				return this;
-			};
-			proto.setEl = function(el) {
-				this.$el = $(el);
-				this.$imgList = this.$el.find('.js-carouselImageList');
-				this.$item = this.$imgList.find('li');
-				return this;
-			};
-			proto.onBeforeRender = function() {
-				return this;
-			};
-			proto.render = function() {
-				this.setStyle();
-				this.renderCtlBtn();
-				this.viewCtlBtn();
-				return this;
-			};
-			proto.setStyle = function() {
-				var that = this;
-				this.$item.each(function() {
-					$(this).width(that.slideWidth);
-				});
-				this.$el.css({
-					width: this.slideWidth,
-					height: this.$item.first().height()
-				});
-				this.$imgList.css({
-					left: 0,
-					width: this.slideWidth * this.itemLength
-				});
-				return this;
-			};
-			proto.renderCtlBtn = function() {
-				var that = this;
-				var tmpl = [];
-				tmpl.push('<ul class="carousel-ctlBtnList">');
-				tmpl.push('  <li class="carousel-ctlBtnList-btnPrev js-carouselBtnPrev"><span>前へ</span></li>');
-				tmpl.push('  <li class="carousel-ctlBtnList-btnNext js-carouselBtnNext"><span>次へ</span></li>');
-				tmpl.push('</ul>');
-				this.$el.append(tmpl.join('')).promise().done(function() {
-					that.$ctlBtnPrev = that.$el.find('.js-carouselBtnPrev');
-					that.$ctlBtnNext = that.$el.find('.js-carouselBtnNext');
-				});
-				return this;
-			};
-			proto.setEvents = function() {
-				var that = this;
-				this.$ctlBtnPrev.off('click').on('click', function() {
-					if(!that.isAnimate) {
-						that.onClickSlidePrev();
-						that.isAnimate = false;
-					}
-				});
-				this.$ctlBtnNext.off('click').on('click', function() {
-					if(!that.isAnimate) {
-						that.onClickSlideNext();
-						that.isAnimate = false;
-					}
-				});
-				$(window).resize(function() {
-					that.onResize();
-				});
-				return this;
-			};
-			proto.onClickSlideNext = function() {
-				if(this.viewNum < this.itemLength-1) {
-					this.viewNum++;
-					this.animateSlide();
-					this.stopAutoSlide();
-					this.startAutoSlide();
-				}
-				return this;
-			};
-			proto.onClickSlidePrev = function() {
-				if(this.viewNum !== 0) {
-					this.viewNum--;
-					this.animateSlide();
-					this.stopAutoSlide();
-					this.startAutoSlide();
-				}
-				return this;
-			};
-			proto.animateSlide = function() {
-				var that = this;
-				this.isAnimate = true;
-				this.$imgList.animate({
-					left: -(that.slideWidth * that.viewNum)
-				});
-				this.viewCtlBtn();
-				return this;
-			};
-			proto.viewCtlBtn = function() {
-				if(this.viewNum === 0) {
-					this.$ctlBtnPrev.hide();
-				} else {
-					this.$ctlBtnPrev.show();
-				}
-				if(this.viewNum === this.itemLength-1) {
-					this.$ctlBtnNext.hide();
-				} else {
-					this.$ctlBtnNext.show();
-				}
-				return this;
-			};
-			proto.setAutoSlide = function() {
-				if(this.isAuto) {
-					this.startAutoSlide();
-				} else {
-					this.stopAutoSlide();
-				}
-				return this;
-			};
-			proto.startAutoSlide = function() {
-				var that = this;
-				this.autoSlideFn = setInterval(function() {
-					that.viewNum = that.viewNum < that.itemLength-1 ? that.viewNum+1 : 0;
-					that.animateSlide();
-					that.isAnimate = false;
-				}, that.intervalTime);
-				return this;
-			};
-			proto.stopAutoSlide = function() {
-				clearInterval(this.autoSlideFn);
-				this.isAuto = true;
-				return this;
-			};
-			proto.onResize = function() {
-				//this.setStyle();
-				return this;
-			};
-			return constructor;
-		})(),
-
-		/**
-		 * カルーセル
-		 */
-
-		aacarousel: function() {
-			var $el = {};
-			var $imageList = {};
-			var $item = {};
-			var $btnList = {};
-			var $btn = {};
-			var $btnNext = {};
-			var $btnPrev = {};
-			var autoSlide = {};
-			var itemLength = 0;
-			var slideWidth = 0;
-			var viewNum = 0;
-			var swipeStart = 0;
-			var swipeEnd = 0;
-			var slideSpeed = 500;
-			var intervalTime = 5000;
-			var isAnimate = false;
-			var isSwipe = false;
-			var isResize = false;
-			var isAuto = true;
-			var init = function(args) {
-				slideSpeed = args.slideSpeed || slideSpeed;
-				intervalTime = args.intervalTime || intervalTime;
-				isAuto = false;//args.autoSlide !== undefined ? args.autoSlide : isAuto;
-				$el = args.$el;
-				$el.ready(function() {
-					setEl();
-					render();
-					if(isAuto) {
-						setAutoSlide();
-					}
-					setEvents();
-				});
-				return this;
-			};
-			var setEl = function() {
-				$imageList = $el.find('.js-carouselImageList');
-				$btnList = $el.find('.js-carouselBtnList');
-				$item = $imageList.children();
-				return this;
-			};
-			var render = function() {
-				itemLength = $item.length;
-				controlBtnRender();
-				imageListRender();
-				btnListRender();
-				viewControlBtn();
-				return this;
-			};
-			var controlBtnRender = function() {
-				var tmpl = [];
-				tmpl.push('<div class="topVisual-list-ctlBtnNext js-controlBtnNext"><span>次へ</span></div>');
-				tmpl.push('<div class="topVisual-list-ctlBtnPrev js-controlBtnPrev"><span>前へ</span></div>');
-				$el.append(tmpl.join('')).promise().done(function() {
-					$btnNext = $el.find('.js-controlBtnNext');
-					$btnPrev = $el.find('.js-controlBtnPrev');
-				});
-				return this;
-			};
-			var viewControlBtn = function() {
-				$btnNext.show();
-				$btnPrev.show();
-				if(viewNum < 1) {
-					$btnPrev.hide();
-				}
-				if(viewNum === itemLength-1) {
-					$btnNext.hide();
-				}
-				return this;
-			};
-			var imageListRender = function() {
-				slideWidth = $item.first().width();
-				var itemHeight = $item.first().height();
-				$item.each(function() {
-					$(this).width(slideWidth);
-				});
-				$imageList.css({
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: slideWidth * (itemLength+1)
-				});
-				$el.css({
-					height: itemHeight
-				});
-				$item.find('img').each(function() {
-					$(this).css({
-						width: 'auto',
-						height: itemHeight
-					});
-				});
-				$imageList.append($item.first().clone());
-				return this;
-			};
-			var btnListRender = function() {
-				var btnListArray = [];
-				for(var i=0; i<itemLength; i++) {
-					btnListArray.push('<li>' + (i+1) + '</li>');
-				}
-				$btnList.append(btnListArray.join('')).promise().done(function() {
-					$btn = $btnList.children();
-					$btn.first().addClass('active');
-				});
-				return this;
-			};
-			var setEvents = function() {
-				var isSlide = !isSwipe && !isAnimate;
-				$btn.off('click').on('click', function() {
-					if(!isSwipe && !isAnimate) {
-						animateSlide(this);
-						isAnimate = false;
-					}
-				});
-				$btnNext.off('click').on('click', function() {
-					if(!isSwipe && !isAnimate) {
-						viewNum++;
-						animateSlide();
-						isAnimate = false;
-					}
-				});
-				$btnPrev.off('click').on('click', function() {
-					if(!isSwipe && !isAnimate) {
-						viewNum--;
-						animateSlide();
-						isAnimate = false;
-					}
-				});
-/*
-				$imageList.on('touchstart', function(e) {
-					if(!isSwipe && !isAnimate) {
-						onTouchStart(e, this);
-					}
-				});
-				$imageList.on('touchmove', function(e) {
-					if(isSwipe) {
-						onTouchMove(e, this);
-					}
-				});
-				$imageList.on('touchend', function(e) {
-					if(isSwipe) {
-						onTouchEnd(e, this);
-						isSwipe = false;
-					}
-				});
-				$(window).resize(function() {
-					if(!isResize) {
-						onResize();
-						isResize = false;
-					}
-				});
-*/
-				return this;
-			};
-			var onTouchStart = function(event, that) {
-				isSwipe = true;
-				swipeStart = Math.floor(event.originalEvent.touches[0].pageX);
-				return this;
-			};
-			var onTouchMove = function(event, that) {
-				swipeEnd = Math.floor(event.originalEvent.touches[0].pageX);
-				return this;
-			};
-			var onTouchEnd = function(event, that) {
-				viewNum = (swipeStart - swipeEnd) < 0 ? viewNum-1 : viewNum+1;
-				if(isAuto) {
-					isAuto = false;
-					animateSlide();
-					stopAutoSlide();
-					startAutoSlide();
-				} else {
-					animateSlide();
-				}
-				return this;
-			};
-			var animateSlide = function(that) {
-				isAnimate = true;
-				if(that) {
-					viewNum = $(that).index();
-				}
-				$imageList.animate({
-					left: -(slideWidth*viewNum)
-				}, slideSpeed , function() {
-					if(viewNum === itemLength) {
-						$imageList.css({
-							left: 0
-						});
-					}
-				});
-				$btnList.find('.active').removeClass('active');
-				$btn.eq(viewNum === itemLength ? 0 : viewNum).addClass('active');
-				viewControlBtn();
-				return this;
-			};
-			var setAutoSlide = function() {
-				if(isAuto) {
-					startAutoSlide();
-				} else {
-					stopAutoSlide();
-				}
-				return this;
-			};
-			var startAutoSlide = function() {
-				autoSlide = setInterval(function() {
-					viewNum = viewNum < itemLength ? viewNum+1 : 1;
-					animateSlide();
-					isAnimate = false;
-				}, intervalTime);
-				return this;
-			};
-			var stopAutoSlide = function() {
-				clearInterval(autoSlide);
-				isAuto = true;
-				return this;
-			};
-			var onResize = function() {
-				isResize = true;
-				reset();
-				imageListRender();
-				return this;
-			};
-			var reset = function() {
-				$el.css({
-					height: 'auto'
-				});
-				$imageList.css({
-					position: 'relative',
-					width: 'auto'
-				});
-				$item.each(function() {
-					$(this).css({
-						width: 'auto'
-					});
-				});
-				return this;
-			};
-			return { init: init };
-		},
-
-		/**
 		 * GoogleMap表示
 		 */
 		setGoogleMap: function() {
@@ -755,39 +302,72 @@
 		PageView: (function() {
 			var constructor = function() {
 				this.$el = {};
+				this.$area = {};
 				this.$anchor = {};
 				this.$imgBtn = {};
+				this.$carousel = {};
+				this.$filter = {};
+				this.$areaList = {};
 				this.scrollSpeed = 500;
 				this.isScroll = false;
-				this.isResize = false;
 				return this;
 			};
 			var proto = constructor.prototype;
 			proto.init = function(el) {
 				this.setEl(el);
+				this.onLoadFunction();
+				this.setChildViewInstance();
 				this.render();
 				this.onRender();
 				this.setEvents();
+				this.setCustumEvents();
 				return this;
 			};
 			proto.setEl = function(el) {
 				this.$el = $(el);
+				this.$area = this.$el.find('.area');
 				this.$anchor = this.$el.find('a[href^="#"]');
 				this.$imgBtn = this.$el.find('.btn');
-				this.areaList = this.$el.find('.js-areaNavList');
+				this.$carousel = this.$el.find('.js-carousel');
+				this.$header = this.$el.find('.header');
+				this.$areaList = this.$el.find('.js-areaNavList');
+				return this;
+			};
+			proto.onLoadFunction = function() {
+				this.setStyle();
+				this.setCarousel();
+				this.showAreaList();
+				return this;
+			};
+			proto.setStyle = function() {
+				return this;
+			};
+			proto.setChildViewInstance = function() {
 				return this;
 			};
 			proto.render = function() {
-				this.showAreaList();
-				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
 				return this;
 			};
 			proto.onRender = function() {
 				return this;
 			};
+			proto.setCarousel = function() {
+				this.$carousel.slick({
+					accessibility: false,
+					autoplay: true,
+					autoplaySpeed: 5000,
+					dots: false,
+					dotsClass: 'js-carouselBtn',
+					arrows: true,
+					infinite: true,
+					swipe: true
+
+				});
+				return this;
+			};
 			proto.showAreaList = function() {
-				if(this.areaList.length > 0 && App.global.areanavPath !== '') {
-					this.areaList.each(function() {
+				if(this.$areaList.length > 0 && App.global.areanavPath !== '') {
+					this.$areaList.each(function() {
 						$(this).load(App.global.areanavPath);
 					});
 				}
@@ -808,15 +388,8 @@
 					that.imageRollover(this);
 				});
 				$(window).resize(function() {
-					if(!that.isResize) {
-						that.onResize();
-						that.isResize = false;
-					}
+					that.onResize();
 				});
-				return this;
-			};
-			proto.onResize = function() {
-				this.isResize = true;
 				return this;
 			};
 			proto.smoothScroll = function(href) {
@@ -834,6 +407,53 @@
 				var imgPath = imgSrc.split('/');
 				var imgFile = imgPath[imgPath.length -1];
 				$that.attr('src', (imgFile.indexOf('_on') == -1) ? imgSrc.replace(/(\.)(gif|jpg|png)/i, '_on$1$2') : imgSrc.replace(/(\_on)(.)(gif|jpg|png)/i, '$2$3'));
+				return this;
+			};
+			proto.onResize = function() {
+				return this;
+			};
+			proto.setCustumEvents = function() {
+				var that = this;
+				this.$el.on('onLoadSidebar', function() {
+					that.onLoadSidebar();
+				});
+				this.$el.on('onShowSidebar', function(e, slideWidth) {
+					that.onShowSidebar(slideWidth);
+				});
+				this.$el.on('onCloseSidebar', function(e, slideWidth) {
+					that.onCloseSlidebar(slideWidth);
+				});
+				return this;
+			};
+			proto.onLoadSidebar = function() {
+				var that = this;
+				this.$el.append('<div class="filter"></div>').promise().done(function() {
+					that.$filter = that.$el.find('.filter');
+				});
+				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
+				return this;
+			}
+			proto.onShowSidebar = function(slideWidth) {
+				this.$filter.fadeIn();
+				$('body').width($(window).width());
+				this.$el.animate({
+					left: slideWidth
+				});
+				this.$header.animate({
+					left: slideWidth
+				});
+				App.global.isShowSide = true;
+				return this;
+			};
+			proto.onCloseSlidebar = function() {
+				this.$filter.fadeOut();
+				this.$el.animate({
+					left: 0
+				});
+				this.$header.animate({
+					left: 0
+				});
+				App.global.isShowSide = false;
 				return this;
 			};
 			return constructor;
@@ -867,8 +487,7 @@
 			};
 			proto.render = function() {
 				this.slideWidth = this.$el.outerWidth();
-				this.$el.after('<div class="side-mainFilter"></div>');
-				this.$filter = $('.side-mainFilter');
+				this.parentViewEl.trigger('onLoadSidebar');
 				return this;
 			};
 			proto.setEvents = function() {
@@ -888,31 +507,17 @@
 				return this;
 			};
 			proto.onClickNavBtn = function() {
-				this.isAnimate = true;
 				App.global.isShowSide ? this.closeSidebar() : this.showSidebar();
 				return this;
 			};
 			proto.showSidebar = function() {
-				this.$filter.fadeIn();
-				$('body').width($(window).width());
-				$('.page').animate({
-					left: this.slideWidth
-				});
-				$('.header').animate({
-					left: this.slideWidth
-				});
-				App.global.isShowSide = true;
+				this.isAnimate = true;
+				this.parentViewEl.trigger('onShowSidebar', this.slideWidth);
 				return this;
 			};
 			proto.closeSidebar = function() {
-				this.$filter.fadeOut();
-				$('.page').animate({
-					left: 0
-				});
-				$('.header').animate({
-					left: 0
-				});
-				App.global.isShowSide = false;
+				this.isAnimate = true;
+				this.parentViewEl.trigger('onCloseSlidebar', this.slideWidth);
 				return this;
 			};
 			return constructor;

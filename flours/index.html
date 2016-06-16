@@ -7,21 +7,17 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="/common/css/common.css">
+<link rel="stylesheet" type="text/css" href="/common/css/lib.css">
 <link rel="stylesheet" type="text/css" href="/common/css/design.css">
 <link rel="stylesheet" type="text/css" href="/common/css/sub/top.css">
-<link rel="stylesheet" type="text/css" href="/common/css/lib/jquery.instashow.min.css">
 </head>
 <body>
 
 <div class="page" id="PageView">
 
-	<!--header class="header">
-		<h1 class="header-logo"><a href="/"><img src="/common/img/logo.png" alt="flours.tokyo"></a></h1>
-	</header-->
-
-	<div class="carousel">
-		<div class="carousel-area js-carousel">
-			<ul class="carousel-area-imageList js-carouselImageList">
+	<div class="topVisual">
+		<div class="topVisual-inner">
+			<ul class="topVisual-imageList js-carousel">
 				<li><a href="/shop/"><figure><img src="/img/top_carousel/main_image01.jpg" alt="三軒茶屋　はたごや"><figcaption>三軒茶屋　はたごや</figcaption></figure></a></li>
 				<li><a href="/shop/"><figure><img src="/img/top_carousel/main_image02.jpg" alt=""><figcaption>fleuriste petit a petit</figcaption></figure></a></li>
 				<li><a href="/shop/"><figure><img src="/img/top_carousel/main_image03.jpg" alt=""><figcaption>さくら新町</figcaption></figure></a></li>
@@ -32,66 +28,67 @@
 		</div>
 	</div>
 
-	<main class="main">
+	<div class="area">
 
-		<h1 class="header-logo"><a href="/"><img src="/common/img/logo.png" alt="flours.tokyo"></a></h1>
+		<header class="header">
+			<h1 class="header-logo"><a href="/"><img src="/common/img/logo.png" alt="flours.tokyo"></a></h1>
+		</header>
 
-		<div class="main-description">
-			<p class="main-description-catch">幼い頃、お花屋さんに憧れたあなたへ</p>
-			<p class="main-description-text">
-				季節のはじまりを教えてくれるお花<br>
-				誰かに贈りたくなちゃう花束
-			</p>
-			<p class="main-description-text">
-				お花が大好き！<br>
-				そんな気持ちを思い出す<br class="hidePc">
-				東京のお花屋さんをご紹介します。
-			</p>
-		</div>
+		<main class="main">
 
-		<section class="main-section searchArea">
-			<h2 class="main-section-title">お花屋さんを探す</h2>
-			<div class="searchArea-area">
-				<ul class="searchArea-area-list js-areaNavList">
-				</ul>
+			<div class="main-description">
+				<p class="main-description-catch">幼い頃、お花屋さんに憧れたあなたへ</p>
+				<p class="main-description-text">
+					季節のはじまりを教えてくれるお花<br>
+					誰かに贈りたくなちゃう花束
+				</p>
+				<p class="main-description-text">
+					お花が大好き！<br>
+					そんな気持ちを思い出す<br class="hidePc">
+					東京のお花屋さんをご紹介します。
+				</p>
 			</div>
-		</section>
 
-		<section class="main-section galleryArea">
-			<h2 class="main-section-title">お店の Photo Gallary</h2>
-			<div class="galleryArea-gallery js-instashowView" data-hash=""></div>
-			<div class="galleryArea-instagram">
-				<a href="" class="btn-instagram">Instagramでfloursをフォローする</a>
-			</div>
-		</section>
-
-		<aside class="main-aside main-snsArea">
-			<p class="main-snsArea-description">
-				新しく取材したお店の情報や、季節のお花の写真を<br>
-				Facebook・Twitter でお知らせします。<br>
-				行きたいお店を見つけたら「いいね」お願いします。
-			</p>
-			<div class="main-snsArea-facebook">
-				<div id="fb-root"></div>
-				<div class="fb-page" data-href="https://www.facebook.com/flowerstokyo-1771470359752822/" data-width="574" data-height="327" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-					<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/flowerstokyo-1771470359752822/"><a href="https://www.facebook.com/flowerstokyo-1771470359752822/">flowers.tokyo</a></blockquote></div>
+			<section class="main-section searchArea">
+				<h2 class="main-section-title">お花屋さんを探す</h2>
+				<div class="searchArea-area">
+					<ul class="searchArea-area-list js-areaNavList">
+					</ul>
 				</div>
-			</div>
-			<div class="main-snsArea-twitter">
-				<a href="https://twitter.com/intent/follow?screen_name=flourstokyo" class="btn-twitter" target="_blank">@flourstokyoさんをフォロー</a>
-			</div>
-		</aside>
+			</section>
 
-	</main>
+			<section class="main-section galleryArea">
+				<h2 class="main-section-title">お店の Photo Gallary</h2>
+				<div class="galleryArea-gallery js-instashowView" data-hash=""></div>
+				<div class="galleryArea-instagram">
+					<a href="" class="btn-instagram">Instagramでfloursをフォローする</a>
+				</div>
+			</section>
 
-	<footer class="footer">
-		<p class="footer-copyright"><small>&copy; 2016 flours.tokyo</small></p>
-	</footer>
+			<aside class="main-aside main-snsArea">
+				<p class="main-snsArea-description">
+					新しく取材したお店の情報や、季節のお花の写真を<br>
+					Facebookでお知らせします。<br>
+					行きたいお店を見つけたら「いいね」お願いします。
+				</p>
+				<div class="main-snsArea-facebook">
+					<div id="fb-root"></div>
+					<div class="fb-page" data-href="https://www.facebook.com/flowerstokyo-1771470359752822/" data-width="574" data-height="327" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+						<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/flowerstokyo-1771470359752822/"><a href="https://www.facebook.com/flowerstokyo-1771470359752822/">flowers.tokyo</a></blockquote></div>
+					</div>
+				</div>
+			</aside>
 
+		</main>
+
+		<footer class="footer">
+			<p class="footer-copyright"><small>&copy; 2016 flours.tokyo</small></p>
+		</footer>
+
+	</div><!--/.area -->
 </div><!--/.page -->
 
-<script src="/common/js/lib/jquery-2.1.1.min.js"></script>
-<script src="/common/js/lib/jquery.instashow.packaged.js"></script>
+<script src="/common/js/lib.js"></script>
 <script src="/common/js/common.js"></script>
 <script src="/common/js/sub/top.js"></script>
 </body>

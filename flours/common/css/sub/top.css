@@ -18,6 +18,52 @@ body { text-align: center; }
 @media screen and (min-width: 769px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 890px; }
+
+
+/*----------------------------------------------------------
+ topVisual
+------------------------------------------------------------*/
+
+.topVisual {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.topVisual-inner {
+	display: inline-block;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.topVisual-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.topVisual-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 11px 20px;
+	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
+	color: #fff;
+	text-align: right;
+}
+
+
+/*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
 
@@ -127,6 +173,45 @@ body { text-align: center; }
 @media screen and (max-width: 768px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 515px; }
+
+
+/*----------------------------------------------------------
+ topVisual
+------------------------------------------------------------*/
+
+.topVisual {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.topVisual-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.topVisual-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 5px 50px;
+	background: rgba(0, 0, 0, 0.3);
+	font-size: 22px;
+	color: #fff;
+	text-align: right;
+}
+
+
+/*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
 
@@ -234,22 +319,66 @@ body { text-align: center; }
 @media screen and (max-width: 640px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 250px; }
+
+
+/*----------------------------------------------------------
+ topVisual
+------------------------------------------------------------*/
+
+.topVisual {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.topVisual-imageList figure {
+	display: block;
+	position: relative;
+}
+
+.topVisual-imageList figcaption {
+	display: block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 15px 5px 5px;
+	background: -webkit-gradient(
+					linear,
+					left top, left bottom,
+					from(rgba(0, 0, 0, 0)),
+						color-stop(0.3, rgba(0, 0, 0, 0)),
+					to(rgba(0, 0, 0, 0.3))
+				);
+	font-size: 14px;
+	color: #fff;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+	text-align: right;
+}
+
+
+/*----------------------------------------------------------
  header
 ------------------------------------------------------------*/
 
-.header-logo { margin-bottom: 20px; }
+.header {
+	padding-top: 25px;
+	padding-bottom: 20px;
+}
 
 
 /*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
 
-.main {
-	position: relative;
-	z-index: 2;
-	margin-top: 275px;
-	background: #fff;
-}
+.main { padding-top: 0; }
 
 .main-description {
 	margin-bottom: 20px;

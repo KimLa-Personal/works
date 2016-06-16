@@ -29,19 +29,7 @@
 			return this;
 		};
 		var proto = constructor.prototype = new views.PageView();
-		proto.render = function() {
-			views.PageView.prototype.render.apply(this);
-			var that = this;
-			$('.js-carousel').ready(function() {
-
-				/* トップビジュアル */
-				var topVisual = new ui.carousel();
-				topVisual.init({
-					el: '.js-carousel',
-					width: that.$el.width()
-				});
-
-			});
+		proto.setChildViewInstance = function() {
 
 			/* Instagram表示 */
 			var instashow = ui.setInstashow();
@@ -50,9 +38,13 @@
 			return this;
 		};
 		proto.onResize = function() {
-			this.isResize = true;
-			this.renderMain();
+			this.setElPaddingTop();
 			return this;
+		};
+		proto.setElPaddingTop = function() {
+			this.$el.css({
+				paddingTop: this.$carousel.height()
+			});
 		};
 		return constructor;
 	})();
