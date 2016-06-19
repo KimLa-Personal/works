@@ -434,7 +434,7 @@
 			proto.setEvents = function() {
 				var that = this;
 				this.$btn.off('click').on('click', function() {
-					if(!this.isAnimate) {
+					if(!that.isAnimate) {
 						that.onClickNavBtn();
 						that.isAnimate = false;
 					}

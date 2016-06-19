@@ -52,10 +52,12 @@
 			});
 
 			/* 店舗カセット 3番目 */
-			var shopItemThirdView = new ShopItemView();
-			shopItemThirdView.init({
-				el: '#ShopItemThirdView'
-			});
+			if($('#ShopItemThirdView').length > 0) {
+				var shopItemThirdView = new ShopItemView();
+				shopItemThirdView.init({
+					el: '#ShopItemThirdView'
+				});
+			}
 
 			return this;
 		};
