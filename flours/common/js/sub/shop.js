@@ -26,21 +26,22 @@
 	 */
 	var PageView = (function() {
 		var constructor = function() {
+			this.sideBarView = {};
 			return this;
 		};
 		var proto = constructor.prototype = new views.PageView();
-		proto.render = function() {
-			views.PageView.prototype.render.apply(this);
+		proto.setChildViewInstance = function() {
 
 			/* サイドバー */
-			var sideBarView = new views.SideBarView();
-			sideBarView.init({
+			this.sideBarView = new views.SideBarView();
+			this.sideBarView.parentViewEl = this.$el;
+			this.sideBarView.init({
 				el: '#SideView'
 			});
 
 			/* メイン */
-			var mainView = new MainView();
-			mainView.init({
+			this.mainView = new MainView();
+			this.mainView.init({
 				el: '#MainView'
 			});
 
@@ -68,28 +69,29 @@
 		};
 		var proto = constructor.prototype;
 		proto.init = function(args) {
-			var that = this;
 			this.$el = $(args.el);
-			this.$el.ready(function() {
-				that.setEl();
-				that.render();
-				that.setEvents();
-			});
+			this.setEl();
+			this.onLoadFunction();
+			this.setChildViewInstance();
+			this.setEvents();
 			return this;
 		};
 		proto.setEl = function() {
 			this.$floatingBtn = this.$el.find('.js-floatingBtn');
 			return this;
 		};
-		proto.render = function() {
+		proto.onLoadFunction = function() {
+			this.$floatingBtn.hide();
+			this.showScrollStart = $('.header').outerHeight();
+			this.showScrollEnd = $('body').outerHeight() - ($(window).height()+$('.footer').outerHeight());
+			return this;
+		};
+		proto.setChildViewInstance = function() {
 
 			/* GoogleMap表示 */
 			var googleMap = new ui.setGoogleMap();
 			googleMap.init('.js-googleMapView');
 
-			this.$floatingBtn.hide();
-			this.showScrollStart = $('.header').outerHeight();
-			this.showScrollEnd = $('body').outerHeight() - ($(window).height()+$('.footer').outerHeight());
 			return this;
 		};
 		proto.setEvents = function() {

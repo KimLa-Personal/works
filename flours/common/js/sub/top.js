@@ -31,10 +31,26 @@
 		var proto = constructor.prototype = new views.PageView();
 		proto.setChildViewInstance = function() {
 
+			/* カルーセル */
+			var setCarousel = new ui.setCarousel();
+			setCarousel.init({
+				$el: $('.js-carousel'),
+				autoplay: true
+			});
+
 			/* Instagram表示 */
 			var instashow = ui.setInstashow();
 			instashow.init('.js-instashowView');
 
+			return this;
+		};
+		proto.onLoadFunction = function() {
+			views.PageView.prototype.onLoadFunction.apply(this);
+			this.setCarousel();
+			return this;
+		};
+		proto.onRender = function() {
+			this.setElPaddingTop();
 			return this;
 		};
 		proto.onResize = function() {
@@ -45,6 +61,7 @@
 			this.$el.css({
 				paddingTop: this.$carousel.height()
 			});
+			return this;
 		};
 		return constructor;
 	})();

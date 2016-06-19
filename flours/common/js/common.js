@@ -43,6 +43,38 @@
 	App.ui = {
 
 		/**
+		 * カルーセル
+		 */
+		setCarousel: function() {
+			var $el = {};
+			var autoplay = false;
+			var init = function(args) {
+				set(args);
+				onLoadFunction();
+				return this;
+			};
+			var set = function(args) {
+				$el = args.$el;
+				autoplay = args.autoplay || autoplay;
+				return this;
+			};
+			var onLoadFunction = function() {
+				$el.slick({
+					accessibility: false,
+					autoplay: autoplay,
+					autoplaySpeed: 5000,
+					dots: false,
+					dotsClass: 'js-carouselBtn',
+					arrows: true,
+					infinite: true,
+					swipe: true
+				});
+				return this;
+			};
+			return { init: init };
+		},
+
+		/**
 		 * GoogleMap表示
 		 */
 		setGoogleMap: function() {
@@ -52,15 +84,15 @@
 			var marker = {};
 			var options = {};
 			var positions = {};
-			var init = function(el) {
-				setEl(el);
+			var init = function($view) {
+				setEl($view);
 				setOptions();
 				render();
 				setMarker();
 				return this;
 			};
-			var setEl = function(el) {
-				$el = $(el);
+			var setEl = function($view) {
+				$el = $view;
 				$canvas = $el.find('.js-googleMapCanvas');
 				return this;
 			};
@@ -181,36 +213,6 @@
 				return setData;
 			};
 			return { init: init };
-		},
-
-		/**
-		 * thickbox
-		 */
-		thickbox: function() {
-			var $el = {};
-			var $child = {};
-			var collection = [];
-			var init = function(args) {
-				setEl(args.el);
-				render();
-				setEvents();
-				return this;
-			};
-			var setEl = function(el) {
-				$el = $(el);
-				$child = $el.children();
-				return this;
-			};
-			var render = function() {
-				$child.find('img').each(function() {
-					collection.push($(this).attr('src'));
-				});
-				return this;
-			};
-			var setEvents = function() {
-				return this;
-			};
-			return { init: init };
 		}
 
 	};
@@ -220,73 +222,6 @@
 ------------------------------------------------------------*/
 
 	App.utils = {
-
-		/**
-		 * ウィンドウ表示
-		 */
-		thickbox: function() {
-			var $el = {};
-			var $btn = {};
-			var $box = {};
-			var $filter = {};
-			var boxWidth = 0;
-			var boxHeight = 0;
-			var fadeSpeed = 500;
-			var isOpen = false;
-			var isAnimate = false;
-			var init = function(args) {
-				$el = args.$el;
-				setEl();
-				render();
-				setEvents();
-				return this;
-			};
-			var setEl = function() {
-				$btn = $el.find('.js-showBoxBtn');
-				$box = $el.find('.js-showBoxWindow');
-				return this;
-			};
-			var render = function() {
-				$el.append('<div class="js-thickboxFilter"></div>');
-				$filter = $el.find('.js-thickboxFilter');
-				$box.hide();
-				return this;
-			};
-			var setEvents = function() {
-				$btn.off('click').on('click', function() {
-					if(!isAnimate) {
-						if(!isOpen) {
-							openWindow();
-							isAnimate = false;
-							isOpen = true;
-						}
-					}
-				});
-				$filter.off('click').on('click', function() {
-					if(!isAnimate) {
-						if(isOpen) {
-							closeWindow();
-							isAnimate = false;
-							isOpen = false;
-						}
-					}
-				});
-				return this;
-			};
-			var openWindow = function() {
-				isAnimate = true;
-				$filter.fadeIn(fadeSpeed);
-				$box.fadeIn(fadeSpeed);
-				return this;
-			};
-			var closeWindow = function() {
-				isAnimate = true;
-				$filter.fadeOut(fadeSpeed);
-				$box.fadeOut(fadeSpeed);
-				return this;
-			};
-			return { init: init }
-		}
 
 	};
 
@@ -302,6 +237,7 @@
 		PageView: (function() {
 			var constructor = function() {
 				this.$el = {};
+				this.$views = {};
 				this.$area = {};
 				this.$anchor = {};
 				this.$imgBtn = {};
@@ -310,6 +246,7 @@
 				this.$areaList = {};
 				this.scrollSpeed = 500;
 				this.isScroll = false;
+				this.isOpenFilter = false;
 				return this;
 			};
 			var proto = constructor.prototype;
@@ -325,17 +262,16 @@
 			};
 			proto.setEl = function(el) {
 				this.$el = $(el);
-				this.$area = this.$el.find('.area');
+				this.$views = this.$el.find('.views');
+				this.$area = this.$views.find('.area');
 				this.$anchor = this.$el.find('a[href^="#"]');
 				this.$imgBtn = this.$el.find('.btn');
-				this.$carousel = this.$el.find('.js-carousel');
 				this.$header = this.$el.find('.header');
 				this.$areaList = this.$el.find('.js-areaNavList');
 				return this;
 			};
 			proto.onLoadFunction = function() {
 				this.setStyle();
-				this.setCarousel();
 				this.showAreaList();
 				return this;
 			};
@@ -349,20 +285,6 @@
 				return this;
 			};
 			proto.onRender = function() {
-				return this;
-			};
-			proto.setCarousel = function() {
-				this.$carousel.slick({
-					accessibility: false,
-					autoplay: true,
-					autoplaySpeed: 5000,
-					dots: false,
-					dotsClass: 'js-carouselBtn',
-					arrows: true,
-					infinite: true,
-					swipe: true
-
-				});
 				return this;
 			};
 			proto.showAreaList = function() {
@@ -419,24 +341,37 @@
 				});
 				this.$el.on('onShowSidebar', function(e, slideWidth) {
 					that.onShowSidebar(slideWidth);
+					that.isOpenFilter = true;
 				});
 				this.$el.on('onCloseSidebar', function(e, slideWidth) {
 					that.onCloseSlidebar(slideWidth);
+					that.isOpenFilter = false;
 				});
 				return this;
 			};
 			proto.onLoadSidebar = function() {
 				var that = this;
-				this.$el.append('<div class="filter"></div>').promise().done(function() {
-					that.$filter = that.$el.find('.filter');
+				this.$views.append('<div class="js-filter"></div>').promise().done(function() {
+					that.$filter = that.$el.find('.js-filter');
+					that.setOnLoadSidebarEvents();
 				});
-				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
+				this.$views.css('left', 0);
 				return this;
-			}
+			};
+			proto.setOnLoadSidebarEvents = function() {
+				var that = this;
+				this.$filter.off('click').on('click', function() {
+					if(that.isOpenFilter) {
+						that.onCloseSlidebar();
+						that.isOpenFilter = false;
+					}
+				});
+				return this;
+			};
 			proto.onShowSidebar = function(slideWidth) {
 				this.$filter.fadeIn();
 				$('body').width($(window).width());
-				this.$el.animate({
+				this.$views.animate({
 					left: slideWidth
 				});
 				this.$header.animate({
@@ -447,7 +382,7 @@
 			};
 			proto.onCloseSlidebar = function() {
 				this.$filter.fadeOut();
-				this.$el.animate({
+				this.$views.animate({
 					left: 0
 				});
 				this.$header.animate({
@@ -475,7 +410,7 @@
 			var proto = constructor.prototype;
 			proto.init = function(args) {
 				this.setEl(args.el);
-				this.render();
+				this.onLoadFunction();
 				this.setEvents();
 				return this;
 			};
@@ -485,20 +420,17 @@
 				this.$areaList = this.$el.find('.js-areaNavList');
 				return this;
 			};
-			proto.render = function() {
-				this.slideWidth = this.$el.outerWidth();
-				this.parentViewEl.trigger('onLoadSidebar');
+			proto.onLoadFunction = function() {
+				var that = this;
+				this.$el.ready(function() {
+					that.slideWidth = that.$el.outerWidth();
+					that.parentViewEl.trigger('onLoadSidebar');
+				});
 				return this;
 			};
 			proto.setEvents = function() {
 				var that = this;
 				this.$btn.off('click').on('click', function() {
-					if(!this.isAnimate) {
-						that.onClickNavBtn();
-						that.isAnimate = false;
-					}
-				});
-				this.$filter.off('click').on('click', function() {
 					if(!this.isAnimate) {
 						that.onClickNavBtn();
 						that.isAnimate = false;
@@ -517,7 +449,111 @@
 			};
 			proto.closeSidebar = function() {
 				this.isAnimate = true;
-				this.parentViewEl.trigger('onCloseSlidebar', this.slideWidth);
+				this.parentViewEl.trigger('onCloseSidebar', this.slideWidth);
+				return this;
+			};
+			return constructor;
+		})(),
+
+		/**
+		 * thickbox
+		 */
+		ThickboxView: (function() {
+			var constructor = function() {
+				this.$el = {};
+				this.$thickbox = {};
+				this.$btnClose = {};
+				this.$body = {};
+				this.$filter = {};
+				this.fadeSpeed = 500;
+				this.isAnimate = false;
+				this.isShow = false;
+				return this;
+			};
+			var proto = constructor.prototype;
+			proto.init = function(that) {
+				this.setEl(that);
+				this.render();
+				return this;
+			};
+			proto.setEl = function(that) {
+				this.$el = $(that);
+				this.$clone = this.$el.find('.js-thickboxClone');
+				return this;
+			};
+			proto.render = function() {
+				var that = this;
+				var tmpl = [];
+				tmpl.push('<div class="thickbox js-thickboxView">');
+				tmpl.push('  <div class="thickbox-inner">');
+				tmpl.push('    <div class="thickbox-btnClose js-thickboxBtnClose">×</div>');
+				tmpl.push('    <div class="thickbox-body js-thickboxBody"></div>');
+				tmpl.push('  </div>');
+				tmpl.push('  <div class="thickbox-filter js-thickboxFilter"></div>');
+				tmpl.push('</div>');
+				$('body').append(tmpl.join('')).promise().done(function() {
+					that.onRender();
+				});
+				return this;
+			};
+			proto.onRender = function() {
+				this.onRenderSetEl();
+				this.onLoadFunction();
+				this.setEvents();
+				return this;
+			};
+			proto.onRenderSetEl = function() {
+				this.$thickbox = $('.js-thickboxView');
+				this.$inner = this.$thickbox.find('.thickbox-inner');
+				this.$btnClose = this.$thickbox.find('.js-thickboxBtnClose');
+				this.$body = this.$thickbox.find('.js-thickboxBody');
+				this.$filter = this.$thickbox.find('.js-thickboxFilter');
+				return this;
+			};
+			proto.onLoadFunction = function() {
+				var that = this;
+				this.$clone.clone().appendTo('.js-thickboxBody').promise().done(function() {
+					that.openView();
+					that.isShow = true;
+				});
+				return this;
+			};
+			proto.setEvents = function() {
+				var that = this;
+				this.$btnClose.off('click').on('click', function() {
+					if(that.isShow) {
+						that.closeView();
+						that.isShow = false;
+						that.isAnimate = false;
+					}
+				});
+				this.$filter.off('click').on('click', function() {
+					if(that.isShow) {
+						that.closeView();
+						that.isShow = false;
+						that.isAnimate = false;
+					}
+				});
+				return this;
+			};
+			proto.openView = function() {
+				var that = this;
+				this.isAnimate = true;
+				this.$thickbox.fadeIn(this.fadeSpeed, function() {
+					that.onOpen();
+				});
+				return this;
+			};
+			proto.onOpen = function() {
+
+				return this;
+			};
+			proto.closeView = function() {
+				var that = this;
+				this.isAnimate = true;
+				this.$thickbox.fadeOut(this.fadeSpeed, function() {
+					that.$thickbox.remove();
+				});
 				return this;
 			};
 			return constructor;
@@ -526,14 +562,3 @@
 	};
 
 })(APP, window, document);
-
-/**
- * facebook
- */
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));

@@ -7,184 +7,201 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link rel="stylesheet" type="text/css" href="/common/css/common.css">
+<link rel="stylesheet" type="text/css" href="/common/css/lib.css">
 <link rel="stylesheet" type="text/css" href="/common/css/design.css">
-<link rel="stylesheet" type="text/css" href="/common/css/sub/list.css">
-<link rel="stylesheet" type="text/css" href="/common/css/lib/jquery.instashow.min.css">
+<link rel="stylesheet" type="text/css" href="/common/css/sub/area.css">
 </head>
 <body>
 
 <div class="page" id="PageView">
+	<div class="views">
 
-	<header class="header">
-		<h1 class="header-logo"><a href="/"><img src="/common/img/logo.png" alt="flours.tokyo"></a></h1>
-		<div class="header-btnNav js-btnSidebar">サイドバーを表示</div>
-	</header>
+		<div class="side" id="SideView">
+			<header class="side-header">
+				<div class="side-header-logo"><a href="/"><img src="/common/img/logomark.png" alt="flours.tokyo"></a></div>
+				<!--p class="side-header-catch">あなたらしい花束を贈ろう</p>
+				<p class="side-header-description">
+					レストランに味や雰囲気の違いがあるように、お花屋さんにも個性があります。<br>
+					flours.tokyo は、いろんな街を取材して見つけた おすすめのお花屋さんをご紹介します。<br>
+					大切な人に贈る「あなたらしい花束」を、お出かけ先やお住いの街で探してみてください。
+				</p-->
+			</header>
+			<nav class="side-areaNav">
+				<h2 class="side-areaNav-title">お花屋さんを探す</h2>
+				<ul class="side-areaNav-list js-areaNavList">
+				</ul>
+			</nav>
+		</div><!--/.side -->
 
-	<div class="side" id="SideView">
-		<header class="side-header">
-			<div class="side-header-logo"><a href="/"><img src="/common/img/logomark.png" alt="flours.tokyo"></a></div>
-			<p class="side-header-catch">あなたらしい花束を贈ろう</p>
-			<p class="side-header-description">
-				レストランに味や雰囲気の違いがあるように、お花屋さんにも個性があります。<br>
-				flours.tokyo は、いろんな街を取材して見つけた おすすめのお花屋さんをご紹介します。<br>
-				大切な人に贈る「あなたらしい花束」を、お出かけ先やお住いの街で探してみてください。
-			</p>
-		</header>
-		<nav class="side-areaNav">
-			<h2 class="side-areaNav-title">お花屋さんを探す</h2>
-			<ul class="side-areaNav-list js-areaNavList">
-			</ul>
-		</nav>
-	</div>
+		<div class="area">
 
-	<main class="main">
+			<header class="header">
+				<h1 class="header-logo"><a href="/"><img src="/common/img/logo.png" alt="flours.tokyo"></a></h1>
+				<div class="header-btnNav js-btnSidebar">サイドバーを表示</div>
+			</header>
 
-		<header class="main-header">
-			<h1 class="main-header-title">三軒茶屋のお花屋さん</h1>
-			<p class="main-header-lead">田園都市線 三軒茶屋駅 / 世田谷線 三軒茶屋駅 周辺でおすすめのお花屋さん</p>
-		</header>
+			<main class="main">
 
-		<section class="main-section shopList">
+				<header class="main-header">
+					<h1 class="main-header-title">三軒茶屋のお花屋さん</h1>
+					<p class="main-header-lead">田園都市線 三軒茶屋駅 / 世田谷線 三軒茶屋駅 周辺でおすすめのお花屋さん</p>
+				</header>
 
-			<ul class="shopList-list">
-				<li class="shopItem" id="ShopItemFirstView">
-					<div class="shopItem-inner">
-						<div class="shopItem-header">
-							<a href="/shop/">
-								<p class="shopItem-shopName">はなごや</p>
-								<p class="shopItem-coreTime">三軒茶屋 徒歩3分 12:00 〜 22:00(水曜定休日)</p>
-							</a>
-						</div>
-						<figure class="shopItem-image">
-							<img src="/shop/img/thumbs.jpg" alt="">
-							<figcaption></figcaption>
-						</figure>
-						<div class="shopItem-mainImage shopMainImage js-carousel">
-							<ul class="shopMainImage-list js-carouselImageList">
-								<li><img src="/shop/img/thumb_image01.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image02.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image03.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image04.jpg" alt=""></li>
-							</ul>
-						</div>
+				<section class="main-section shopList">
+
+					<ul class="shopList-list">
+						<li class="shopItem" id="ShopItemFirstView">
+							<div class="shopItem-inner">
+								<div class="shopItem-header">
+									<a href="/shop/">
+										<p class="shopItem-shopName">はなごや</p>
+										<p class="shopItem-coreTime">三軒茶屋 徒歩3分 12:00 〜 22:00(水曜定休日)</p>
+									</a>
+								</div>
+								<figure class="shopItem-image">
+									<img src="/shop/img/thumbs.jpg" alt="">
+									<figcaption></figcaption>
+								</figure>
+								<div class="shopItem-mainImage shopMainImage">
+									<ul class="shopMainImage-list js-carousel">
+										<li><img src="/shop/img/thumb_image01.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image02.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image03.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image04.jpg" alt=""></li>
+									</ul>
+								</div>
+							</div>
+							<div class="shopItem-btn">
+								<div class="shopItem-tel js-thickboxTel">
+									<p class="shopItem-tel-btn">お電話でご注文</p>
+									<div class="js-thickboxClone">
+										<div class="shopItem-tel-no">03-0000-0000</div>
+									</div>
+								</div>
+								<div class="shopItem-map js-thickboxMap">
+									<p class="shopItem-map-btn">地図を見る</p>
+									<div class="js-thickboxClone">
+										<div class="shopItem-map-area js-googleMapView" data-name="ayase" data-x="139.8306223" data-y="35.7640283">
+											<div class="shopItem-map-area-canvas js-googleMapCanvas"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="shopItem" id="ShopItemSecoundView">
+							<div class="shopItem-inner">
+								<div class="shopItem-header">
+									<a href="/shop/">
+										<p class="shopItem-shopName">はなごや</p>
+										<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
+									</a>
+								</div>
+								<figure class="shopItem-image">
+									<img src="/shop/img/thumbs.jpg" alt="">
+									<figcaption></figcaption>
+								</figure>
+								<div class="shopItem-mainImage shopMainImage">
+									<ul class="shopMainImage-list js-carousel">
+										<li><img src="/shop/img/thumb_image04.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image02.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image01.jpg" alt=""></li>
+										<li><img src="/shop/img/thumb_image03.jpg" alt=""></li>
+									</ul>
+								</div>
+							</div>
+							<div class="shopItem-btn">
+								<div class="shopItem-tel js-thickboxTel">
+									<p class="shopItem-tel-btn">お電話でご注文</p>
+									<div class="js-thickboxClone">
+										<div class="shopItem-tel-no">03-0000-0000</div>
+									</div>
+								</div>
+								<div class="shopItem-map js-thickboxMap">
+									<p class="shopItem-map-btn">地図を見る</p>
+									<div class="js-thickboxClone">
+										<div class="shopItem-map-area js-googleMapView" data-name="ayase" data-x="139.8306223" data-y="35.7640283">
+											<div class="shopItem-map-area-canvas js-googleMapCanvas"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul><!--/.shopList-list -->
+
+					<div class="shopList-info">
+						<h2 class="shopList-info-lead">寄り道したくなる「はなごや」と、特別な日のギフトをお願いしたい「SHALIMAR」</h2>
+						<p class="shopList-info-notes"> 日常と特別のちょうどいい具合。そんな「三軒茶屋らしさ」を感じるお花屋さんを 2 つご紹介します。 三軒茶屋駅の「世田谷通り口」を出ると、大きな通りが 2 本交わる交差点があります。 片方が世田谷通り、もうひとつが首都高の下を通る玉川通り(国道 246 号)。</p>
+						<p class="shopList-info-notes">世田谷通りを 200 メートルくらい進んで「コルモピア」の角を左に曲がって、しばらく進むと小さな お花屋さんが見えてきます。「はなごや / 8758 / 花吾屋」と 3 通りの書き方があるお花屋さん。その名 の通り、お店のなかにも外にもフレッシュなお花がたくさん並んでいます。</p>
 					</div>
-					<div class="shopItem-btn">
-						<div class="shopItem-tel js-onClickShowTel">
-							<p class="shopItem-tel-btn js-showBoxBtn">お電話でご注文</p>
-							<div class="shopItem-tel-no js-showBoxWindow">03-0000-0000</div>
-						</div>
-						<div class="shopItem-map">
-							<p class="shopItem-map-btn">地図を見る</p>
-						</div>
-					</div>
-				</li>
-				<li class="shopItem" id="ShopItemSecoundView">
-					<div class="shopItem-inner">
-						<div class="shopItem-header">
+
+					<h3 class="shopList-otherTitle">その他、三軒茶屋のお花屋さん</h3>
+					<ul class="shopList-otherShopList">
+						<li class="shopItem">
 							<a href="/shop/">
-								<p class="shopItem-shopName">はなごや</p>
+								<p class="shopItem-shopName">フルールカレン</p>
 								<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
 							</a>
-						</div>
-						<figure class="shopItem-image">
-							<img src="/shop/img/thumbs.jpg" alt="">
-							<figcaption></figcaption>
-						</figure>
-						<div class="shopItem-mainImage shopMainImage js-carousel">
-							<ul class="shopMainImage-list js-carouselImageList">
-								<li><img src="/shop/img/thumb_image04.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image02.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image01.jpg" alt=""></li>
-								<li><img src="/shop/img/thumb_image03.jpg" alt=""></li>
-							</ul>
+						</li>
+						<li class="shopItem">
+							<a href="/shop/">
+								<p class="shopItem-shopName">フルールカレン</p>
+								<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
+							</a>
+						</li>
+						<li class="shopItem">
+							<a href="/shop/">
+								<p class="shopItem-shopName">フルールカレン</p>
+								<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
+							</a>
+						</li>
+						<li class="shopItem">
+							<a href="/shop/">
+								<p class="shopItem-shopName">フルールカレン</p>
+								<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
+							</a>
+						</li>
+					</ul>
+
+				</section><!--/.shopList -->
+
+				<aside class="main-aside otherAreaList">
+					<h2 class="otherAreaList-title">他の街のお花屋さんを探す</h2>
+					<ul class="otherAreaList-list js-areaNavList">
+					</ul>
+				</aside>
+
+				<aside class="main-aside main-snsArea">
+					<p class="main-snsArea-description">
+						新しく取材したお店の情報や、季節のお花の写真を<br>
+						Facebookでお知らせします。<br>
+						行きたいお店を見つけたら「いいね」お願いします。
+					</p>
+					<div class="main-snsArea-facebook">
+						<div id="fb-root"></div>
+						<div class="fb-page" data-href="https://www.facebook.com/flowerstokyo-1771470359752822/" data-width="574" data-height="327" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+							<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/flowerstokyo-1771470359752822/"><a href="https://www.facebook.com/flowerstokyo-1771470359752822/">flowers.tokyo</a></blockquote></div>
 						</div>
 					</div>
-					<div class="shopItem-btn">
-						<div class="shopItem-tel js-onClickShowTel">
-							<p class="shopItem-tel-btn js-showBoxBtn">お電話でご注文</p>
-							<div class="shopItem-tel-no js-showBoxWindow">03-0000-0000</div>
-						</div>
-						<div class="shopItem-map">
-							<p class="shopItem-map-btn">地図を見る</p>
-						</div>
+					<div class="main-snsArea-instagram">
+						<div data-is data-is-api="/common/api/" data-is-source="@muradosmann"></div>
+						<a href="" class="btn-instagram">Instagramでfloursをフォローする</a>
 					</div>
-				</li>
-			</ul><!--/.shopList-list -->
+				</aside>
 
-			<div class="shopList-info">
-				<h2 class="shopList-info-lead">寄り道したくなる「はなごや」と、特別な日のギフトをお願いしたい「SHALIMAR」</h2>
-				<p class="shopList-info-notes"> 日常と特別のちょうどいい具合。そんな「三軒茶屋らしさ」を感じるお花屋さんを 2 つご紹介します。 三軒茶屋駅の「世田谷通り口」を出ると、大きな通りが 2 本交わる交差点があります。 片方が世田谷通り、もうひとつが首都高の下を通る玉川通り(国道 246 号)。</p>
-				<p class="shopList-info-notes">世田谷通りを 200 メートルくらい進んで「コルモピア」の角を左に曲がって、しばらく進むと小さな お花屋さんが見えてきます。「はなごや / 8758 / 花吾屋」と 3 通りの書き方があるお花屋さん。その名 の通り、お店のなかにも外にもフレッシュなお花がたくさん並んでいます。</p>
-			</div>
+			</main>
 
-			<h3 class="shopList-otherTitle">その他、三軒茶屋のお花屋さん</h3>
-			<ul class="shopList-otherShopList">
-				<li class="shopItem">
-					<a href="/shop/">
-						<p class="shopItem-shopName">フルールカレン</p>
-						<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
-					</a>
-				</li>
-				<li class="shopItem">
-					<a href="/shop/">
-						<p class="shopItem-shopName">フルールカレン</p>
-						<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
-					</a>
-				</li>
-				<li class="shopItem">
-					<a href="/shop/">
-						<p class="shopItem-shopName">フルールカレン</p>
-						<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
-					</a>
-				</li>
-				<li class="shopItem">
-					<a href="/shop/">
-						<p class="shopItem-shopName">フルールカレン</p>
-						<p class="shopItem-coreTime">12:00 〜 22:00(水曜定休日)</p>
-					</a>
-				</li>
-			</ul>
+		</div><!--/.area -->
 
-		</section><!--/.shopList -->
+		<footer class="footer">
+			<p class="footer-copyright"><small>&copy; 2016 flours.tokyo</small></p>
+		</footer>
 
-		<aside class="main-aside otherAreaList">
-			<h2 class="otherAreaList-title">他の街のお花屋さんを探す</h2>
-			<ul class="otherAreaList-list js-areaNavList">
-			</ul>
-		</aside>
-
-		<aside class="main-aside main-snsArea">
-			<p class="main-snsArea-description">
-				新しく取材したお店の情報や、季節のお花の写真を<br>
-				Facebook・Twitter でお知らせします。<br>
-				行きたいお店を見つけたら「いいね」お願いします。
-			</p>
-			<div class="main-snsArea-facebook">
-				<div id="fb-root"></div>
-				<div class="fb-page" data-href="https://www.facebook.com/flowerstokyo-1771470359752822/" data-width="574" data-height="327" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-					<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/flowerstokyo-1771470359752822/"><a href="https://www.facebook.com/flowerstokyo-1771470359752822/">flowers.tokyo</a></blockquote></div>
-				</div>
-			</div>
-			<div class="main-snsArea-instagram">
-				<div data-is data-is-api="/common/api/" data-is-source="@muradosmann"></div>
-				<a href="" class="btn-instagram">Instagramでfloursをフォローする</a>
-			</div>
-			<div class="main-snsArea-twitter">
-				<a href="https://twitter.com/intent/follow?screen_name=flourstokyo" class="btn-twitter" target="_blank">@flourstokyoさんをフォロー</a>
-			</div>
-		</aside>
-
-	</main>
-
-	<footer class="footer">
-		<p class="footer-copyright"><small>&copy; 2016 flours.tokyo</small></p>
-	</footer>
-
+	</div><!--/.views -->
 </div><!--/.page -->
 
-<script src="/common/js/lib/jquery-2.1.1.min.js"></script>
-<script src="/common/js/lib/jquery.instashow.packaged.js"></script>
+<script src="/common/js/lib.js"></script>
 <script src="/common/js/common.js"></script>
-<script src="/common/js/sub/list.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3.12&sensor=false"></script>
+<script src="/common/js/sub/area.js"></script>
 </body>
 </html>
