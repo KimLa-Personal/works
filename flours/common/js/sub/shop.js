@@ -90,7 +90,7 @@
 
 			/* GoogleMap表示 */
 			var googleMap = new ui.setGoogleMap();
-			googleMap.init('.js-googleMapView');
+			googleMap.init($('.js-googleMapView'));
 
 			return this;
 		};

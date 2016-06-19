@@ -165,6 +165,7 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	z-index: 13;
 	width: 100%;
 	padding: 7px 0;
 	background: #4f92ce;
@@ -204,7 +205,7 @@
  base
 ------------------------------------------------------------*/
 
-.area { padding-top: 125px; }
+.area { padding-top: 85px; }
 
 
 /*----------------------------------------------------------

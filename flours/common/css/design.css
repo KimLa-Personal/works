@@ -175,13 +175,14 @@ body { background: #fff; }
 
 body { background: #f1f1f1; }
 
+.views {
+	position: relative;
+	z-index: 10;
+}
+
 .area {
 	position: relative;
 	z-index: 10;
-/*
-	max-width: 960px;
-	min-width: 500px;
-	*/
 	background: #fff;
 	overflow: hidden;
 }
@@ -437,6 +438,8 @@ a.btn-twitter {
 ------------------------------------------------------------*/
 
 .footer {
+	position: relative;
+	z-index: 10;
 	clear: both;
 	padding: 40px 0 30px;
 	background: #f1f1f1;
@@ -477,11 +480,11 @@ a.btn-twitter {
 
 .header {
 	position: relative;
-	padding: 40px 15px 0;
+	padding: 20px 15px;
 }
 
 .header-logo {
-	width: 412px;
+	width: 312px;
 	margin: 0 auto;
 }
 
@@ -640,9 +643,7 @@ a.btn-twitter {
 /* side-areaNav
 --------------------------------------------------*/
 
-.side-areaNav {
-	margin-top: 50px;
-}
+.side-areaNav {}
 
 .side-areaNav-title {
 	font-size: 20px;

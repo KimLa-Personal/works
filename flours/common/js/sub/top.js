@@ -44,11 +44,6 @@
 
 			return this;
 		};
-		proto.onLoadFunction = function() {
-			views.PageView.prototype.onLoadFunction.apply(this);
-			this.setCarousel();
-			return this;
-		};
 		proto.onRender = function() {
 			this.setElPaddingTop();
 			return this;
@@ -59,7 +54,7 @@
 		};
 		proto.setElPaddingTop = function() {
 			this.$el.css({
-				paddingTop: this.$carousel.height()
+				paddingTop: this.$el.find('.topVisual').height()
 			});
 			return this;
 		};

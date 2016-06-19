@@ -241,7 +241,6 @@
 				this.$area = {};
 				this.$anchor = {};
 				this.$imgBtn = {};
-				this.$carousel = {};
 				this.$filter = {};
 				this.$areaList = {};
 				this.scrollSpeed = 500;

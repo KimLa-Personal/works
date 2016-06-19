@@ -213,7 +213,7 @@
  base
 ------------------------------------------------------------*/
 
-.area { padding-top: 125px; }
+.area { padding-top: 85px; }
 
 
 /*----------------------------------------------------------
@@ -423,8 +423,15 @@
 	background: url("/common/img/icon_tel.png") no-repeat 0 0;
 }
 
-.shopItem-map { display: none; }
+.shopItem-map,
+.shopItem-btn .js-thickboxClone { display: none; }
 
+.shopItem-tel-no {
+	padding: 20px 0 40px;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+}
 
 
 }
@@ -714,11 +721,6 @@
 	height: 350px;
 }
 .shopItem-map-area-canvas { height: 350px; }
-
-.shopItem-btn .js-thickboxClone {
-	position: absolute;
-	z-index: -1;
-}
 
 
 /* shopMainImage
