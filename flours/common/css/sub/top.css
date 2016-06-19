@@ -15,33 +15,53 @@ body { text-align: center; }
 /**********************************************************************
  PC 画面の横幅が769px以上
 ***********************************************************************/
+@media screen and (min-width: 1280px){
+
+.topVisual-inner {
+	display: inline-block;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+}
+
 @media screen and (min-width: 769px){
+
+/*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 890px; }
+
 
 /*----------------------------------------------------------
  topVisual
 ------------------------------------------------------------*/
 
 .topVisual {
-	position: relative;
-	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
 }
 
-.topVisual-list {
-	overflow: hidden;
+.topVisual-inner {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
 }
 
-.topVisual-list li {
-	float: left;
+.topVisual-imageList {
+	width: 100%;
 }
 
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
+.topVisual-imageList figure {
 	display: block;
 	position: relative;
 }
 
-.topVisual-list figcaption {
+.topVisual-imageList figcaption {
 	display: block;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -56,33 +76,16 @@ body { text-align: center; }
 	text-align: right;
 }
 
-.topVisual-btn {
-	position: absolute;
-	top: 18px;
-	right: 15px;
-}
-
-.topVisual-btn li {
-	display: inline-block;
-	width: 22px;
-	height: 22px;
-	margin-left: 20px;
-	background: #fff;
-	border-radius: 11px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
-
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
-}
-
 
 /*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
+
+.main {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
 
 .main-description {
 	margin-bottom: 80px;
@@ -154,6 +157,9 @@ body { text-align: center; }
 	color: #4d4d4d;
 	text-decoration: none;
 }
+.searchArea-area-list li a:hover {
+	background: #f1f1f1;
+}
 
 
 /* galleryArea
@@ -184,30 +190,29 @@ body { text-align: center; }
 @media screen and (max-width: 768px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 515px; }
+
+
+/*----------------------------------------------------------
  topVisual
 ------------------------------------------------------------*/
 
 .topVisual {
-	position: relative;
-	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 
-.topVisual-list {
-	overflow: hidden;
-}
-
-.topVisual-list li {
-	float: left;
-}
-
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
+.topVisual-imageList figure {
 	display: block;
 	position: relative;
 }
 
-.topVisual-list figcaption {
+.topVisual-imageList figcaption {
 	display: block;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -222,33 +227,23 @@ body { text-align: center; }
 	text-align: right;
 }
 
-.topVisual-btn {
-	position: absolute;
-	top: 18px;
-	right: 15px;
-}
 
-.topVisual-btn li {
-	display: inline-block;
-	width: 22px;
-	height: 22px;
-	margin-left: 20px;
-	background: #fff;
-	border-radius: 11px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
 
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
-}
+.header { padding-top: 50px; }
 
 
 /*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
+
+.main {
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
 
 .main-description {
 	margin-bottom: 60px;
@@ -348,35 +343,29 @@ body { text-align: center; }
 @media screen and (max-width: 640px){
 
 /*----------------------------------------------------------
+ base
+------------------------------------------------------------*/
+
+.page { padding-top: 250px; }
+
+
+/*----------------------------------------------------------
  topVisual
 ------------------------------------------------------------*/
 
 .topVisual {
-	position: relative;
-	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 
-.topVisual-list {
-	overflow: hidden;
-}
-
-.topVisual-list li {
-	float: left;
-}
-
-.topVisual-list a:hover img { opacity: 0.8; }
-
-.topVisual-list figure {
+.topVisual-imageList figure {
 	display: block;
 	position: relative;
 }
 
-.topVisual-list figure {
-	display: block;
-	position: relative;
-}
-
-.topVisual-list figcaption {
+.topVisual-imageList figcaption {
 	display: block;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -384,34 +373,28 @@ body { text-align: center; }
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	padding: 5px;
-	background: rgba(0, 0, 0, 0.3);
-	font-size: 12px;
+	padding: 15px 5px 5px;
+	background: -webkit-gradient(
+					linear,
+					left top, left bottom,
+					from(rgba(0, 0, 0, 0)),
+						color-stop(0.3, rgba(0, 0, 0, 0)),
+					to(rgba(0, 0, 0, 0.3))
+				);
+	font-size: 14px;
 	color: #fff;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 	text-align: right;
 }
 
-.topVisual-btn {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-}
 
-.topVisual-btn li {
-	display: inline-block;
-	width: 6px;
-	height: 6px;
-	margin-left: 8px;
-	background: #fff;
-	border-radius: 3px;
-	text-indent: -9999px;
-	opacity: 0.5;
-	cursor: pointer;
-}
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
 
-.topVisual-btn li:hover,
-.topVisual-btn li.active {
-	opacity: 1;
+.header {
+	padding-top: 25px;
+	padding-bottom: 20px;
 }
 
 
@@ -419,13 +402,15 @@ body { text-align: center; }
  main
 ------------------------------------------------------------*/
 
+.main { padding-top: 0; }
+
 .main-description {
 	margin-bottom: 20px;
 	padding: 0 15px;
 }
 
 .main-description-catch {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .main-description-text {

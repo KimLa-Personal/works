@@ -23,7 +23,8 @@
 
 	App.global = {
 
-		areanavPath: '/common/include/areanav.html'  // サイドバー内エリア一覧HTMLパス
+		areanavPath: '/common/include/areanav.html',  // サイドバー内エリア一覧HTMLパス
+		isShowSide: false
 
 	};
 
@@ -44,140 +45,173 @@
 		/**
 		 * カルーセル
 		 */
-		carousel: function() {
+		setCarousel: function() {
 			var $el = {};
-			var $imageList = {};
-			var $item = {};
-			var $btnList = {};
-			var $btn = {};
-			var autoSlide = {};
-			var itemLength = 0;
-			var slideWidth = 0;
-			var viewNum = 0;
-			var slideSpeed = 500;
-			var intervalTime = 5000;
-			var isAnimate = false;
-			var isResize = false;
-			var isAuto = true;
+			var autoplay = false;
 			var init = function(args) {
-				slideSpeed = args.slideSpeed || slideSpeed;
-				intervalTime = args.intervalTime || intervalTime;
-				isAuto = args.autoSlide !== undefined ? args.autoSlide : isAuto;
-				$el = args.$el;
-				setEl();
-				render();
-				if(isAuto) {
-					setAutoSlide();
-				}
-				setEvents();
+				set(args);
+				onLoadFunction();
 				return this;
 			};
-			var setEl = function() {
-				$imageList = $el.find('.js-carouselImageList');
-				$btnList = $el.find('.js-carouselBtnList');
-				$item = $imageList.children();
+			var set = function(args) {
+				$el = args.$el;
+				autoplay = args.autoplay || autoplay;
+				return this;
+			};
+			var onLoadFunction = function() {
+				$el.slick({
+					accessibility: false,
+					autoplay: autoplay,
+					autoplaySpeed: 5000,
+					dots: false,
+					dotsClass: 'js-carouselBtn',
+					arrows: true,
+					infinite: true,
+					swipe: true
+				});
+				return this;
+			};
+			return { init: init };
+		},
+
+		/**
+		 * GoogleMap表示
+		 */
+		setGoogleMap: function() {
+			var $el = {};
+			var $canvas = {};
+			var map = {};
+			var marker = {};
+			var options = {};
+			var positions = {};
+			var init = function($view) {
+				setEl($view);
+				setOptions();
+				render();
+				setMarker();
+				return this;
+			};
+			var setEl = function($view) {
+				$el = $view;
+				$canvas = $el.find('.js-googleMapCanvas');
+				return this;
+			};
+			var setOptions = function() {
+				positions = {
+					x: $el.data('x'),
+					y: $el.data('y'),
+					zoom: $el.data('zoom') || 19
+				};
+				options = {
+					zoom: positions.zoom,
+					center: new google.maps.LatLng(positions.y, positions.x),
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					mapTypeControl: false,
+					draggable: false
+				};
 				return this;
 			};
 			var render = function() {
-				itemLength = $item.length;
-				imageListRender();
-				btnListRender();
+				map = new google.maps.Map($canvas.get(0), options);
 				return this;
 			};
-			var imageListRender = function() {
-				slideWidth = $item.first().width();
-				$item.each(function() {
-					$(this).width(slideWidth);
-				});
-				$imageList.css({
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: slideWidth * (itemLength+1)
-				});
-				$imageList.append($item.first().clone());
-				$el.css({
-					height: $item.first().height()
+			var setMarker = function() {
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(positions.y, positions.x),
+					map: map
 				});
 				return this;
 			};
-			var btnListRender = function() {
-				var btnListArray = [];
-				for(var i=0; i<itemLength; i++) {
-					btnListArray.push('<li>' + (i+1) + '</li>');
-				}
-				$btnList.append(btnListArray.join('')).promise().done(function() {
-					$btn = $btnList.children();
-					$btn.first().addClass('active');
+			return { init: init };
+		},
+
+		/**
+		 * Instagram表示
+		 */
+		setInstashow: function() {
+			var $el = {};
+			var $canvas = {};
+			var options = {};
+			var colors = {};
+			var init = function(el) {
+				setEl(el);
+				setOptions();
+				render();
+				return this;
+			};
+			var setEl = function(el) {
+				$el = $(el);
+				$canvas = $el.find('js-instaCanvas');
+				return this;
+			};
+			var setOptions = function() {
+				options = {
+					api: '/common/api/',
+					source: '@flowers.tokyo',
+					filterOnly: $el.data('hash'),
+					columns: '3',
+					rows: '3',
+					dragCntrol: 'false',
+					direction: 'vertical',
+					info: 'likesCounter, description'
+				};
+				colors = {
+					galleryCounters: 'rgb(0, 0, 0)',
+					galleryDescription: 'rgb(0, 0, 0)',
+					galleryOverlay: 'rgba(237, 237, 237, 0.9)',
+					galleryArrows: 'rgb(0, 156, 255)',
+					galleryArrowsHover: 'rgb(0, 0, 0)',
+					galleryArrowsBg: 'rgb(255, 255, 255)',
+					popupOverlay: 'rgba(228, 228, 228, 0.9)',
+					popupUsername: 'rgb(0, 156, 255)',
+					popupUsernameHover: 'rgb(0, 0, 0)',
+					popupInstagramLink: 'rgb(0, 156, 255)',
+					popupInstagramLinkHover: 'rgb(0, 0, 0)',
+					popupCounters: 'rgb(68, 68, 68)',
+					popupAnchor: 'rgb(0, 156, 255)',
+					popupAnchorHover: 'rgb(0, 0, 0)',
+					popupText: 'rgb(68, 68, 68)',
+					popupControls: 'rgb(147, 195, 225)',
+					popupControlsHover: 'rgb(68, 68, 68)',
+					popupMobileControls: 'rgb(147, 195, 225)'
+				};
+				return this;
+			};
+			var render = function() {
+				$el.append('<div class="js-instaCanvas" data-is ' + setOptionData() + '></div>').promise().done(function() {
+					$canvas = $el.find('.js-instaCanvas');
 				});
 				return this;
 			};
-			var setEvents = function() {
-				$btn.off('click').on('click', function() {
-					if(!isAnimate) {
-						animateSlide(this);
-						isAnimate = false;
-					}
-				});
-				$(window).resize(function() {
-					if(!isResize) {
-						resize();
-						isResize = false;
-					}
-				});
-				return this;
-			};
-			var animateSlide = function(that) {
-				isAnimate = true;
-				if(that) {
-					viewNum = $(that).index();
-				}
-				$imageList.animate({
-					left: -(slideWidth*viewNum)
-				}, slideSpeed , function() {
-					if(viewNum === itemLength) {
-						$imageList.css({
-							left: 0
-						});
-					}
-				});
-				$btnList.find('.active').removeClass('active');
-				$btn.eq(viewNum === itemLength ? 0 : viewNum).addClass('active');
-				return this;
-			};
-			var setAutoSlide = function() {
-				if(isAuto) {
-					autoSlide = setInterval(function() {
-						viewNum = viewNum < itemLength ? viewNum+1 : 1;
-						animateSlide();
-						isAnimate = false;
-					}, intervalTime);
-				} else {
-					clearInterval(autoSlide);
-					isAuto = true;
-				}
-				return this;
-			};
-			var resize = function() {
-				isResize = true;
-				reset();
-				imageListRender();
-				return this;
-			};
-			var reset = function() {
-				$el.css({
-					height: 'auto'
-				});
-				$imageList.css({
-					position: 'relative',
-					width: 'auto'
-				});
-				$item.each(function() {
-					$(this).css({
-						width: 'auto'
-					});
-				});
-				return this;
+			var setOptionData = function() {
+				var setData = '';
+				setData += 'data-is-api="' + options.api + '" ';
+				setData += 'data-is-source="' + options.source + '" ';
+				setData += 'data-is-filter-only="' + options.filterOnly + '"';
+				setData += 'data-is-columns="' + options.columns + '" ';
+				setData += 'data-is-rows="' + options.rows + '" ';
+				setData += 'data-is-drag-control="' + options.dragCntrol + '" ';
+				setData += 'data-is-direction="' + options.direction + '" ';
+				setData += 'data-is-info="' + options.info + '" ';
+				setData += 'data-is-color-gallery-counters="' + colors.galleryCounters + '" ';
+				setData += 'data-is-color-gallery-description="' + colors.galleryDescription + '" ';
+				setData += 'data-is-color-gallery-overlay="' + colors.galleryOverlay + '" ';
+				setData += 'data-is-color-gallery-arrows="' + colors.galleryArrows + '" ';
+				setData += 'data-is-color-gallery-arrows-hover="' + colors.galleryArrowsHover + '" ';
+				setData += 'data-is-color-gallery-arrows-bg="' + colors.galleryArrowsBg + '" ';
+				setData += 'data-is-color-popup-overlay="' + colors.popupOverlay + '" ';
+				setData += 'data-is-color-popup-username="' + colors.popupUsername + '" ';
+				setData += 'data-is-color-popup-username-hover="' + colors.popupUsernameHover + '" ';
+				setData += 'data-is-color-popup-instagram-link="' + colors.popupInstagramLink + '" ';
+				setData += 'data-is-color-popup-instagram-link-hover="' + colors.popupInstagramLinkHover + '" ';
+				setData += 'data-is-color-popup-counters="' + colors.popupCounters + '" ';
+				setData += 'data-is-color-popup-anchor="' + colors.popupAnchor + '" ';
+				setData += 'data-is-color-popup-anchor-hover="' + colors.popupAnchorHover + '" ';
+				setData += 'data-is-color-popup-text="' + colors.popupText + '" ';
+				setData += 'data-is-color-popup-controls="' + colors.popupControls + '" ';
+				setData += 'data-is-color-popup-controls-hover="' + colors.popupControlsHover + '" ';
+				setData += 'data-is-color-popup-mobile-controls="' + colors.popupMobileControls + '"';
+				return setData;
 			};
 			return { init: init };
 		}
@@ -189,73 +223,6 @@
 ------------------------------------------------------------*/
 
 	App.utils = {
-
-		/**
-		 * ウィンドウ表示
-		 */
-		thickbox: function() {
-			var $el = {};
-			var $btn = {};
-			var $box = {};
-			var $filter = {};
-			var boxWidth = 0;
-			var boxHeight = 0;
-			var fadeSpeed = 500;
-			var isOpen = false;
-			var isAnimate = false;
-			var init = function(args) {
-				$el = args.$el;
-				setEl();
-				render();
-				setEvents();
-				return this;
-			};
-			var setEl = function() {
-				$btn = $el.find('.js-showBoxBtn');
-				$box = $el.find('.js-showBoxWindow');
-				return this;
-			};
-			var render = function() {
-				$el.append('<div class="js-thickboxFilter"></div>');
-				$filter = $el.find('.js-thickboxFilter');
-				$box.hide();
-				return this;
-			};
-			var setEvents = function() {
-				$btn.off('click').on('click', function() {
-					if(!isAnimate) {
-						if(!isOpen) {
-							openWindow();
-							isAnimate = false;
-							isOpen = true;
-						}
-					}
-				});
-				$filter.off('click').on('click', function() {
-					if(!isAnimate) {
-						if(isOpen) {
-							closeWindow();
-							isAnimate = false;
-							isOpen = false;
-						}
-					}
-				});
-				return this;
-			};
-			var openWindow = function() {
-				isAnimate = true;
-				$filter.fadeIn(fadeSpeed);
-				$box.fadeIn(fadeSpeed);
-				return this;
-			};
-			var closeWindow = function() {
-				isAnimate = true;
-				$filter.fadeOut(fadeSpeed);
-				$box.fadeOut(fadeSpeed);
-				return this;
-			};
-			return { init: init }
-		}
 
 	};
 
@@ -271,35 +238,62 @@
 		PageView: (function() {
 			var constructor = function() {
 				this.$el = {};
+				this.$views = {};
+				this.$area = {};
 				this.$anchor = {};
 				this.$imgBtn = {};
+				this.$filter = {};
+				this.$areaList = {};
 				this.scrollSpeed = 500;
 				this.isScroll = false;
+				this.isOpenFilter = false;
 				return this;
 			};
 			var proto = constructor.prototype;
 			proto.init = function(el) {
 				this.setEl(el);
+				this.onLoadFunction();
+				this.setChildViewInstance();
 				this.render();
+				this.onRender();
 				this.setEvents();
+				this.setCustumEvents();
 				return this;
 			};
 			proto.setEl = function(el) {
 				this.$el = $(el);
+				this.$views = this.$el.find('.views');
+				this.$area = this.$views.find('.area');
 				this.$anchor = this.$el.find('a[href^="#"]');
 				this.$imgBtn = this.$el.find('.btn');
-				this.areaList = this.$el.find('.js-areaNavList');
+				this.$header = this.$el.find('.header');
+				this.$areaList = this.$el.find('.js-areaNavList');
+				return this;
+			};
+			proto.onLoadFunction = function() {
+				this.setStyle();
+				this.showAreaList();
+				return this;
+			};
+			proto.setStyle = function() {
+				return this;
+			};
+			proto.setChildViewInstance = function() {
 				return this;
 			};
 			proto.render = function() {
-				this.showAreaList();
-				this.$el.wrap('<div style="overflow: hidden;"></div>').css('left', 0);
+				return this;
+			};
+			proto.onRender = function() {
 				return this;
 			};
 			proto.showAreaList = function() {
-				if(this.areaList.length > 0 && App.global.areanavPath !== '') {
-					this.areaList.each(function() {
-						$(this).load(App.global.areanavPath);
+				if(this.$areaList.length > 0 && App.global.areanavPath !== '') {
+					this.$areaList.each(function() {
+						var $this = $(this);
+						$this.load(App.global.areanavPath, function() {
+							$this.find('a[data-area="' + $this.data('area') + '"]').addClass('current');
+						});
 					});
 				}
 				return this;
@@ -318,6 +312,9 @@
 				}, function() {
 					that.imageRollover(this);
 				});
+				$(window).resize(function() {
+					that.onResize();
+				});
 				return this;
 			};
 			proto.smoothScroll = function(href) {
@@ -335,6 +332,66 @@
 				var imgPath = imgSrc.split('/');
 				var imgFile = imgPath[imgPath.length -1];
 				$that.attr('src', (imgFile.indexOf('_on') == -1) ? imgSrc.replace(/(\.)(gif|jpg|png)/i, '_on$1$2') : imgSrc.replace(/(\_on)(.)(gif|jpg|png)/i, '$2$3'));
+				return this;
+			};
+			proto.onResize = function() {
+				return this;
+			};
+			proto.setCustumEvents = function() {
+				var that = this;
+				this.$el.on('onLoadSidebar', function() {
+					that.onLoadSidebar();
+				});
+				this.$el.on('onShowSidebar', function(e, slideWidth) {
+					that.onShowSidebar(slideWidth);
+					that.isOpenFilter = true;
+				});
+				this.$el.on('onCloseSidebar', function(e, slideWidth) {
+					that.onCloseSlidebar(slideWidth);
+					that.isOpenFilter = false;
+				});
+				return this;
+			};
+			proto.onLoadSidebar = function() {
+				var that = this;
+				this.$views.append('<div class="js-filter"></div>').promise().done(function() {
+					that.$filter = that.$el.find('.js-filter');
+					that.setOnLoadSidebarEvents();
+				});
+				this.$views.css('left', 0);
+				return this;
+			};
+			proto.setOnLoadSidebarEvents = function() {
+				var that = this;
+				this.$filter.off('click').on('click', function() {
+					if(that.isOpenFilter) {
+						that.onCloseSlidebar();
+						that.isOpenFilter = false;
+					}
+				});
+				return this;
+			};
+			proto.onShowSidebar = function(slideWidth) {
+				this.$filter.fadeIn();
+				$('body').width($(window).width());
+				this.$views.animate({
+					left: slideWidth
+				});
+				this.$header.animate({
+					left: slideWidth
+				});
+				App.global.isShowSide = true;
+				return this;
+			};
+			proto.onCloseSlidebar = function() {
+				this.$filter.fadeOut();
+				this.$views.animate({
+					left: 0
+				});
+				this.$header.animate({
+					left: 0
+				});
+				App.global.isShowSide = false;
 				return this;
 			};
 			return constructor;
@@ -356,7 +413,7 @@
 			var proto = constructor.prototype;
 			proto.init = function(args) {
 				this.setEl(args.el);
-				this.render();
+				this.onLoadFunction();
 				this.setEvents();
 				return this;
 			};
@@ -366,10 +423,12 @@
 				this.$areaList = this.$el.find('.js-areaNavList');
 				return this;
 			};
-			proto.render = function() {
-				this.slideWidth = this.$el.outerWidth();
-				this.$el.after('<div class="side-mainFilter"></div>');
-				this.$filter = $('.side-mainFilter');
+			proto.onLoadFunction = function() {
+				var that = this;
+				this.$el.ready(function() {
+					that.slideWidth = that.$el.outerWidth();
+					that.parentViewEl.trigger('onLoadSidebar');
+				});
 				return this;
 			};
 			proto.setEvents = function() {
@@ -380,34 +439,132 @@
 						that.isAnimate = false;
 					}
 				});
+				return this;
+			};
+			proto.onClickNavBtn = function() {
+				App.global.isShowSide ? this.closeSidebar() : this.showSidebar();
+				return this;
+			};
+			proto.showSidebar = function() {
+				this.isAnimate = true;
+				this.parentViewEl.trigger('onShowSidebar', this.slideWidth);
+				return this;
+			};
+			proto.closeSidebar = function() {
+				this.isAnimate = true;
+				this.parentViewEl.trigger('onCloseSidebar', this.slideWidth);
+				return this;
+			};
+			return constructor;
+		})(),
+
+		/**
+		 * thickbox
+		 */
+		ThickboxView: (function() {
+			var constructor = function() {
+				this.$el = {};
+				this.$thickbox = {};
+				this.$inner = {};
+				this.$btnClose = {};
+				this.$body = {};
+				this.$filter = {};
+				this.fadeSpeed = 500;
+				this.isAnimate = false;
+				this.isShow = false;
+				return this;
+			};
+			var proto = constructor.prototype;
+			proto.init = function(that) {
+				this.setEl(that);
+				this.render();
+				return this;
+			};
+			proto.setEl = function(that) {
+				this.$el = $(that);
+				this.$clone = this.$el.find('.js-thickboxClone');
+				return this;
+			};
+			proto.render = function() {
+				var that = this;
+				var tmpl = [];
+				tmpl.push('<div class="thickbox js-thickboxView">');
+				tmpl.push('  <div class="thickbox-inner">');
+				tmpl.push('    <div class="thickbox-btnClose js-thickboxBtnClose">×</div>');
+				tmpl.push('    <div class="thickbox-body js-thickboxBody"></div>');
+				tmpl.push('  </div>');
+				tmpl.push('  <div class="thickbox-filter js-thickboxFilter"></div>');
+				tmpl.push('</div>');
+				$('body').append(tmpl.join('')).promise().done(function() {
+					that.onRender();
+				});
+				return this;
+			};
+			proto.onRender = function() {
+				this.onRenderSetEl();
+				this.onLoadFunction();
+				this.setEvents();
+				return this;
+			};
+			proto.onRenderSetEl = function() {
+				this.$thickbox = $('.js-thickboxView');
+				this.$inner = this.$thickbox.find('.thickbox-inner');
+				this.$btnClose = this.$thickbox.find('.js-thickboxBtnClose');
+				this.$body = this.$thickbox.find('.js-thickboxBody');
+				this.$filter = this.$thickbox.find('.js-thickboxFilter');
+				return this;
+			};
+			proto.onLoadFunction = function() {
+				var that = this;
+				this.$clone.clone().appendTo('.js-thickboxBody').promise().done(function() {
+					that.openView();
+					that.isShow = true;
+				});
+				return this;
+			};
+			proto.setEvents = function() {
+				var that = this;
+				this.$btnClose.off('click').on('click', function() {
+					if(that.isShow) {
+						that.closeView();
+						that.isShow = false;
+						that.isAnimate = false;
+					}
+				});
 				this.$filter.off('click').on('click', function() {
-					if(!this.isAnimate) {
-						that.onClickNavBtn();
+					if(that.isShow) {
+						that.closeView();
+						that.isShow = false;
 						that.isAnimate = false;
 					}
 				});
 				return this;
 			};
-			proto.onClickNavBtn = function() {
+			proto.openView = function() {
+				var that = this;
 				this.isAnimate = true;
-				this.isOpen ? this.closeSidebar() : this.showSidebar();
+				if(this.$clone.data('width')) {
+					this.$inner.width(this.$clone.data('width'));
+				}
+				this.$thickbox.fadeIn(this.fadeSpeed, function() {
+					that.onOpen();
+				});
+				this.$inner.css({
+					marginTop: -(this.$inner.outerHeight()/2),
+					marginLeft: -(this.$inner.outerWidth()/2),
+				});
 				return this;
 			};
-			proto.showSidebar = function() {
-				this.$filter.fadeIn();
-				$('body').width($(window).width());
-				$('.page').animate({
-					left: this.slideWidth
-				});
-				this.isOpen = true;
+			proto.onOpen = function() {
+
 				return this;
 			};
-			proto.closeSidebar = function() {
-				this.$filter.fadeOut();
-				$('.page').animate({
-					left: 0
+			proto.closeView = function() {
+				var that = this;
+				this.isAnimate = true;
+				this.$thickbox.fadeOut(this.fadeSpeed, function() {
+					that.$thickbox.remove();
 				});
-				this.isOpen = false;
 				return this;
 			};
 			return constructor;
@@ -416,14 +573,3 @@
 	};
 
 })(APP, window, document);
-
-/**
- * facebook
- */
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.6";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));

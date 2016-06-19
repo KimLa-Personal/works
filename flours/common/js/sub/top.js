@@ -29,22 +29,33 @@
 			return this;
 		};
 		var proto = constructor.prototype = new views.PageView();
-		proto.render = function() {
-			views.PageView.prototype.render.apply(this);
+		proto.setChildViewInstance = function() {
 
-			$(window).load(function() {
-
-				/* トップビジュアル */
-				var topVisual = new ui.carousel();
-				topVisual.init({
-					$el: $('.js-carousel'),
-					slideSpeed: 500,
-					intervalTime: 5000,
-					autoSlide: true
-				});
-
+			/* カルーセル */
+			var setCarousel = new ui.setCarousel();
+			setCarousel.init({
+				$el: $('.js-carousel'),
+				autoplay: true
 			});
 
+			/* Instagram表示 */
+			var instashow = ui.setInstashow();
+			instashow.init('.js-instashowView');
+
+			return this;
+		};
+		proto.onRender = function() {
+			this.setElPaddingTop();
+			return this;
+		};
+		proto.onResize = function() {
+			this.setElPaddingTop();
+			return this;
+		};
+		proto.setElPaddingTop = function() {
+			this.$el.css({
+				paddingTop: this.$el.find('.topVisual').height()
+			});
 			return this;
 		};
 		return constructor;
