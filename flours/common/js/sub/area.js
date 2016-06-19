@@ -51,6 +51,12 @@
 				el: '#ShopItemSecoundView'
 			});
 
+			/* 店舗カセット 3番目 */
+			var shopItemThirdView = new ShopItemView();
+			shopItemThirdView.init({
+				el: '#ShopItemThirdView'
+			});
+
 			return this;
 		};
 		return constructor;

@@ -242,6 +242,7 @@ body { background: #f1f1f1; }
 }
 
 .main-snsArea-instagram {
+	display: none;
 }
 
 a.btn-instagram {
@@ -531,6 +532,7 @@ a.btn-twitter {
 }
 
 .main-snsArea-instagram {
+	display: none;
 	margin-top: 40px;
 	text-align: center;
 }
@@ -808,6 +810,7 @@ a.btn-twitter {
 }
 
 .main-snsArea-instagram {
+	display: none;
 	margin-top: 20px;
 	text-align: center;
 }
