@@ -170,6 +170,7 @@
 	padding: 7px 0;
 	background: #4f92ce;
 }
+.main-footer:hover { opacity: 0.7; }
 
 .main-footer-inner {
 	position: relative;

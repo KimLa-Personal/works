@@ -131,8 +131,7 @@ body { background: #fff; }
 	top: 50%;
 	left: 50%;
 	z-index: 32;
-	width: 70%;
-	margin: -35% 0 0 -35%;
+	width: 90%;
 	padding: 40px 15px 15px;
 	background: #fff;
 	border-radius: 3px;
@@ -378,7 +377,9 @@ a.btn-twitter {
 	text-decoration: none;
 }
 
-.side-areaNav-list .current a {
+.side-areaNav-list a:hover { background-color: #f1f1f1; }
+
+.side-areaNav-list .current {
 	background: #f1f1f1;
 	cursor: default;
 }
@@ -676,7 +677,7 @@ a.btn-twitter {
 	text-decoration: none;
 }
 
-.side-areaNav-list .current a {
+.side-areaNav-list .current {
 	background: #f1f1f1;
 	cursor: default;
 }

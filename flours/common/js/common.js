@@ -99,10 +99,11 @@
 			var setOptions = function() {
 				positions = {
 					x: $el.data('x'),
-					y: $el.data('y')
+					y: $el.data('y'),
+					zoom: $el.data('zoom') || 19
 				};
 				options = {
-					zoom: 13,
+					zoom: positions.zoom,
 					center: new google.maps.LatLng(positions.y, positions.x),
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
 					mapTypeControl: false,
@@ -289,7 +290,10 @@
 			proto.showAreaList = function() {
 				if(this.$areaList.length > 0 && App.global.areanavPath !== '') {
 					this.$areaList.each(function() {
-						$(this).load(App.global.areanavPath);
+						var $this = $(this);
+						$this.load(App.global.areanavPath, function() {
+							$this.find('a[data-area="' + $this.data('area') + '"]').addClass('current');
+						});
 					});
 				}
 				return this;
@@ -461,6 +465,7 @@
 			var constructor = function() {
 				this.$el = {};
 				this.$thickbox = {};
+				this.$inner = {};
 				this.$btnClose = {};
 				this.$body = {};
 				this.$filter = {};
@@ -538,8 +543,15 @@
 			proto.openView = function() {
 				var that = this;
 				this.isAnimate = true;
+				if(this.$clone.data('width')) {
+					this.$inner.width(this.$clone.data('width'));
+				}
 				this.$thickbox.fadeIn(this.fadeSpeed, function() {
 					that.onOpen();
+				});
+				this.$inner.css({
+					marginTop: -(this.$inner.outerHeight()/2),
+					marginLeft: -(this.$inner.outerWidth()/2),
 				});
 				return this;
 			};
