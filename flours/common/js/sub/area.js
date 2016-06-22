@@ -26,10 +26,17 @@
 	 */
 	var PageView = (function() {
 		var constructor = function() {
+			this.$shopItem = {};
 			this.sideBarView = {};
 			return this;
 		};
 		var proto = constructor.prototype = new views.PageView();
+		proto.onLoadFunction = function() {
+			views.PageView.prototype.onLoadFunction.apply(this);
+			this.$shopItemList = this.$el.find('.shopList-list');
+			this.$shopItem = this.$shopItemList.find('.shopItem');
+			return this;
+		};
 		proto.setChildViewInstance = function() {
 
 			/* サイドバー */
@@ -39,26 +46,45 @@
 				el: '#SideView'
 			});
 
-			/* 店舗カセット 1番目 */
-			var shopItemFirstView = new ShopItemView();
-			shopItemFirstView.init({
-				el: '#ShopItemFirstView'
-			});
+			this.$shopItem.each(function() {
 
-			/* 店舗カセット 2番目 */
-			var shopItemSecoundView = new ShopItemView();
-			shopItemSecoundView.init({
-				el: '#ShopItemSecoundView'
-			});
-
-			/* 店舗カセット 3番目 */
-			if($('#ShopItemThirdView').length > 0) {
-				var shopItemThirdView = new ShopItemView();
-				shopItemThirdView.init({
-					el: '#ShopItemThirdView'
+				/* 店舗カセット */
+				var shopItemView = new ShopItemView();
+				shopItemView.init({
+					$el: $(this)
 				});
-			}
 
+			});
+
+			return this;
+		};
+		proto.onRender = function() {
+			this.setItemHeight();
+			return this;
+		};
+		proto.onResize = function() {
+			this.setItemHeight();
+			return this;
+		};
+		proto.setItemHeight = function() {
+			this.setMatchHeight(this.$shopItem.find('.shopItem-shopName'));
+			this.setMatchHeight(this.$shopItem.find('.shopItem-coreTime'));
+			return this;
+		};
+		proto.setMatchHeight = function($target) {
+			$target.height('auto');
+			if($(window).width() > 640) {
+				var heightArray = [];
+				$target.each(function() {
+					heightArray.push($(this).height());
+				});
+				heightArray.sort(function(a, b) {
+					if(a > b) return -1;
+					if(a < b) return 1;
+					return 0;
+				});
+				$target.height(heightArray[0]);
+			}
 			return this;
 		};
 		return constructor;
@@ -76,7 +102,7 @@
 		var proto = constructor.prototype;
 		proto.init = function(args) {
 			var that = this;
-			this.$el = $(args.el);
+			this.$el = args.$el;
 			this.setEl();
 			this.onLoadFunction();
 			this.setChildViewInstance();

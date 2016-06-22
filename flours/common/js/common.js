@@ -434,10 +434,13 @@
 			proto.setEvents = function() {
 				var that = this;
 				this.$btn.off('click').on('click', function() {
-					if(!that.isAnimate) {
+					if(!this.isAnimate) {
 						that.onClickNavBtn();
 						that.isAnimate = false;
 					}
+				});
+				$(window).on('scroll', function() {
+					that.onScroll($(this).scrollTop());
 				});
 				return this;
 			};
@@ -453,6 +456,12 @@
 			proto.closeSidebar = function() {
 				this.isAnimate = true;
 				this.parentViewEl.trigger('onCloseSidebar', this.slideWidth);
+				return this;
+			};
+			proto.onScroll = function(scrollTop) {
+				this.$el.css({
+					top: scrollTop
+				});
 				return this;
 			};
 			return constructor;
