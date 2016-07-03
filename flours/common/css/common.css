@@ -54,7 +54,7 @@ html { overflow-y: scroll; }
 body, input, select, textarea {
 	font-size: 75%;
 	color: #333;
-	font-family: "SourceHanSans", "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+	font-family: "SourceHanSans", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, th, td {

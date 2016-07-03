@@ -78,12 +78,13 @@
 		};
 		proto.setEl = function() {
 			this.$floatingBtn = this.$el.find('.js-floatingBtn');
+			this.$btnThickboxTel = this.$el.find('.js-thickboxTel');
 			return this;
 		};
 		proto.onLoadFunction = function() {
-			this.$floatingBtn.hide();
+			this.$floatingBtn.show();
 			this.showScrollStart = $('.header').outerHeight();
-			this.showScrollEnd = $('body').outerHeight() - ($(window).height()+$('.footer').outerHeight());
+			this.showScrollEnd = $('body').outerHeight();
 			return this;
 		};
 		proto.setChildViewInstance = function() {
@@ -96,6 +97,11 @@
 		};
 		proto.setEvents = function() {
 			var that = this;
+			this.$btnThickboxTel.off('click').on('click', function() {
+				var telThickboxView = new views.ThickboxView();
+				telThickboxView.init(this);
+			});
+			/*
 			$(window).scroll(function() {
 				if(!global.isShowSide) {
 					if(!that.isScroll) {
@@ -104,11 +110,12 @@
 					}
 				}
 			});
+			*/
 			return this;
 		};
 		proto.onScrollBtnFloating = function(scrollTop) {
 			this.isScroll = true;
-			if(scrollTop > this.showScrollStart && scrollTop <= this.showScrollEnd) {
+			if(scrollTop > this.showScrollStart) {
 				if(!this.isShow) {
 					this.$floatingBtn.fadeIn();
 					this.isShow = true;

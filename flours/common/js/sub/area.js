@@ -97,6 +97,9 @@
 		var constructor = function() {
 			this.$el = {};
 			this.$imageList = {};
+			this.$btnTelThickbox = {};
+			this.$btnMapThickbox = {};
+			this.shopLinkUrl = '';
 			return this;
 		};
 		var proto = constructor.prototype;
@@ -116,8 +119,7 @@
 			return this;
 		};
 		proto.onLoadFunction = function() {
-			//this.$btnTelThickbox.find('.js-thickboxClone').hide();
-			//this.$btnMapThickbox.find('.js-thickboxClone').hide();
+			this.shopLinkUrl = $('.shopItem-header').children('a').attr('href');
 			return this;
 		};
 		proto.setChildViewInstance = function() {
@@ -135,6 +137,7 @@
 			return this;
 		};
 		proto.setEvents = function() {
+			var that = this;
 			this.$btnTelThickbox.off('click').on('click', function() {
 				var telThickboxView = new views.ThickboxView();
 				telThickboxView.init(this);
@@ -143,6 +146,13 @@
 				var mapThickboxView = new MapThickboxView();
 				mapThickboxView.init(this);
 			});
+			this.$imageList.find('img').off('click').on('click', function() {
+				that.onClickImage();
+			});
+			return this;
+		};
+		proto.onClickImage = function() {
+			location.href = this.shopLinkUrl;
 			return this;
 		};
 		return constructor;

@@ -221,7 +221,7 @@ body { text-align: center; }
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	padding: 5px 50px;
+	padding: 5px 15px;
 	background: rgba(0, 0, 0, 0.3);
 	font-size: 22px;
 	color: #fff;
@@ -233,7 +233,9 @@ body { text-align: center; }
  header
 ------------------------------------------------------------*/
 
-.header { padding-top: 50px; }
+.header { padding: 50px 0 0; }
+
+.header-logo { width: 320px; }
 
 
 /*----------------------------------------------------------
@@ -247,20 +249,22 @@ body { text-align: center; }
 }
 
 .main-description {
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 	padding: 0 15px;
 }
 
 .main-description-catch {
-	font-size: 27px;
+	font-size: 24px;
 }
 
 .main-description-text {
-	margin-top: 40px;
-	font-size: 20px;
+	margin-top: 20px;
+	font-size: 18px;
 	line-height: 1.8em;
 	color: #4d4d4d;
 }
+
+.main-description-text + .main-description-text { margin-top: 10px; }
 
 
 /*----------------------------------------------------------
@@ -273,7 +277,7 @@ body { text-align: center; }
 
 .main-section-title {
 	padding: 10px 0;
-	font-size: 21px;
+	font-size: 18px;
 	color: #fff;
 	font-weight: normal;
 }
@@ -310,7 +314,7 @@ body { text-align: center; }
 	display: block;
 	padding: 30px 10px;
 	background: #fff;
-	font-size: 21px;
+	font-size: 16px;
 	color: #4d4d4d;
 	text-decoration: none;
 }
@@ -398,6 +402,8 @@ body { text-align: center; }
 	padding-top: 25px;
 	padding-bottom: 20px;
 }
+
+.header-logo { width: 210px; }
 
 
 /*----------------------------------------------------------

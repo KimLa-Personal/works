@@ -481,12 +481,14 @@ a.btn-twitter {
 ------------------------------------------------------------*/
 
 .header {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	position: relative;
 	padding: 20px 15px;
 }
 
 .header-logo {
-	width: 312px;
+	width: 240px;
 	margin: 0 auto;
 }
 
@@ -494,10 +496,11 @@ a.btn-twitter {
 	position: absolute;
 	top: 50%;
 	left: 15px;
-	width: 50px;
-	height: 50px;
-	margin-top: -25px;
+	width: 26px;
+	height: 26px;
+	margin-top: -13px;
 	background: url("/common/img/btn_headerNav.png") no-repeat 50% 50%;
+	background-size: 100% 100%;
 	text-indent: -9999px;
 }
 
@@ -522,7 +525,7 @@ a.btn-twitter {
 }
 
 .main-snsArea-description {
-	font-size: 20px;
+	font-size: 16px;
 	color: #4d4d4d;
 }
 
@@ -684,7 +687,6 @@ a.btn-twitter {
 	cursor: default;
 }
 
-
 .side-snsArea {
 	margin-top: 45px;
 }
@@ -743,7 +745,7 @@ a.btn-twitter {
 }
 
 .footer-copyright {
-	font-size: 20px;
+	font-size: 16px;
 	color: #4d4d4d;
 }
 
@@ -759,13 +761,13 @@ a.btn-twitter {
 ------------------------------------------------------------*/
 
 .header {
-	padding: 15px 10px 10px;
+	padding: 15px 20px 10px 10px;
 	background: #fff;
 	text-align: center;
 }
 
 .header-logo {
-	width: 200px;
+	width: 160px;
 	margin: 0 auto;
 }
 
