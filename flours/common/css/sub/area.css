@@ -34,17 +34,16 @@
 --------------------------------------------------*/
 
 .main-header {
-	padding-left: 30px;
-	border-left: 13px solid #e978a9
+	padding: 0 0 5px 15px;
+	border-left: 10px solid #e978a9
 }
 
 .main-header-title {
-	font-size: 36px;
+	font-size: 26px;
 	color: #333;
 }
 
 .main-header-lead {
-	margin-top: 15px;
 	font-size: 16px;
 	color: #888;
 }
@@ -73,22 +72,23 @@
 
 .shopList-info {
 	clear: both;
-	margin-top: 60px;
+	margin-top: 50px;
 }
 
 .shopList-info-lead {
-	font-size: 22px;
+	font-size: 20px;
 	color: #111;
 }
 
 .shopList-info-notes {
-	margin-top: 40px;
-	font-size: 20px;
+	margin-top: 20px;
+	font-size: 16px;
 	color: #444;
 }
+.shopList-info-notes + .shopList-info-notes { margin-top: 10px; }
 
 .shopList-otherTitle {
-	margin-top: 100px;
+	margin-top: 50px;
 	font-size: 20px;
 }
 
@@ -123,8 +123,8 @@
 .shopItem a {
 	display: block;
 	position: relative;
-	padding: 20px 40px 20px 15px;
-	background: url("/common/img/icon_linkArrow.png") no-repeat 96% 50%;
+	padding: 20px 15px;
+	/*background: url("/common/img/icon_linkArrow.png") no-repeat 96% 50%;*/
 	color: #333;
 	text-decoration: none;
 }
@@ -145,12 +145,8 @@
 }
 .shopList-otherShopList .shopItem-no { background-image: url("/common/img/icon_circleGray.png"); }
 
-.shopItem-shopName { font-size: 24px; }
-
-.shopItem-coreTime {
-	margin-top: 5px;
-	font-size: 18px;
-}
+.shopItem-shopName { font-size: 16px; }
+.shopItem-coreTime { font-size: 12px; }
 
 .shopItem-image { display: none; }
 .shopItem-mainImage { display: block; }
@@ -167,9 +163,9 @@
 .shopItem-tel-btn,
 .shopItem-map-btn {
 	display: block;
-	padding: 20px 10px;
+	padding: 20px 5px;
 	background: none;
-	font-size: 18px;
+	font-size: 14px;
 	color: #333;
 	text-align: center;
 	text-decoration: none;
@@ -179,7 +175,7 @@
 .shopItem-map-btn:before {
 	content: "";
 	display: inline-block;
-	margin-right: 18px;
+	margin-right: 10px;
 	vertical-align: middle;
 }
 .shopItem-map-btn:hover,
@@ -214,6 +210,16 @@
 	height: 350px;
 }
 .shopItem-map-area-canvas { height: 350px; }
+
+
+/*----------------------------------------------------------
+ shopList-otherShopList
+------------------------------------------------------------*/
+
+.shopList-otherShopList .shopItem a {
+	padding-right: 40px;
+	background: url("/common/img/icon_linkArrow.png") no-repeat 96% 50%;
+}
 
 
 }

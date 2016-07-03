@@ -228,9 +228,9 @@ body { background: #f1f1f1; }
 
 .main-snsArea-description {
 	float: right;
-	width: 50%;
+	width: 49%;
 	margin-top: 30px;
-	font-size: 20px;
+	font-size: 16px;
 	color: #4d4d4d;
 	overflow: hidden;
 }
@@ -373,7 +373,7 @@ a.btn-twitter {
 .side-areaNav-list a {
 	display: block;
 	padding: 20px 5px;
-	font-size: 20px;
+	font-size: 16px;
 	color: #333;
 	text-decoration: none;
 }
@@ -449,7 +449,7 @@ a.btn-twitter {
 }
 
 .footer-copyright {
-	font-size: 20px;
+	font-size: 16px;
 	color: #4d4d4d;
 }
 
@@ -677,7 +677,7 @@ a.btn-twitter {
 .side-areaNav-list a {
 	display: block;
 	padding: 20px 5px;
-	font-size: 20px;
+	font-size: 16px;
 	color: #333;
 	text-decoration: none;
 }
