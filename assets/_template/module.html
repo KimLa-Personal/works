@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>モジュールリスト</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=9">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+</head>
+<style>
+.mdlCategotyTitle {
+	font-weight: bold;
+	margin-top: 40px;
+	padding: 5px 10px 7px;
+	color: #333333;
+	clear: both;
+	border-left: solid 10px #666666;
+	border-bottom: solid 2px #666666;
+	font-size: 166.666667%;
+}
+.mdlItem {
+	border-top: dotted 1px #999999;
+	padding-top: 8px;
+	margin: 15px 0 5px;
+	clear: both;
+	color: #ff3377;
+	font-size: 133.333333%;
+	line-height: 1.4;
+	position: relative;
+}
+.mdlHtml:before, .mdlHtml:after {
+	content: "DUMMY要素";
+	padding: 5px;
+	line-height: 1;
+	background-color: #ddd;
+	color: #999;
+	display: block;
+	text-align: center;
+	visibility: hidden;
+}
+.mdlMode0 .mdlHtml:before,
+.mdlMode0 .mdlHtml:after {
+	visibility: visible;
+}
+.mdlHtmlInr {
+	position: relative;
+}
+.mdlHtmlInr:hover:after {
+	content:"";
+	position: absolute;
+	left: -10px;
+	top: -10px;
+	bottom: -10px;
+	right: -10px;
+	box-sizing: border-box;
+	border: solid 2px #39b02f;
+	border-radius: 6px;
+	cursor: pointer;
+	display: none;
+}
+.mdlMode2 .mdlHtmlInr:hover:after {
+	display: block;
+}
+.mdlOvLay {
+	position: fixed;
+	background-color: rgba(0,0,0,0.7);
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.mdlOvLayBg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.mdlTxtArea {
+	width: 900px;
+	height: 400px;
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 5px;
+}
+.mdlTxtArea textarea {
+	width: 880px;
+	min-width: 880px;
+	max-width: 880px;
+	height: 380px;
+	min-height: 380px;
+	max-height: 380px;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 14px;
+	line-height: 24px;
+	border: solid 2px #ccc;
+	border-radius: 5px;
+}
+.mdlCap {
+	display: none;
+	padding: 5px 10px;
+	border: solid 1px #ffc4ff;
+	background-color: #ffeeff;
+	margin-top: 5px;
+	font-size: 75%;
+}
+.mdlMode1 .mdlCap {
+	display: block;
+}
+.mdlNav {
+	position: fixed;
+	right: 100px;
+	bottom: 20px;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 6px;
+	border: solid 1px #999;
+}
+.mdlNav p {
+	margin-bottom: 10px;
+	text-align: center;
+}
+.mdlNav li {
+	margin-top: 5px;
+	cursor: pointer;
+	color: #999;
+	background-color: #eee;
+	padding: 5px 10px;
+	text-align: center;
+}
+.mdlNav li.current {
+	color: #fff;
+	background-color: #39b02f;
+}
+.mdlNav li:first-child {
+	margin-top: 0;
+}
+</style>
+<script>
+$(function(){
+	var setNav = function(){
+		var aryNavFlg = localStorage.mdlNav.split(',');
+		for(var i = 0; i < aryNavFlg.length; i++){
+			$('body').removeClass('mdlMode' + i);
+			if(aryNavFlg[i] === '1'){ $('body').addClass('mdlMode' + i); }
+		}
+	};
+	$('body').append('<div class="mdlNav"><p>表示切り替え</p><ul><li>DUMMY要素</li><li>説明</li><li class="current">ソース表示ボタン</li></ul></div>');
+	if(!localStorage.mdlNav){
+		localStorage.mdlNav = '1,1,1';
+	}else{
+		var aryNavFlg = localStorage.mdlNav.split(',');
+		$('.mdlNav li').each(function(i, ele) {
+			$(ele).removeClass('current');
+			if(aryNavFlg[i] === '1') { $(ele).addClass('current'); }
+		});
+		setNav();
+	}
+	$('.mdlNav li').click(function(){
+		$(this).toggleClass('current');
+		var aryNavFlg = [];
+		$('.mdlNav li').each(function(i, ele) {
+			aryNavFlg.push($(ele).hasClass('current')? '1' : '0');
+		});
+		localStorage.mdlNav = aryNavFlg.join(',');
+		setNav();
+	});
+	$('.mdlItem').each(function(i, ele) {
+		var strHtml = $(ele).html().split('<!-- sample html start')[1].split('		/sample html end -->')[0].slice(1);
+		$(ele).after('<div class="mdlHtml"><div class="mdlHtmlInr">' +
+			$(ele).html().split('<!-- sample html start')[1].split('		/sample html end -->')[0].slice(1) + '</div></div>');
+	});
+	$('.mdlHtmlInr').click(function(){
+		if(!$('body').hasClass('mdlMode2')){ return; }
+		$('body').append('<div class="mdlOvLay"><div class="mdlOvLayBg"></div><div class="mdlTxtArea"><textarea cols="10" rows="6">' +
+			$(this).closest('.mdlHtml').prev().html().split('<!-- sample html start')[1].split('		/sample html end -->')[0].slice(1) +
+			'</textarea></div></div>');
+		$('.mdlTxtArea textarea').select();
+		$('.mdlOvLayBg').click(function(){ $('.mdlOvLay').remove(); });
+	});
+});
+</script>
+<body>
+<script>include('header02', function(){ menuCurrent(0); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="#DUMMY">ダミーテキスト</a></li>
+			<li>ダミーテキスト</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">モジュールリスト</h1>
+
+		<h2 class="mdlCategotyTitle">テキスト／リンク／アイコン</h2>
+
+		<div class="mdlItem">■テキスト（14px、16px、18px)：txtM、txtL、txtLL<!-- sample html start
+		<p class="txtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtL">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtLL">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テキストカラー強調1：color01<!-- sample html start
+		<p class="txtM color01">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テキストカラー強調2：color02<!-- sample html start
+		<p class="txtM color02">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■アイコン付きリンクテキスト1：txtMrk01<!-- sample html start
+		<p class="txtM"><a class="txtMrk01" href="#DUMMY">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</a></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■アイコン付きリンクテキスト2：txtMrk02<!-- sample html start
+		<p class="txtM"><a class="txtMrk02" href="#DUMMY">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</a></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■アイコン付きリンクテキスト3：txtMrk03<!-- sample html start
+		<p class="txtM"><a class="txtMrk03" href="#DUMMY">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</a></p>
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">見出し</h2>
+
+		<div class="mdlItem">■タイトル1：tit01<!-- sample html start
+		<h2 class="tit01 txtLL"><strong>ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</strong></h2>
+		/sample html end --></div>
+
+		<div class="mdlItem">■タイトル1：tit02<!-- sample html start
+		<h3 class="tit02 txtL"><strong>ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</strong></h3>
+		/sample html end --></div>
+
+		<div class="mdlItem">■タイトル1：tit03、tit03HasBdr<span class="mdlCap">tit03HasBdr付与で罫線つきになります</span><!-- sample html start
+		<h1 class="tit03">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</h1>
+		<h1 class="tit03 tit03HasBdr mtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</h1>
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">リスト</h2>
+
+		<div class="mdlItem">■リスト：list01、lst01Mrk、lst01Txt<!-- sample html start
+		<ul class="list01">
+			<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキストテキスト<br>ダミーテキストテキスト</span></li>
+			<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキストテキストダミーテキストテキスト</span></li>
+			<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキストテキストダミーテキストテキスト</span></li>
+		</ul>
+		/sample html end --></div>
+
+		<div class="mdlItem">■プログレスバー：progressList01<!-- sample html start
+		<ol class="progressList01">
+			<li><span class="txtM">ダミーテキスト</span></li>
+			<li class="current"><span class="txtM">ダミーテキスト</span></li>
+			<li><span class="txtM">ダミーテキスト</span></li>
+			<li><span class="txtM">ダミー</span></li>
+		</ol>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ページャー：pageList01<!-- sample html start
+		<div class="pageList01">
+			<ol>
+				<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
+				<li class="txtM pL01Txt">1/100ページ</li>
+			</ol>
+		</div>
+		/sample html end --></div>
+
+
+
+
+		<h2 class="mdlCategotyTitle">テーブル</h2>
+
+		<div class="mdlItem">■テーブル1：tbl01、tblBgEven<span class="mdlCap">幅はcolに％で指定します。<br>偶数行の配色変更はtblBgEvenで変更します。</span><!-- sample html start
+		<table class="tbl01">
+			<col style="width: 13%;">
+			<col style="width: 10%;">
+			<col style="width: 30%;">
+			<col style="width: 13%;">
+			<col style="width: 22%;">
+			<col style="width: 12%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="6"><p class="txtM"><strong>未承認</strong></p></th>
+				</tr>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>指定日</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>明細数</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>振込合計金額</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>取引状況</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>理由</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>詳細</strong></p></th>
+				</tr>
+			</thead>
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taC"><p class="txtM">2014/01/21</p></td>
+					<td class="taR"><p class="txtM">1件</p></td>
+					<td class="taR"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p class="txtM">作成中</p></td>
+					<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">2014/01/21</p></td>
+					<td class="taR"><p class="txtM">1件</p></td>
+					<td class="taR"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p class="txtM color01">承認待</p></td>
+					<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM color02">2014/01/21</p></td>
+					<td class="taR"><p class="txtM color02">1件</p></td>
+					<td class="taR"><p class="txtM color02">ダミーテキスト</p></td>
+					<td class="taC"><p class="txtM color01">承認待</p></td>
+					<td class="taC"><p class="txtM color02">ダミーテキスト</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+				<tr class="tblBg01">
+					<td class="taC"><p class="txtM">2014/01/21</p></td>
+					<td class="taR"><p class="txtM">1件</p></td>
+					<td class="taR"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p class="txtM color01">承認待</p></td>
+					<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル2：tbl02、tblBgEven<span class="mdlCap">幅はcolに％で指定します。<br>偶数行の配色変更はtblBgEvenで変更します。<br>基本はテーブル1を使用し、グリーンの下線つきボックス内でテーブルを使用する場合はテーブル2を使用します。</span><!-- sample html start
+		<table class="tbl02">
+			<col style="width: 33%;">
+			<col style="width: 33%;">
+			<col style="width: 33%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taC"></td>
+					<td class="taC"><p class="txtL"><strong>ダミーテキスト</strong></p></td>
+					<td class="taC"><p class="txtL"><strong>ダミーテキスト</strong></p></td>
+				</tr>
+				<tr>
+					<td><p class="txtM">ダミーテキスト</p></td>
+					<td><p class="txtM">ダミーテキスト</p></td>
+					<td><p class="txtM">ダミーテキスト</p></td>
+				</tr>
+				<tr>
+					<td><p class="txtM">ダミーテキスト</p></td>
+					<td><p class="txtM">ダミーテキスト</p></td>
+					<td><p class="txtM">ダミーテキスト</p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル3：tbl03<span class="mdlCap">幅はcolに％で指定します。</span><!-- sample html start
+		<table class="tbl03">
+			<col style="width: 28%;">
+			<col style="width: 72%;">
+			<thead>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>従業員コード</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>説明</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><p><a class="btn01 txtLL btn01SizeL" href="#DUMMY">ダミーテキスト</a></p></th>
+					<td><p class="txtM">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p></td>
+				</tr>
+				<tr>
+					<th><p><a class="btn01 txtLL btn01SizeL" href="#DUMMY">ダミーテキスト</a></p></th>
+					<td><p class="txtM">ダミーテキストダミーテキストダミーテキストダミーテキスト<br>ダミーテキストダミーテキストダミーテキスト</p></td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="tbl03 mtM">
+			<col style="width: 15%;">
+			<col style="width: 85%;">
+			<tbody>
+				<tr>
+					<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
+					<td><p><input class="iptTxt vaM mrM" type="text" name="DUMMY" size="15" value=""><span class="txtM dipIB vaM">7桁</span></p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+
+		<h2 class="mdlCategotyTitle">ブロック幅／カラム</h2>
+
+
+
+		<h2 class="mdlCategotyTitle">ボタン</h2>
+
+		<div class="mdlItem">■ボタン1：btn01、btn01SizeL、btn01SizeS、btn01noMrk<span class="mdlCap">「btn01SizeL、btn01SizeS」でサイズ変更<br>btn01noMrkでビュレットなし</span><!-- sample html start
+		<p><a class="btn01 txtLL" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><a class="btn01 txtM btn01SizeS" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><a class="btn01 txtLL btn01SizeL" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ダミーテキスト</a></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ボタン2：btn02<!-- sample html start
+		<p><button class="btn02" type="submit">ログオン</button></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ボタン3：btn03、btn03SizeS<span class="mdlCap">「btn03SizeS」でサイズ変更</span><!-- sample html start
+		<p><a class="btn03 txtM" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ボタン4：btn04<!-- sample html start
+		<p><a class="btn04" href="#DUMMY">ダミーテキスト</a></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ボタンセット：btnSet<!-- sample html start
+		<ul class="btnSet">
+			<li class="bsItem01"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></li>
+			<li class="bsItem02"><a class="btn04" href="#DUMMY">戻る</a></li>
+			<li class="bsItem03"><button class="btn02" type="submit">決定</button></li>
+		</ul>
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">ボックス</h2>
+
+		<div class="mdlItem">■背景色つきボックス：colorBox01、cb01Inr<!-- sample html start
+		<div class="colorBox01">
+			<h2 class="txtL"><img class="vaM mrS" src="../images/ico_01.gif" alt=""><strong class="vaM">エクストラタイプ</strong></h2>
+			<div class="cb01Inr mtS">
+				<p class="txtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+				<p class="txtM mtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+			</div>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■背景色つきボックス：colorBox01、cb01Inr<!-- sample html start
+		<div class="colorBox02">
+			<h2 class="taC"><strong class="txtLL dipIB">ダミーテキスト</strong></h2>
+			<div class="cb02Inr mtS">
+				<p class="txtM">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+			</div>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■罫線つきボックス：colorBox01、cb01Inr<!-- sample html start
+		<div class="borderBox01">
+			<h2 class="tit01 txtLL"><strong>ダミーテキスト</strong></h2>
+			<h3 class="tit02 txtL mtM"><strong>ダミーテキストダミーテキストダミーテキスト</strong></h3>
+			<p class="mtS txtM mlM">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+			<p class="mtS txtM mlM"><a class="txtMrk01" href="#DUMMY">ダミーテキストダミーテキストダミーテキスト</a></p>
+			<h3 class="tit02 txtL mtM"><strong>ダミーテキストダミーテキストダミーテキスト</strong></h3>
+			<p class="mtS txtM mlM">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■説明つきボタンボックス：btnBox01<!-- sample html start
+		<div class="btnBox01">
+			<p class="bb01Txt txtM">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+			<p class="bb01Btn"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">追加</a></p>
+		</div>
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">フォーム</h2>
+
+		<div class="mdlItem">■テキスト：iptTxt<!-- sample html start
+		<p><input class="iptTxt" type="text" name="DUMMY" size="15" value=""></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■チェックボックス：iptCheck<!-- sample html start
+		<p class="txtM"><label class="iptCheck"><input type="checkbox"><span>テキスト</span></label></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ラジオボタン：iptRadio<!-- sample html start
+		<p class="txtM"><label class="iptRadio"><input type="checkbox"><span>テキスト</span></label></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■セレクトボックス：<!-- sample html start
+		<p class="slctWrap">
+			<select class="slct txtM">
+				<option value="">2005</option>
+				<option value="">2006</option>
+				<option value="">2007</option>
+				<option value="">2008</option>
+				<option value="">2009</option>
+				<option value="">2010</option>
+				<option value="">2011</option>
+				<option value="">2012</option>
+				<option value="">2013</option>
+				<option value="">2014</option>
+				<option value="">2015</option>
+				<option value="">2016</option>
+			</select>
+			<span class="txtM">年</span>
+			<select class="slct txtM">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+				<option value="">6</option>
+				<option value="">7</option>
+				<option value="">8</option>
+				<option value="">9</option>
+				<option value="">10</option>
+				<option value="">11</option>
+				<option value="">12</option>
+			</select>
+			<span class="txtM">月</span>
+			<select class="slct txtM">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+				<option value="">6</option>
+				<option value="">7</option>
+				<option value="">8</option>
+				<option value="">9</option>
+				<option value="">10</option>
+				<option value="">11</option>
+				<option value="">12</option>
+				<option value="">13</option>
+				<option value="">14</option>
+				<option value="">15</option>
+				<option value="">16</option>
+				<option value="">17</option>
+				<option value="">18</option>
+				<option value="">19</option>
+				<option value="">20</option>
+				<option value="">21</option>
+				<option value="">22</option>
+				<option value="">23</option>
+				<option value="">24</option>
+				<option value="">25</option>
+				<option value="">26</option>
+				<option value="">27</option>
+				<option value="">28</option>
+				<option value="">29</option>
+				<option value="">30</option>
+				<option value="">31</option>
+			</select>
+			<span class="txtM">日～</span>
+			<select class="slct txtM">
+				<option value="">2005</option>
+				<option value="">2006</option>
+				<option value="">2007</option>
+			</select>
+			<span class="txtM">年</span>
+			<select class="slct txtM">
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">11</option>
+			</select>
+			<span class="txtM">月</span>
+			<select class="slct txtM">
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">29</option>
+			</select>
+			<span class="txtM">日</span>
+			<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">日付指定</a></span>
+		</p>
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">基本段落／区切り線</h2>
+
+		<div class="mdlItem">■上マージン（10px、20px、30px)：mtS、mtM、mtL<span class="mdlCap">基本は上マージンで対応します</span><!-- sample html start
+		<p class="txtM mtS">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mtL">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■下マージン（10px、20px、30px)：mbS、mbM、mbL<span class="mdlCap">基本は上マージンで対応します</span><!-- sample html start
+		<p class="txtM mbS">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mbM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mbL">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■右マージン（5px、15px、30px)：mrS、mrM、mrL<!-- sample html start
+		<p class="txtM mrS">ダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mrM">ダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mrL">ダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■左マージン（5px、15px、30px)：mlS、mlM、mlL<!-- sample html start
+		<p class="txtM mlS">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mlM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		<p class="txtM mlL">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■区切り線：hr<!-- sample html start
+		<hr class="hr">
+		/sample html end --></div>
+
+
+
+		<h2 class="mdlCategotyTitle">その他汎用クラス</h2>
+
+		<div class="mdlItem">■clearfixとフロート：clearfix、fltL、fltR<!-- sample html start
+		<div class="clearfix">
+			<div class="fltL">
+				<table class="tbl01">
+					<col style="width: 30%;">
+					<col style="width: 70%;">
+					<tbody>
+						<tr>
+							<th><p class="txtM">ダミーテキスト</p></th>
+							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+						</tr>
+						<tr>
+							<th><p class="txtM">ダミーテキスト</p></th>
+							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="fltR">
+				<table class="tbl01">
+					<col style="width: 30%;">
+					<col style="width: 70%;">
+					<tbody>
+						<tr>
+							<th><p class="txtM">ダミーテキスト</p></th>
+							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■インライン要素の縦位置を調整：vaM、vaT、vaB<!-- sample html start
+		<p class="txtM"><img class="vaM" src="pic_dummy_01.gif" alt=""><span class="vaT">うえよせ</span><span class="vaB">したよせ</span><span class="vaM">ちゅうおうよせ</span><img class="vaM" src="pic_dummy_01.gif" alt="" width="50"></p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■インライン要素の横位置を調整：taC、taR、taL<!-- sample html start
+		<p class="txtM taC">ダミーテキストテキストテキスト</p>
+		<p class="txtM taR">ダミーテキストテキストテキスト</p>
+		<p class="txtM taL">ダミーテキストテキストテキスト</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■インラインブロックに変更：dipIB<!-- sample html start
+		<p><span class="dipIB txtM">ダミーテキストテキストテキスト</span><span class="dipIB txtLL">ダミーテキストテキストテキスト</span></p>
+		/sample html end --></div>
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>
