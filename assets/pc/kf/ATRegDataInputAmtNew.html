@@ -130,8 +130,8 @@
 			</thead>
 			<tbody class="tblBgEven">
 				<tr>
-					<td class="taC"><p class="txtM color01">0000000001</p></td>
-					<td class="taL"><p class="txtM color01">カ）アーバンコウギョウ</p></td>
+					<td class="taC"><p class="txtM">0000000001</p></td>
+					<td class="taL"><p class="txtM">カ）アーバンコウギョウ</p></td>
 					<td class="taR"><p><input class="iptTxt taR" type="text" name="DUMMY" size="15" value=""><span class="mlS">円</span></p></td>
 					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
 				</tr>
@@ -205,10 +205,12 @@
 			</script>
 		</div>
 
+		<script language="javascript" src="progressBar.js"></script>
+
 		<ul class="btnSet mtL">
 			<li class="bsItem01"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></li>
 			<li class="bsItem02"><a class="btn04" href="../kf/ATRegDataInputDtNew.html">戻る</a></li>
-			<li class="bsItem03"><button class="btn02" type="submit">決定</button></li>
+			<li class="bsItem03"><button class="btn02" type="submit" onClick="return execProgressBar()">決定</button></li>
 		</ul>
 
 	</div>

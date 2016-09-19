@@ -24,8 +24,8 @@
 		execProgressBar();
 		return true;
 	}
-	// -->
-	</script>
+// -->
+</script>
 <script language="JavaScript">
 <!--時間がかかるデモ用スクリプト
 	function jump()
@@ -275,6 +275,7 @@
 			</tbody>
 		</table>
 
+		<script language="javascript" src="progressBar.js"></script>
 		<div class="txtM mtL">
 			<script type="text/javascript">
 			<!--
@@ -291,25 +292,27 @@
 			</script>
 		</div>
 
-		<table class="tbl03 mtL">
-			<col style="width: 15%;">
-			<col style="width: 85%;">
-			<tbody>
-				<tr>
-					<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
-					<td><p><input class="iptTxt vaM mrM" type="text" name="DUMMY" size="15" value=""><span class="txtM dipIB vaM">7桁</span></p></td>
-				</tr>
-			</tbody>
-		</table>
+		<form name="form1">
+			<table class="tbl03 mtL">
+				<col style="width: 15%;">
+				<col style="width: 85%;">
+				<tbody>
+					<tr>
+						<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
+						<td><p><input class="iptTxt vaM mrM" type="text" name="pass" size="15" value=""><span class="txtM dipIB vaM">7桁</span></p></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
 
 		<div class="mtL taR">
-			<p><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY" onClick="execProgressBar1();">保留</a></p>
+			<p><button type="submit" name="exec" class="btn01 txtM btn01SizeS btn01noMrk" onClick="execProgressBar1();">保留</button></p>
 			<p class="mtS">確認パスワードは不要です</p>
 		</div>
 
 		<ul class="btnSet mtL">
 			<li class="bsItem02"><a class="btn04" href="../kf/ATRegDataInputAmtNew.html">戻る</a></li>
-			<li class="bsItem03"><button class="btn02" type="submit">実行</button></li>
+			<li class="bsItem03"><button class="btn02" type="submit" name="decide" onClick="return chkPwd()">実行</button></li>
 		</ul>
 
 		<hr class="hr mtL">
