@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>デザイン一覧</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+* { margin: 0; padding: 0; }
+.page { max-width: 80%; min-width: 950px; margin: 0 auto 50px; }
+.header { padding: 50px 0 10px; border-bottom: 1px solid #ddd; }
+.section { margin-top: 30px; }
+h1 { padding: 0 5px;  font-size: 20px; font-weight: normal; }
+h2 { margin-bottom: 5px; padding: 0 5px; font-size: 18px; font-weight: bold; }
+.pageList { width: 100%; border-collapse: collapse; }
+.pageList th, .pageList td { padding: 7px 10px; border: 1px solid #ccc; font-size: 12px; line-height: 1.8em; text-align: left; }
+.pageList thead th { background: #e6e6e6; text-align: center; font-weight: bold; }
+.pageList tbody td:first-child { text-align: center; }
+.pageList tbody td:first-child + td,
+.pageList tbody td:first-child + td + td { font-weight: bold; }
+.pageList tbody th { font-weight: normal; }
+.pageList tbody tr:hover { background: #f6feea; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="page" id="PageView">
+
+  <div class="header">
+    <h1>画面一覧</h1>
+  </div>
+
+  <div class="main">
+
+    <div class="section">
+      <table summary="" class="pageList js-pageList">
+  			<colgroup>
+          <col style="width: 5%;">
+          <col style="width: 15%;">
+    			<col style="width: 20%;">
+          <col style="width: 20%;">
+    			<col>
+  			</colgroup>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>大カテゴリ</th>
+            <th>小カテゴリ</th>
+            <th>ページ名</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>総合振込</td>
+            <td>取引状況照会</td>
+            <th>取引の選択画面</th>
+            <td><a href="./kf/" target="_blank">/</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!--/.main -->
+
+</div><!--/.page -->
+
+<script src="./jquery-1.6.4.js"></script>
+<script>
+$(function() {
+  var PageView = (function() {
+    var constructor = function(el) {
+      this.$el = {};
+      this.$anchor = {};
+      this.isScroll = false;
+      this.scrollSpeed = 500;
+      this.init(el);
+      return this;
+    };
+    var proto = constructor.prototype;
+    proto.init = function(el) {
+      this.setEl(el);
+      this.setChildViewInstance();
+      this.setEvents();
+      return this;
+    };
+    proto.setEl = function(el) {
+      this.$el = $(el);
+      this.$anchor = this.$el.find('a[href^="#"]');
+      this.$pageList = this.$el.find('.js-pageList');
+      this.$pageListTableRow = this.$pageList.find('tbody tr');
+      return this;
+    };
+    proto.setChildViewInstance = function() {
+      return this;
+    };
+    proto.setEvents = function() {
+      var that = this;
+      this.$anchor.bind('click', function(e) {
+        e.preventDefault();
+        if(!that.isScroll) {
+          that.smoothScroll($(this).attr('href'));
+          that.isScroll = false;
+        }
+      });
+      this.$pageListTableRow.bind('click', function(e) {
+        e.preventDefault();
+        that.onClickPageListTableRow(this);
+      });
+      return this;
+    };
+    proto.smoothScroll = function(href) {
+      this.isScroll = true;
+      var $target = $(href === '#' || href === '' ? 'html' : href);
+      var position = $target.offset().top;
+      $('html, body').animate({
+      	scrollTop: position
+      }, this.scrollSpeed);
+      return this;
+    };
+    proto.onClickPageListTableRow = function(anchor) {
+      var $anchor = $(anchor).find('a');
+      var href = $anchor.attr('href');
+      var target = $anchor.attr('target');
+      if($anchor.length === 1) {
+        if(target) {
+          window.open(href, target);
+        } else {
+          location.href = href;
+        }
+      }
+      return this;
+    };
+    return constructor;
+  })();
+  new PageView('#PageView');
+});
+</script>
+</body>
+</html>
