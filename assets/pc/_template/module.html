@@ -75,6 +75,7 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
+	z-index: 9000;
 }
 .mdlOvLayBg {
 	position: absolute;
@@ -169,8 +170,8 @@ $(function(){
 			$(ele).removeClass('current');
 			if(aryNavFlg[i] === '1') { $(ele).addClass('current'); }
 		});
-		setNav();
 	}
+	setNav();
 	$('.mdlNav li').click(function(){
 		$(this).toggleClass('current');
 		var aryNavFlg = [];
@@ -182,7 +183,7 @@ $(function(){
 	});
 	$('.mdlItem').each(function(i, ele) {
 		var strHtml = $(ele).html().split('<!-- sample html start')[1].split('		/sample html end -->')[0].slice(1);
-		$(ele).after('<div class="mdlHtml"><div class="mdlHtmlInr">' +
+		$(ele).after('<div class="mdlHtml"><div class="mdlHtmlInr">' + 
 			$(ele).html().split('<!-- sample html start')[1].split('		/sample html end -->')[0].slice(1) + '</div></div>');
 	});
 	$('.mdlHtmlInr').click(function(){
@@ -206,7 +207,7 @@ $(function(){
 			<li>ダミーテキスト</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">モジュールリスト</h1>
-
+		
 		<h2 class="mdlCategotyTitle">テキスト／リンク／アイコン</h2>
 
 		<div class="mdlItem">■テキスト（14px、16px、18px)：txtM、txtL、txtLL<!-- sample html start
@@ -292,6 +293,151 @@ $(function(){
 		</div>
 		/sample html end --></div>
 
+		<div class="mdlItem">■キーボード風ボタンリスト：swkeyboardList<!-- sample html start
+		<div class="swkeyboardList">
+			<p class="swkListTxt txtM">お振込先支店名の頭文字を押してください。</p>
+			<ul>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ア</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">カ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">サ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">タ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ナ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ハ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">マ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヤ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ラ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ワ</a></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ガ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ザ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ダ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">バ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">パ</a></li>
+			</ul>
+			<ul>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">イ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">キ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">シ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">チ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ニ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヒ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ミ</a></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">リ</a></li>
+				<li></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ギ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ジ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヂ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ビ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ピ</a></li>
+			</ul>
+			<ul>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ウ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ク</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ス</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ツ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヌ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">フ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ム</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ユ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ル</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヲ</a></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">グ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ズ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヅ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ブ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">プ</a></li>
+			</ul>
+			<ul>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">エ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ケ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">セ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">テ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ネ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヘ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">メ</a></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">レ</a></li>
+				<li></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ゲ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ゼ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">デ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ベ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ペ</a></li>
+			</ul>
+			<ul>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">オ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">コ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ソ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ト</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ノ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ホ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">モ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ヨ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ロ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ン</a></li>
+				<li></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ゴ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ゾ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ド</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ボ</a></li>
+				<li><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ポ</a></li>
+			</ul>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■キーボード風ボタンリストのパターン違い1<!-- sample html start
+		<div class="swkeyboardList">
+			<p class="swkListTxt txtM">ダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+			<ul>
+				<li><a class="btn01 txtLL btn01SizeL btn01noMrk" href="#DUMMY">八十二銀行</a></li>
+			</ul>
+			<ul class="mtS">
+				<li>
+					<a class="btn01 txtL btn01noMrk" href="#DUMMY">銀行</a>
+					<ul class="list01 taL mtS">
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">都市銀行</span></li>
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキスト</span></li>
+					</ul>
+				</li>
+				<li>
+					<a class="btn01 txtL btn01noMrk" href="#DUMMY">信用金庫</a>
+					<ul class="list01 taL mtS">
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">信用金庫</span></li>
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキスト</span></li>
+					</ul>
+				</li>
+				<li><a class="btn01 txtL btn01noMrk" href="#DUMMY">信用組合等</a></li>
+				<li>
+					<a class="btn01 txtL btn01noMrk" href="#DUMMY">その他</a>
+					<ul class="list01 taL mtS">
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキスト</span></li>
+						<li><span class="lst01Mrk txtM">・</span><span class="lst01Txt txtM">ダミーテキスト</span></li>
+					</ul>
+				</li>
+				<li><a class="btn01 txtL btn01noMrk" href="#DUMMY">全ての金融機関</a></li>
+			</ul>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■リンクリスト：linkList01<!-- sample html start
+		<h3 class="tit02 txtL"><strong>利用者コードへ移動</strong></h3>
+		<ol class="linkList01 taC mtM">
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0010</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0110</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0210</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0310</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0410</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0510</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0610</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0710</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0810</a></li>
+			<li class="txtM"><a class="txtMrk04" href="#DUMMY">0910</a></li>
+		</ol>
+		/sample html end --></div>
 
 
 
@@ -350,6 +496,305 @@ $(function(){
 					<td class="taC"><p class="txtM color01">承認待</p></td>
 					<td class="taC"><p class="txtM">ダミーテキスト</p></td>
 					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル1のパターン違い1<!-- sample html start
+		<table class="tbl01">
+			<col style="width: 17%;">
+			<col style="width: 33%;">
+			<col style="width: 17%;">
+			<col style="width: 33%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="4"><p class="txtM"><strong>お振込先口座</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>金融機関名</strong></p></th>
+					<td class="taL"><p class="txtM">ダミーテキスト</p></td>
+					<th class="taL"><p class="txtM"><strong>支店名</strong></p></th>
+					<td class="taL"><p class="txtM">ダミーテキスト</p></td>
+				</tr>
+				<tr>
+					<th class="taL tblBg02" colspan="2"><p class="txtM"><strong class="dipIB mrL">お受取人名</strong><a class="txtMrk01" href="#DUMMY">ご注意事項</a></p></th>
+					<td class="taL" colspan="2"><p class="txtM">お受取人名義は自動的に入力されます。</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>受付日時</strong></p></th>
+					<td class="taL" colspan="3"><p class="txtM">2004年05月10日 16時36分</p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル1のパターン違い2<span class="mdlCap">2行1セットの偶数行配色変更はtblBgEvenDoubleで変更します。</span><!-- sample html start
+		<table class="tbl01">
+			<col style="width: 19%;">
+			<col style="width: 19%;">
+			<col style="width: 12%;">
+			<col style="width: 19%;">
+			<col style="width: 19%;">
+			<col style="width: 12%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="2"><p class="txtM"><strong>顧客コード</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>グループ</strong></p></th>
+					<th class="taC" colspan="2"><p class="txtM"><strong>預金者名</strong></p></th>
+					<th class="taC"></th>
+				</tr>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>金融機関名</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>支店名</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>科目</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>口座番号</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>振替金額</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>詳細</strong></p></th>
+				</tr>
+			</thead>
+			<tbody class="tblBgEvenDouble">
+				<tr>
+					<td class="taL" colspan="2"><p class="txtM">0000000001</p></td>
+					<td class="taC"><p class="txtM">01</p></td>
+					<td class="taL" colspan="2"><p class="txtM">カ）アーバンコウギョウ</p></td>
+					<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+				<tr>
+					<td class="taL"><p class="txtM">八十二銀行</p></td>
+					<td class="taL"><p class="txtM">浅川若槻支店</p></td>
+					<td class="taC"><p class="txtM">普通</p></td>
+					<td class="taL"><p class="txtM">1000000</p></td>
+					<td class="taL tblHasBdr"><p class="txtM">50,000</p></td>
+				</tr>
+				<tr>
+					<td class="taL" colspan="2"><p class="txtM">0000000001</p></td>
+					<td class="taC"><p class="txtM">01</p></td>
+					<td class="taL" colspan="2"><p class="txtM">カ）アーバンコウギョウ</p></td>
+					<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">選択</a></p></td>
+				</tr>
+				<tr>
+					<td class="taL"><p class="txtM">八十二銀行</p></td>
+					<td class="taL"><p class="txtM">浅川若槻支店</p></td>
+					<td class="taC"><p class="txtM">普通</p></td>
+					<td class="taL"><p class="txtM">1000000</p></td>
+					<td class="taL tblHasBdr"><p class="txtM">50,000</p></td>
+				</tr>
+			</tbody>
+		</table>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル1のパターン違い3<span class="mdlCap">tbl01Scrollで囲うことでthead領域常時表示でtbody領域をスクロールさせます（javascript使用）</span><!-- sample html start
+		<div class="tbl01Scroll">
+			<table class="tbl01">
+				<col style="width: 12%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 6.5%;">
+				<col style="width: 12%;">
+				<col style="width: 11%;">
+				<thead>
+					<tr>
+						<th class="taC"><p class="txtM"><strong>利用者コード</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>残高照会</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>明細照会</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>振込</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>振替</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>料金払込</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>総振</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>給振</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>自動集金</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>ﾜｲﾄﾞﾈｯﾄ</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>地方税</strong></p></th>
+						<th class="taC" rowspan="2"><p class="txtM"><strong>最終更新日</strong></p></th>
+						<th rowspan="2"></th>
+					</tr>
+					<tr>
+						<th class="taC tblHasBdr"><p class="txtM"><strong>利用者名</strong></p></th>
+					</tr>
+				</thead>
+				<tbody class="tblBgEvenDouble">
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">0000</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">◎</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">○</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">×</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">‐</p></td>
+						<td class="taC" rowspan="2"><p class="txtM">2003/12/18</p></td>
+						<td class="taC" rowspan="2"><p><a class="btn01 txtM btn01SizeS" href="#DUMMY">詳細</a></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblHasBdr"><p class="txtM">テキスト</p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■テーブル1のパターン違い4<span class="mdlCap">tblNoBdrで右罫線をキャンセルしています</span><!-- sample html start
+		<table class="tbl01">
+			<col style="width: 20%;">
+			<col style="width: 30%;">
+			<col style="width: 50%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span><strong>利用者名</strong></span></label></p></td>
+					<td class="taL tblNoBdr" colspan="2"><p><input class="iptTxt" type="text" name="DUMMY" size="73" value=""></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p><label class="iptCheck"><input type="checkbox"><span><strong class="txtM dipIB">ログオンパスワード</strong><br><span class="txtS dipIB mtS">（半角英数字6文字）</span></span></label></p></td>
+					<td class="taL tblNoBdr"><p><input class="iptTxt" type="text" name="DUMMY" size="25" value=""></p></td>
+					<td class="taL tblNoBdr"><p><strong class="txtM dipIB vaM">確認</strong><input class="iptTxt vaM mlM" type="text" name="DUMMY" size="25" value=""></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p><label class="iptCheck"><input type="checkbox"><span><strong class="txtM dipIB">ログオンパスワード</strong><br><span class="txtS dipIB mtS">（半角英数字7文字）</span></span></label></p></td>
+					<td class="taL tblNoBdr"><p><input class="iptTxt" type="text" name="DUMMY" size="25" value=""></p></td>
+					<td class="taL tblNoBdr"><p><strong class="txtM dipIB vaM">確認</strong><input class="iptTxt vaM mlM" type="text" name="DUMMY" size="25" value=""></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span><strong>可変パスワード</strong></span></label></p></td>
+					<td class="taL tblNoBdr" colspan="2"><p><button class="btn01 txtM btn01SizeS btn01noMrk" type="button" disabled="disabled">可変パスワード表作成</button></p></td>
 				</tr>
 			</tbody>
 		</table>
@@ -414,37 +859,51 @@ $(function(){
 		/sample html end --></div>
 
 
-		<h2 class="mdlCategotyTitle">ブロック幅／カラム</h2>
 
+	<h2 class="mdlCategotyTitle">ボタン</h2>
 
-
-		<h2 class="mdlCategotyTitle">ボタン</h2>
-
-		<div class="mdlItem">■ボタン1：btn01、btn01SizeL、btn01SizeS、btn01noMrk<span class="mdlCap">「btn01SizeL、btn01SizeS」でサイズ変更<br>btn01noMrkでビュレットなし</span><!-- sample html start
+		<div class="mdlItem">■ボタン1：btn01、btn01SizeL、btn01SizeS、btn01noMrk<span class="mdlCap">「btn01SizeL、btn01SizeS」でサイズ変更<br>btn01noMrkでビュレットなし<br>buttonタグでも同様に動作します</span><!-- sample html start
 		<p><a class="btn01 txtLL" href="#DUMMY">ダミーテキスト</a></p>
 		<p class="mtM"><a class="btn01 txtM btn01SizeS" href="#DUMMY">ダミーテキスト</a></p>
 		<p class="mtM"><a class="btn01 txtLL btn01SizeL" href="#DUMMY">ダミーテキスト</a></p>
 		<p class="mtM"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><button class="btn01 txtLL" type="submit">ダミーテキスト</button></p>
 		/sample html end --></div>
 
 		<div class="mdlItem">■ボタン2：btn02<!-- sample html start
 		<p><button class="btn02" type="submit">ログオン</button></p>
 		/sample html end --></div>
 
-		<div class="mdlItem">■ボタン3：btn03、btn03SizeS<span class="mdlCap">「btn03SizeS」でサイズ変更</span><!-- sample html start
+		<div class="mdlItem">■ボタン3：btn03、btn03SizeS<span class="mdlCap">「btn03SizeS」でサイズ変更<br>buttonタグでも同様に動作します</span><!-- sample html start
 		<p><a class="btn03 txtM" href="#DUMMY">ダミーテキスト</a></p>
 		<p class="mtM"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></p>
+		<p class="mtM"><button class="btn03 txtM" type="submit">ダミーテキスト</button></p>
 		/sample html end --></div>
 
-		<div class="mdlItem">■ボタン4：btn04<!-- sample html start
+		<div class="mdlItem">■ボタン4：btn04<br><span class="mdlCap">buttonタグでも同様に動作します</span><!-- sample html start
 		<p><a class="btn04" href="#DUMMY">ダミーテキスト</a></p>
+		<p class="mtM"><button class="btn04" type="reset">ダミーテキスト</button></p>
 		/sample html end --></div>
 
 		<div class="mdlItem">■ボタンセット：btnSet<!-- sample html start
 		<ul class="btnSet">
 			<li class="bsItem01"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></li>
-			<li class="bsItem02"><a class="btn04" href="#DUMMY">戻る</a></li>
+			<li class="bsItem02"><button class="btn04" type="reset">ダミーテキスト</button></li>
 			<li class="bsItem03"><button class="btn02" type="submit">決定</button></li>
+		</ul>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ボタンのレイアウトパターン<!-- sample html start
+		<ul>
+			<li class="dipIB"><a class="btn04 mlM" href="#DUMMY">メニューに戻る</a></li>
+			<li class="dipIB mlM"><button class="btn04" type="reset">戻る</button></li>
+		</ul>
+		<ul class="mtM taC">
+			<li class="dipIB vaM"><button class="btn02" type="submit">実行</button></li>
+			<li class="dipIB vaM mlM taL">
+				<button class="btn01 txtM btn01SizeS btn01noMrk" type="submit">保留</button>
+				<p class="txtM mtS">（確認パスワードは不要です）</p>
+			</li>
 		</ul>
 		/sample html end --></div>
 
@@ -454,7 +913,7 @@ $(function(){
 
 		<div class="mdlItem">■背景色つきボックス：colorBox01、cb01Inr<!-- sample html start
 		<div class="colorBox01">
-			<h2 class="txtL"><img class="vaM mrS" src="../images/ico_01.gif" alt=""><strong class="vaM">エクストラタイプ</strong></h2>
+			<h2 class="txtL"><img class="vaM mrS" src="../images/ico_01.png" alt=""><strong class="vaM">エクストラタイプ</strong></h2>
 			<div class="cb01Inr mtS">
 				<p class="txtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
 				<p class="txtM mtM">ダミーテキストテキストダミーテキストテキストダミーテキストテキスト</p>
@@ -462,7 +921,7 @@ $(function(){
 		</div>
 		/sample html end --></div>
 
-		<div class="mdlItem">■背景色つきボックス：colorBox01、cb01Inr<!-- sample html start
+		<div class="mdlItem">■背景色つきボックス：colorBox02、cb02Inr<!-- sample html start
 		<div class="colorBox02">
 			<h2 class="taC"><strong class="txtLL dipIB">ダミーテキスト</strong></h2>
 			<div class="cb02Inr mtS">
@@ -471,7 +930,14 @@ $(function(){
 		</div>
 		/sample html end --></div>
 
-		<div class="mdlItem">■罫線つきボックス：colorBox01、cb01Inr<!-- sample html start
+		<div class="mdlItem">■背景色つきボックス：colorBox03、cb03Inr<!-- sample html start
+		<div class="colorBox03">
+			<p class="cb03Inr txtL">利用者コード：0020</p>
+			<p class="cb03Inr txtM taR">最終更新日：2004年03月22日13時30分</p>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■罫線つきボックス：borderBox01<!-- sample html start
 		<div class="borderBox01">
 			<h2 class="tit01 txtLL"><strong>ダミーテキスト</strong></h2>
 			<h3 class="tit02 txtL mtM"><strong>ダミーテキストダミーテキストダミーテキスト</strong></h3>
@@ -490,7 +956,6 @@ $(function(){
 		/sample html end --></div>
 
 
-
 		<h2 class="mdlCategotyTitle">フォーム</h2>
 
 		<div class="mdlItem">■テキスト：iptTxt<!-- sample html start
@@ -505,70 +970,24 @@ $(function(){
 		<p class="txtM"><label class="iptRadio"><input type="checkbox"><span>テキスト</span></label></p>
 		/sample html end --></div>
 
-		<div class="mdlItem">■セレクトボックス：<!-- sample html start
-		<p class="slctWrap">
+		<div class="mdlItem">■セレクトボックス：slct<!-- sample html start
+		<p class="slctWrap">	
 			<select class="slct txtM">
 				<option value="">2005</option>
 				<option value="">2006</option>
 				<option value="">2007</option>
-				<option value="">2008</option>
-				<option value="">2009</option>
-				<option value="">2010</option>
-				<option value="">2011</option>
-				<option value="">2012</option>
-				<option value="">2013</option>
-				<option value="">2014</option>
-				<option value="">2015</option>
-				<option value="">2016</option>
 			</select>
 			<span class="txtM">年</span>
 			<select class="slct txtM">
 				<option value="">1</option>
 				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-				<option value="">6</option>
-				<option value="">7</option>
-				<option value="">8</option>
-				<option value="">9</option>
-				<option value="">10</option>
-				<option value="">11</option>
 				<option value="">12</option>
 			</select>
 			<span class="txtM">月</span>
 			<select class="slct txtM">
 				<option value="">1</option>
 				<option value="">2</option>
-				<option value="">3</option>
-				<option value="">4</option>
-				<option value="">5</option>
-				<option value="">6</option>
-				<option value="">7</option>
-				<option value="">8</option>
-				<option value="">9</option>
-				<option value="">10</option>
-				<option value="">11</option>
-				<option value="">12</option>
-				<option value="">13</option>
-				<option value="">14</option>
-				<option value="">15</option>
-				<option value="">16</option>
-				<option value="">17</option>
-				<option value="">18</option>
-				<option value="">19</option>
-				<option value="">20</option>
-				<option value="">21</option>
-				<option value="">22</option>
-				<option value="">23</option>
-				<option value="">24</option>
-				<option value="">25</option>
-				<option value="">26</option>
-				<option value="">27</option>
-				<option value="">28</option>
-				<option value="">29</option>
 				<option value="">30</option>
-				<option value="">31</option>
 			</select>
 			<span class="txtM">日～</span>
 			<select class="slct txtM">
@@ -591,6 +1010,10 @@ $(function(){
 			<span class="txtM">日</span>
 			<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">日付指定</a></span>
 		</p>
+		/sample html end --></div>
+
+		<div class="mdlItem">■ファイル選択：iptFile<span class="mdlCap">デザインを反映しつつ選択ファイルを表示するためにjavascriptを使用しています</span><!-- sample html start
+		<p><label class="iptFile"><input type="file" name="DUMMY" value="" onchange="inputFile(this);"><span class="btn01 txtM btn01SizeS btn01noMrk">ファイルを選択</span><strong class="txtM"></strong></label></p>
 		/sample html end --></div>
 
 
@@ -637,12 +1060,8 @@ $(function(){
 					<col style="width: 70%;">
 					<tbody>
 						<tr>
-							<th><p class="txtM">ダミーテキスト</p></th>
-							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
-						</tr>
-						<tr>
-							<th><p class="txtM">ダミーテキスト</p></th>
-							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+							<th class="taL"><p class="txtM"><strong>振込指定日</strong></p></th>
+							<td class="taL"><p class="txtM">2006/03/12</p></td>
 						</tr>
 					</tbody>
 				</table>
@@ -653,8 +1072,8 @@ $(function(){
 					<col style="width: 70%;">
 					<tbody>
 						<tr>
-							<th><p class="txtM">ダミーテキスト</p></th>
-							<td class="taC"><p class="txtM">ダミーテキスト</p></td>
+							<th class="taL"><p class="txtM"><strong>金融機関名</strong></p></th>
+							<td class="taL"><p class="txtLL"><strong>006 あさひ銀行</strong></p></td>
 						</tr>
 					</tbody>
 				</table>
@@ -662,10 +1081,78 @@ $(function(){
 		</div>
 		/sample html end --></div>
 
+		<div class="mdlItem">■内容物に応じて幅なりゆきのカラム分け：colWrap01、cw01Item<span class="mdlCap">colBox01直下のcb01Itemを1行に並べます。<br>cb01Itemはデフォルトでは左端配置ですので右端配置したい場合はtaRを併用します。<br>必ず1行におさめたい時に利用してください</span><!-- sample html start
+		<div class="colWrap01">
+			<p class="cw01Item slctWrap">
+				<span class="txtM">並び順：</span>
+				<select class="slct txtM">
+					<option value="">支店名</option>
+					<option value="">ダミーテキスト1</option>
+					<option value="">ダミーテキスト2</option>
+				</select>
+				<select class="slct txtM">
+					<option value="">昇順</option>
+					<option value="">降順</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">再表示</a></span>
+			</p>
+			<p class="cw01Item taR slctWrap">
+				<span class="txtM">絞込条件：</span>
+				<select class="slct txtM">
+					<option value="">すべて</option>
+					<option value="">完了</option>
+					<option value="">削除済</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">条件指定</a></span>
+			</p>
+		</div>
+		<div class="colWrap01 mtS">
+			<p class="cw01Item slctWrap">
+				<span class="txtM">表示件数：</span>
+				<select class="slct txtM">
+					<option value="">10件</option>
+					<option value="">30件</option>
+					<option value="">50件</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">再表示</a></span>
+			</p>
+			<div class="cw01Item taR pageList01">
+				<ol>
+					<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
+					<li class="txtM pL01Txt">1/100ページ</li>
+				</ol>
+			</div>
+		</div>
+		/sample html end --></div>
+
+		<div class="mdlItem">■内容物に応じて幅なりゆきのカラム分けの他の使い方<span class="mdlCap">以下のように2カラム以外でも対応可能です。（内容物の幅が小さいものであれば等幅レイアウトになります）</span><!-- sample html start
+		<ul class="colWrap01">
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+		</ul>
+		<ul class="colWrap01 mtS">
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+			<li class="cw01Item"><img src="pic_dummy_01.gif" alt=""></li>
+			<li class="cw01Item txtM">ダミーテキスト</li>
+		</ul>
+		/sample html end --></div>
+
 		<div class="mdlItem">■インライン要素の縦位置を調整：vaM、vaT、vaB<!-- sample html start
 		<p class="txtM"><img class="vaM" src="pic_dummy_01.gif" alt=""><span class="vaT">うえよせ</span><span class="vaB">したよせ</span><span class="vaM">ちゅうおうよせ</span><img class="vaM" src="pic_dummy_01.gif" alt="" width="50"></p>
 		/sample html end --></div>
-
+		
 		<div class="mdlItem">■インライン要素の横位置を調整：taC、taR、taL<!-- sample html start
 		<p class="txtM taC">ダミーテキストテキストテキスト</p>
 		<p class="txtM taR">ダミーテキストテキストテキスト</p>
@@ -675,6 +1162,7 @@ $(function(){
 		<div class="mdlItem">■インラインブロックに変更：dipIB<!-- sample html start
 		<p><span class="dipIB txtM">ダミーテキストテキストテキスト</span><span class="dipIB txtLL">ダミーテキストテキストテキスト</span></p>
 		/sample html end --></div>
+		
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
 </div>

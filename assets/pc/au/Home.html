@@ -40,7 +40,7 @@
 							<tr>
 								<th><p class="txtM">ログオンパスワード（6桁）</p></th>
 								<td>
-									<p><input class="iptTxt vaM mrM" type="text" name="DUMMY" size="15" value=""><span class="txtM dipIB vaM"><label class="iptCheck"><input type="checkbox"><span>ソフトウェアキーボードを使用する</span></label></span></p>
+									<p><input id="showKey01" class="iptTxt vaM mrM" type="password" size="15" maxlength="6" autocomplete="off" readonly value="" onfocus="swkShow(this, 0);"><span class="txtM dipIB vaM"><label class="iptCheck"><input type="checkbox" checked onclick="swkCheck(this, 'showKey01');"><span>ソフトウェアキーボードを使用する</span></label></span></p>
 									<p class="txtM mtS">お客さまが安全にご利用いただくため、ソフトウェアキーボードを使用することをお勧めいたします。</p>
 								</td>
 							</tr>
