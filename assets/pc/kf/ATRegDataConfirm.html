@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>八十二銀行</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=9">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+<script LANGUAGE="JavaScript">
+<!--
+	function chkPwd() {
+		if (document.form1.pass.value.length != 7)	{
+			alert ("\n正しい確認パスワ－ドを入力してください。");
+			document.form1.pass.focus();
+			return false;
+		}
+		execProgressBar();
+		return true;
+	}
+// -->
+</script>
+<script language="JavaScript">
+<!--時間がかかるデモ用スクリプト
+	function jump()
+	{
+		//表示するURLを指定する　（実行ボタン押下時）
+		urls='ATRegDataResult.html';
+		//移動するまでの秒数を指定する
+		byou=3;
+		b=0;
+		byou*=1000;
+		b=setTimeout('location.href=urls',byou);
+	}
+	function jump1()
+	{
+		//表示するURLを指定する　（保留ボタン押下時）
+		urls='ATRegDataResultRsrv.html';
+		//移動するまでの秒数を指定する
+		byou=3;
+		b=0;
+		byou*=1000;
+		b=setTimeout('location.href=urls',byou);
+	}
+//-->
+</script>
+</head>
+<body>
+<script>include('header02', function(){ menuCurrent(2); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
+			<li>振込データの作成</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">給与振込（作成）振込内容確認</h1>
+		<ol class="progressList01 mtS">
+			<li><span class="txtM">指定日の選択</span></li>
+			<li><span class="txtM">振込金額入力</span></li>
+			<li class="current"><span class="txtM">振込内容確認</span></li>
+			<li><span class="txtM">受付完了</span></li>
+		</ol>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+			<!--
+			KbnMsg_s()
+			//-->
+			</script>
+				<SPAN>振込内容を確認してください｡ </SPAN><BR>
+			<script type="text/javascript">
+			<!--
+			KbnMsg_e()
+			//-->
+			</script>
+		</div>
+
+		<div class="clearfix mtL">
+			<div class="fltL">
+				<table class="tbl01">
+					<col style="width: 30%;">
+					<col style="width: 70%;">
+					<tbody>
+						<tr>
+							<th><p class="txtM"><strong>振込指定日</strong></p></th>
+							<td><p class="txtM">2004/03/29(月)</p></td>
+						</tr>
+						<tr>
+							<th><p class="txtM"><strong>区分</strong></p></th>
+							<td><p class="txtM">給与</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="fltR">
+				<table class="tbl01">
+					<col style="width: 30%;">
+					<col style="width: 70%;">
+					<tbody>
+						<tr>
+							<th><p class="txtM"><strong>依頼人名</strong></p></th>
+							<td><p class="txtM">ゴタンダアプリケ－シヨンカイハツグル－プ</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="pageList01 mtL">
+			<ol>
+				<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
+				<li class="txtM pL01Txt">1/100ページ</li>
+			</ol>
+		</div>
+
+		<table class="tbl01 mtS">
+			<col style="width: 15%;">
+			<col style="width: 38%;">
+			<col style="width: 20%;">
+			<col style="width: 15%;">
+			<col style="width: 12%;">
+			<thead>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>従業員コード</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>受取人名</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>振込金額</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>手数料</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>詳細</strong></p></th>
+				</tr>
+			</thead>
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taC"><p class="txtM color02">0000000001</p></td>
+					<td class="taL"><p class="txtM color02">ハコザキタロウ</p></td>
+					<td class="taR"><p class="txtM color02">100,000円</p></td>
+					<td class="taR"><p class="txtM color02">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000002</p></td>
+					<td class="taL"><p class="txtM">ハコザキハナコ</p></td>
+					<td class="taR"><p class="txtM">200,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000003</p></td>
+					<td class="taL"><p class="txtM">ハコザキシゲル</p></td>
+					<td class="taR"><p class="txtM">300,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000004</p></td>
+					<td class="taL"><p class="txtM">ハコザキケンジ</p></td>
+					<td class="taR"><p class="txtM">400,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000005</p></td>
+					<td class="taL"><p class="txtM">ハコザキジロウ</p></td>
+					<td class="taR"><p class="txtM">500,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000006</p></td>
+					<td class="taL"><p class="txtM">ハコザキサブロウ</p></td>
+					<td class="taR"><p class="txtM">600,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000007</p></td>
+					<td class="taL"><p class="txtM">ハコザキシロウ</p></td>
+					<td class="taR"><p class="txtM">700,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000008</p></td>
+					<td class="taL"><p class="txtM">ハコザキゴロウ</p></td>
+					<td class="taR"><p class="txtM">800,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000009</p></td>
+					<td class="taL"><p class="txtM">ハコザキアキラ</p></td>
+					<td class="taR"><p class="txtM">900,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+				<tr>
+					<td class="taC"><p class="txtM">0000000010</p></td>
+					<td class="taL"><p class="txtM">ハコザキヒロシ</p></td>
+					<td class="taR"><p class="txtM">1,000,000円</p></td>
+					<td class="taR"><p class="txtM">630円</p></td>
+					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">詳細</a></p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="taR mtS"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></p>
+
+		<table class="tbl01 mtL">
+			<col style="width: 30%;">
+			<col style="width: 35%;">
+			<col style="width: 35%;">
+			<thead>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>件数合計</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>振込金額合計</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>振込手数料合計</strong></p></th>
+				</tr>
+			</thead>
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taR"><p class="txtM">22件</p></td>
+					<td class="taR"><p class="txtM">25,300,000円</p></td>
+					<td class="taR"><p class="txtM">13,860円</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="6"><p class="txtM"><strong>承認者情報</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><p class="txtM"><strong>一次承認者</strong></p></th>
+					<td>
+						<p class="slctWrap">
+							<select class="slct txtM">
+								<option value="">承認者を選択してください</option>
+							</select>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th><p class="txtM"><strong>最終承認者</strong></p></th>
+					<td>
+						<p class="slctWrap">
+							<select class="slct txtM">
+								<option value="">承認者を選択してください</option>
+							</select>
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script language="javascript" src="progressBar.js"></script>
+		<div class="txtM mtL">
+			<script type="text/javascript">
+			<!--
+			KbnHtml_s()
+			//-->
+			</script>
+				<SPAN>確認パスワードを入力して「実行」ボタンを押すことで、給与振込データの作成が<br>
+				「完了（承認待）」します。<BR>
+				なお、振込データの作成を一時中断する場合は「保留」ボタンを押してください。 </SPAN><BR>
+			<script type="text/javascript">
+			<!--
+			KbnHtml_e()
+			//-->
+			</script>
+		</div>
+
+		<div class="clearfix">
+			<div class="fltL">
+				<form name="form1">
+				<table class="tbl03 mtM">
+					<col style="width: 40%;">
+					<col style="width: 60%;">
+					<tbody>
+						<tr>
+							<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
+							<td><p><input class="iptTxt vaM mrM" type="password" name="pass" size="10" value="" maxlength="7"><span class="txtM dipIB vaM">（7桁）</span></p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="fltR">
+				<table class="tbl03 mtM">
+					<col style="width: 40%;">
+					<col style="width: 60%;">
+					<tbody>
+						<tr>
+							<td><p class="txtM color01"><strong>承認時コメント</strong></p></td>
+							<td><p><input class="iptTxt vaM mrM" type="text" name="comment" size="20" value=""><span class="txtM dipIB vaM"></span></p></td>
+						</tr>
+					</tbody>
+				</table>
+				</form>
+			</div>
+		</div>
+
+		<ul class="mtM taC">
+			<li class="dipIB vaM"><button class="btn02" type="submit" name="decide" onClick="return chkPwd()">実行</button></li>
+			<li class="dipIB vaM mlM taL">
+				<button class="btn01 txtM btn01SizeS btn01noMrk" type="submit" name="exec" value="保留" onClick="execProgressBar1();">保留</button>
+				<p class="txtM mtS">（確認パスワードは不要です）</p>
+			</li>
+		</ul>
+
+		<p class="mtM"><form action="../kf/ATRegDataInputAmtNew.html" method="get"><button class="btn04" type="submit" name="back" value=" 戻る">戻る</button></p>
+
+		<hr class="hr mtL">
+
+		<p class="mtM"><a class="btn04" href="../kf/ATSubMenu.html">メニューに戻る</a></p>
+
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>

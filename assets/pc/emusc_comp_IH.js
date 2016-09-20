@@ -9,7 +9,7 @@ function include(name, fnc) {
 						'<li class="fontColor">' +
 						'<p>色変更</p>' +
 						'<ul>' +
-							'<li><a href="javascript:changeColor(0);" class="current">標準</a></li>' +
+							'<li><a href="javascript:changeColor(0);">標準</a></li>' +
 							'<li><a href="javascript:changeColor(1);">カラー1</a></li>' +
 							'<li><a href="javascript:changeColor(2);">カラー2</a></li>' +
 						'</ul>' +
@@ -19,7 +19,7 @@ function include(name, fnc) {
 					'<li class="fontSize">' +
 						'<p>文字サイズ変更</p>' +
 						'<ul>' +
-							'<li><a href="javascript:changeSize(0);" class="current">小</a></li>' +
+							'<li><a href="javascript:changeSize(0);">小</a></li>' +
 							'<li><a href="javascript:changeSize(1);">中</a></li>' +
 							'<li><a href="javascript:changeSize(2);">大</a></li>' +
 						'</ul>' +
@@ -37,7 +37,7 @@ function include(name, fnc) {
 					'<li class="fontColor">' +
 						'<p>色変更</p>' +
 						'<ul>' +
-							'<li><a href="javascript:changeColor(0);" class="current">標準</a></li>' +
+							'<li><a href="javascript:changeColor(0);">標準</a></li>' +
 							'<li><a href="javascript:changeColor(1);">カラー1</a></li>' +
 							'<li><a href="javascript:changeColor(2);">カラー2</a></li>' +
 						'</ul>' +
@@ -47,7 +47,7 @@ function include(name, fnc) {
 					'<li class="fontSize">' +
 						'<p>文字サイズ変更</p>' +
 						'<ul>' +
-							'<li><a href="javascript:changeSize(0);" class="current">小</a></li>' +
+							'<li><a href="javascript:changeSize(0);">小</a></li>' +
 							'<li><a href="javascript:changeSize(1);">中</a></li>' +
 							'<li><a href="javascript:changeSize(2);">大</a></li>' +
 						'</ul>' +

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>八十二銀行</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=9">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+</head>
+<body>
+<script>include('header02', function(){ menuCurrent(2); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
+			<li>振込データの作成</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">給与振込：作成（指定日の選択）</h1>
+		<ol class="progressList01 mtS">
+			<li class="current"><span class="txtM">指定日の選択</span></li>
+			<li><span class="txtM">振込金額入力</span></li>
+			<li><span class="txtM">振込内容確認</span></li>
+			<li><span class="txtM">受付完了</span></li>
+		</ol>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+			<!--
+			KbnMsg_s()
+			//-->
+			</script>
+				<span>「依頼人名」「連絡先電話番号」「給与・賞与区分」の変更が可能です。</span><BR>
+			<script type="text/javascript">
+			<!--
+			KbnMsg_e()
+			//-->
+			</script>
+		</div>
+
+		<div class="taR mtL">
+			<p class="slctWrap">
+				<span class="txtM">並び順：</span>
+				<select class="slct txtM">
+					<option value="">支店名</option>
+					<option value="">支店コード</option>
+					<option value="">科目</option>
+					<option value="">口座番号</option>
+					<option value="">口座メモ</option>
+				</select>
+				<select class="slct txtM">
+					<option value="">昇順</option>
+					<option value="">降順</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">再表示</a></span>
+			</p>
+			<p class="dipIB txtM mtS"><label class="iptCheck"><input type="checkbox"><span>代表口座を最上位に固定する</span></label></p>
+		</div>
+
+		<table class="tbl01 mtS">
+			<col style="width: 35%;">
+			<col style="width: 15%;">
+			<col style="width: 20%;">
+			<col style="width: 30%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="6"><p class="txtM"><strong>出金口座</strong></p></th>
+				</tr>
+				<tr>
+					<th class="taC"><p class="txtM"><strong>支店名</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>科目</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>口座番号</strong></p></th>
+					<th class="taC"><p class="txtM"><strong>口座メモ</strong></p></th>
+				</tr>
+			</thead>
+			<tbody class="tblBgEven">
+				<tr>
+					<td><p class="txtM"><label class="iptRadio"><input type="radio" name="radio01"><span><strong>本店営業部</strong></span></label></p></td>
+					<td><p class="txtM">普通</p></td>
+					<td><p class="txtM">0000061</p></td>
+					<td><p class="txtM">メモ1</p></td>
+				</tr>
+				<tr>
+					<td><p class="txtM"><label class="iptRadio"><input type="radio" name="radio01"><span><strong>長野支店</strong></span></label></p></td>
+					<td><p class="txtM">貯蓄</p></td>
+					<td><p class="txtM">0000000</p></td>
+					<td><p class="txtM">メモ2</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl02 mtL">
+			<col style="width: 20%;">
+			<col style="width: 80%;">
+			<tbody>
+				<tr>
+					<th><p class="txtM"><strong>依頼人名（全角カナ）</strong></p></th>
+					<td><p><input class="iptTxt" type="text" name="DUMMY" size="50" value="ゴタンダアプリケ－シヨンカイハツグル－プ"></p></td>
+				</tr>
+				<tr>
+					<th><p class="txtM"><strong>連絡先電話番号</strong></p></th>
+					<td><p><input class="iptTxt" type="text" name="DUMMY" size="15" value="03-3312-8899"></p></td>
+				</tr>
+				<tr>
+					<th><p class="txtM"><strong>区分</strong></p></th>
+					<td>
+						<p class="dipIB txtM mrL"><label class="iptRadio"><input type="radio" name="radio02"><span>給与</span></label></p>
+						<p class="dipIB txtM"><label class="iptRadio"><input type="radio" name="radio02"><span>賞与</span></label></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="txtM mtL">「振込を行う日付（指定日）」を指定してください。</p>
+		<table class="tbl02 mtS">
+			<col style="width: 20%;">
+			<col style="width: 80%;">
+			<tbody>
+				<tr>
+					<th><p class="txtM"><strong>指定日</strong></p></th>
+					<td>
+						<p class="slctWrap">
+							<select class="slct txtM">
+								<option value="0">2004/03/29(月)</option>
+								<option value="1">2004/03/30(火)</option>
+								<option value="2">2004/03/31(水)</option>
+								<option value="3">2004/04/01(木)</option>
+								<option value="4">2004/04/02(金)</option>
+								<option value="5">2004/04/05(月)</option>
+								<option value="6">2004/04/06(火)</option>
+							</select>
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="txtM mtL">「従業員（振込先）の抽出方法」と「並び順」を指定してください。</p>
+		<table class="tbl02 mtS">
+			<col style="width: 20%;">
+			<col style="width: 80%;">
+			<tbody>
+				<tr>
+					<th><p class="txtM"><label class="iptRadio"><input type="radio" name="radio03"><span><strong>グループ</strong></span></label></p></th>
+					<td>
+						<p class="slctWrap">
+							<select class="slct txtM">
+								<option value="0" selected="">01&nbsp;グループ名称０１</option>
+								<option value="1">02&nbsp;グループ名称０２</option>
+								<option value="2">03&nbsp;グループ名称０３</option>
+								<option value="3">04&nbsp;グループ名称０４</option>
+								<option value="4">05&nbsp;グループ名称０５</option>
+								<option value="5">06&nbsp;グループ名称０６</option>
+								<option value="6">07&nbsp;グループ名称０７</option>
+								<option value="7">08&nbsp;グループ名称０８</option>
+								<option value="8">09&nbsp;グループ名称０９</option>
+								<option value="9">10&nbsp;グループ名称１０</option>
+							</select>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th><p class="txtM"><label class="iptRadio"><input type="radio" name="radio03"><span><strong>従業員コード</strong></span></label></p></th>
+					<td>
+						<p>
+							<input class="iptTxt" type="text" name="DUMMY" size="15" value="">
+							<span class="mlS mrS">～</span>
+							<input class="iptTxt" type="text" name="DUMMY" size="15" value="">
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<th><p class="txtM"><label class="iptRadio"><input type="radio" name="radio03" checked="checked"><span><strong>全先</strong></span></label></p></th>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl02 mtL">
+			<col style="width: 20%;">
+			<col style="width: 80%;">
+			<tbody>
+				<tr>
+					<th><p class="txtM"><strong>並び替え</strong></p></th>
+					<td>
+						<p class="dipIB txtM mrL"><label class="iptRadio"><input type="radio" name="radio04" checked="checked"><span>従業員コード順</span></label></p>
+						<p class="dipIB txtM"><label class="iptRadio"><input type="radio" name="radio04"><span>カナ順</span></label></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="btnSet mtL">
+			<li class="bsItem02"><a class="btn04" href="../kf/ATRegDataTerms.html">戻る</a></li>
+			<li class="bsItem03"><a class="btn01 txtLL btn01SizeL btn01noMrk" href="../kf/ATRegDataInputAmtNew.html">次へ</a></li>
+		</ul>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+			<!--
+			KbnHtml_s()
+			//-->
+			</script>
+			<script type="text/javascript">
+			<!--
+			KbnHtml_e()
+			//-->
+			</script>
+		</div>
+
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>
