@@ -59,8 +59,7 @@
 		<ol id="breadcrumb" class="txtM">
 			<li><a href="../au/kt/Initial.html">ホーム</a></li>
 			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
-			<li><a href="../kf/ATRegDataTerms.html">振込データ作成</a></li>
-			<li>作成</li>
+			<li>振込データの作成</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">給与振込（作成）振込内容確認</h1>
 		<ol class="progressList01 mtS">
@@ -292,28 +291,44 @@
 			</script>
 		</div>
 
-		<form name="form1">
-			<table class="tbl03 mtL">
-				<col style="width: 15%;">
-				<col style="width: 85%;">
-				<tbody>
-					<tr>
-						<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
-						<td><p><input class="iptTxt vaM mrM" type="text" name="pass" size="15" value=""><span class="txtM dipIB vaM">7桁</span></p></td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
-
-		<div class="mtL taR">
-			<p><button type="submit" name="exec" class="btn01 txtM btn01SizeS btn01noMrk" onClick="execProgressBar1();">保留</button></p>
-			<p class="mtS">確認パスワードは不要です</p>
+		<div class="clearfix">
+			<div class="fltL">
+				<form name="form1">
+				<table class="tbl03 mtM">
+					<col style="width: 40%;">
+					<col style="width: 60%;">
+					<tbody>
+						<tr>
+							<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
+							<td><p><input class="iptTxt vaM mrM" type="password" name="pass" size="10" value="" maxlength="7"><span class="txtM dipIB vaM">（7桁）</span></p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="fltR">
+				<table class="tbl03 mtM">
+					<col style="width: 40%;">
+					<col style="width: 60%;">
+					<tbody>
+						<tr>
+							<td><p class="txtM color01"><strong>承認時コメント</strong></p></td>
+							<td><p><input class="iptTxt vaM mrM" type="text" name="comment" size="20" value=""><span class="txtM dipIB vaM"></span></p></td>
+						</tr>
+					</tbody>
+				</table>
+				</form>
+			</div>
 		</div>
 
-		<ul class="btnSet mtL">
-			<li class="bsItem02"><a class="btn04" href="../kf/ATRegDataInputAmtNew.html">戻る</a></li>
-			<li class="bsItem03"><button class="btn02" type="submit" name="decide" onClick="return chkPwd()">実行</button></li>
+		<ul class="mtM taC">
+			<li class="dipIB vaM"><button class="btn02" type="submit" name="decide" onClick="return chkPwd()">実行</button></li>
+			<li class="dipIB vaM mlM taL">
+				<button class="btn01 txtM btn01SizeS btn01noMrk" type="submit" name="exec" value="保留" onClick="execProgressBar1();">保留</button>
+				<p class="txtM mtS">（確認パスワードは不要です）</p>
+			</li>
 		</ul>
+
+		<p class="mtM"><form action="../kf/ATRegDataInputAmtNew.html" method="get"><button class="btn04" type="submit" name="back" value=" 戻る">戻る</button></p>
 
 		<hr class="hr mtL">
 

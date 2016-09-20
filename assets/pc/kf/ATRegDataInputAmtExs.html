@@ -49,9 +49,8 @@
 		<ol id="breadcrumb" class="txtM">
 			<li><a href="../au/kt/Initial.html">ホーム</a></li>
 			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
-			<li><a href="../kf/ATRegDataTerms.html">振込データ作成</a></li>
-			<li>作成</li>
-		</ol>
+			<li>振込データの作成</li>
+s		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">給与振込：作成（振込先の選択）</h1>
 		<ol class="progressList01 mtS">
 			<li><span class="txtM">振込先の選択</span></li>
@@ -224,10 +223,12 @@
 
 		<p class="mtS taR"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY" onclick="amtClear(form)">金額クリア</a></p>
 
+		<script language="javascript" src="progressBar.js"></script>
+
 		<ul class="btnSet mtL">
 			<li class="bsItem01"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></li>
 			<li class="bsItem02"><a class="btn04" href="../kf/ATRegDataInputDtNew.html">戻る</a></li>
-			<li class="bsItem03"><button class="btn02" type="submit">決定</button></li>
+			<li class="bsItem03"><button class="btn02" type="submit" onClick="return execProgressBar()">決定</button></li>
 		</ul>
 
 	</div>
