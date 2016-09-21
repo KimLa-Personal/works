@@ -15,7 +15,7 @@
 <script src="../swkeyboard.js"></script>
 </head>
 <body>
-<script>include('header02', function(){ menuCurrent(0); });</script>
+<script>include('header02', function(){ menuCurrent(2); });</script>
 <div id="wrapper">
 	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
 	<div id="main" class="contents">
@@ -28,54 +28,54 @@
 		<ol class="progressList01 mtS">
 			<li class="current"><span class="txtM">取引の選択</span></li>
 			<li><span class="txtM">取引内容の確認</span></li>
-			<li><span class="txtM">ダミー</span></li>
+			<li><span class="txtM">受付の完了</span></li>
 		</ol>
 
 		<p class="txtM mtL">
 			｢削除｣または｢差戻し｣を行う「給与振込データ(承認済)」を選択してください｡<br />
-      ※差戻し：「承認済」の給与振込データを「作成中」に戻します。<br />
-      最終更新日より3ヵ月経過後に自動的に消去となります。
+			※差戻し：「承認済」の給与振込データを「作成中」に戻します。<br />
+			最終更新日より3ヵ月経過後に自動的に消去となります。
 		</p>
 
-    <table class="tbl02 mtL">
+		<table class="tbl02 mtL">
 			<colgroup>
-        <col style="width: 15%;">
-        <col style="width: 15%;">
-  			<col style="width: 28%;">
-        <col style="width: 15%;">
-  			<col style="width: 15%;">
-  			<col style="width: 12%;">
+				<col style="width: 18%;">
+				<col style="width: 15%;">
+				<col style="width: 22%;">
+				<col style="width: 18%;">
+				<col style="width: 15%;">
+				<col style="width: 12%;">
 			</colgroup>
-      <thead>
+			<thead>
 				<tr>
 					<th class="taC"><p class="txtL"><strong>指定日</strong></p></th>
 					<th class="taC"><p class="txtL"><strong>明細数</strong></p></th>
 					<th class="taC"><p class="txtL"><strong>振込金額合計</strong></p></th>
-          <th class="taC"><p class="txtL"><strong>最終更新日</strong></p></th>
-          <th class="taC"><p class="txtL"><strong>最終更新者<br />利用者コード</strong></p></th>
+					<th class="taC"><p class="txtL"><strong>最終更新日</strong></p></th>
+					<th class="taC"><p class="txtL"><strong>最終更新者<br />利用者コード</strong></p></th>
 					<th class="taC"><p class="txtL"><strong>選択</strong></p></th>
 				</tr>
 			</thead>
 			<tbody class="tblBgEven">
 				<tr>
 					<td class="taC"><p class="txtM">2004/03/29</p></td>
-          <td class="taR"><p class="txtM">1件</p></td>
-          <td class="taR"><p class="txtM">5,000円</p></td>
-          <td class="taC"><p class="txtM">2004/03/25</p></td>
+					<td class="taR"><p class="txtM">1件</p></td>
+					<td class="taR"><p class="txtM">5,000円</p></td>
+					<td class="taC"><p class="txtM">2004/03/25</p></td>
 					<td class="taC"><p class="txtM">9999</p></td>
-          <form action="../kf/ATCancelDataConfirm.html" method="get">
-  					<td class="taC"><p><input class="btn01 txtM btn01SizeS" type="submit" value="選択" name="select1"></p></td>
-          </form>
+					<form action="../kf/ATCancelDataConfirm.html" method="get">
+						<td class="taC"><p><button class="btn01 txtM btn01SizeS" type="submit" name="select1" value="選択">選択</button></p></td>
+					</form>
 				</tr>
-        <tr>
+				<tr>
 					<td class="taC"><p class="txtM">2004/03/29</p></td>
-          <td class="taR"><p class="txtM">1件</p></td>
-          <td class="taR"><p class="txtM">11,111円</p></td>
-          <td class="taC"><p class="txtM">2004/03/25</p></td>
+					<td class="taR"><p class="txtM">1件</p></td>
+					<td class="taR"><p class="txtM">11,111円</p></td>
+					<td class="taC"><p class="txtM">2004/03/25</p></td>
 					<td class="taC"><p class="txtM">9999</p></td>
-          <form action="../kf/ATCancelDataConfirm.html" method="get">
-  					<td class="taC"><p><input class="btn01 txtM btn01SizeS" type="submit" value="選択" name="select2"></p></td>
-          </form>
+					<form action="../kf/ATCancelDataConfirm.html" method="get">
+						<td class="taC"><p><button class="btn01 txtM btn01SizeS" type="submit" name="select2" value="選択">選択</button></p></td>
+					</form>
 				</tr>
 			</tbody>
 		</table>
