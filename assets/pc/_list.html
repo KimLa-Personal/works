@@ -12,7 +12,6 @@
 .header { margin-bottom: 50px; }
 .section { margin-top: 30px; }
 h1 { padding: 0 5px;  font-size: 20px; font-weight: normal; }
-h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; font-weight: bold; }
 .section-main { overflow: hidden; }
 .pageList { width: 100%; margin-top: -1px; border-collapse: collapse; }
 .pageList th, .pageList td { padding: 7px 10px; border: 1px solid #ddd; font-size: 12px; line-height: 1.8em; text-align: left; }
@@ -21,6 +20,7 @@ h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; fo
 .pageList tbody td:first-child + td, .pageList tbody td:first-child + td + td { font-weight: bold; }
 .pageList tbody th { font-weight: normal; }
 .pageList tbody tr { cursor: pointer; } .pageList tbody tr:hover { background: #f6feea; }
+h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; font-weight: bold; }
 .js-accordHead { position: relative; cursor: pointer; } .js-accordHead:hover { background: #f6feea; }
 .js-accordHead:after { content: ""; display: block; position: absolute; top: 12px; right: 15px; width: 7px; height: 7px; border-top: 3px solid #ccc; border-right: 3px solid #ccc; transform: rotate(135deg); }
 .js-accordHead.opened:after { top: 15px; transform: rotate(-45deg); }
@@ -36,14 +36,40 @@ h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; fo
 
   <div class="main">
 
+		<div class="section">
+      <div class="section-main">
+        <table summary="" class="pageList js-pageList">
+    			<colgroup>
+            <col style="width: 5%;">
+            <col style="width: 55%;">
+      			<col>
+    			</colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>ページ名</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <th>モジュール</th>
+              <td><a href="./_template/module.html" target="_blank">/_template/module.html</a></td>
+            </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
     <div class="section">
-      <h2 class="js-accordHead">0923分</h2>
       <div class="section-main">
         <table summary="" class="pageList js-pageList">
     			<colgroup>
             <col style="width: 5%;">
             <col style="width: 15%;">
       			<col style="width: 20%;">
+						<h2 class="js-accordHead">0923分</h2>
             <col style="width: 20%;">
       			<col>
     			</colgroup>
@@ -381,7 +407,7 @@ $(function() {
       var $anchor = $(anchor).find('a');
       var href = $anchor.attr('href');
       var target = $anchor.attr('target');
-      href = (this.eq > 0) ? href.replace('kf/', 'kf_old/') : href
+      href = (this.eq > 1) ? href.replace('kf/', 'kf_old/') : href
       if($anchor.length === 1) {
         if(target) {
           window.open(href, target);

@@ -807,8 +807,14 @@ a:hover {
 .setColorB .pageList01 > ol > li.current a { background-color: #172a88; color: #fff; }
 .setColorC .pageList01 > ol > li.current a { background-color: #ffff00; color: #172a88; }
 .pageList01 > ol > li.pL01Txt {
-	padding-left: 20px;
+	padding-left: 5px;
 	vertical-align: middle;
+}
+.pageList01 > ol > li.pL01Txt:last-of-type {
+	padding-left: 20px;
+}
+.pageList01 > ol > li:first-child {
+	padding-left: 0;
 }
 .tblBgEven tr:nth-child(2n) td,
 .tblBgEven tr:nth-child(2n) th,
@@ -1124,7 +1130,7 @@ a.btn04 {
 	font-size: 107.1%;
 	border: 1px solid #ccc;
 	line-height: 1;
-	height: 34px;
+	min-height: 34px;
 	box-sizing: border-box;
 }
 .txtArea {
