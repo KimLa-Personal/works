@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>画面一覧</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+* { margin: 0; padding: 0; }
+.page { max-width: 80%; min-width: 950px; margin: 50px auto; }
+.header { margin-bottom: 50px; }
+h1 { padding: 0 5px;  font-size: 20px; font-weight: normal; }
+h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; font-weight: bold; }
+.section { margin-top: 30px; }
+.section-main { overflow: hidden; }
+.pageList { width: 100%; margin-top: -1px; border-collapse: collapse; }
+.pageList th, .pageList td { padding: 7px 10px; border: 1px solid #ddd; font-size: 12px; line-height: 1.8em; text-align: left; }
+.pageList thead th { background: #efefef; text-align: center; font-weight: bold; }
+.pageList tbody td:first-child { text-align: center; }
+.pageList tbody td:first-child + td, .pageList tbody td:first-child + td + td { font-weight: bold; }
+.pageList tbody th { font-weight: normal; }
+.pageList tbody tr { cursor: pointer; } .pageList tbody tr:hover { background: #f6feea; }
+.js-accordHead { position: relative; cursor: pointer; } .js-accordHead:hover { background: #f6feea; }
+.js-accordHead:after { content: ""; display: block; position: absolute; top: 12px; right: 15px; width: 7px; height: 7px; border-top: 3px solid #ccc; border-right: 3px solid #ccc; transform: rotate(135deg); }
+.js-accordHead.opened:after { top: 15px; transform: rotate(-45deg); }
+</style>
+</head>
+<body>
+
+<div class="page" id="PageView">
+
+  <div class="header">
+    <h1>画面一覧</h1>
+  </div>
+
+  <div class="main">
+
+    <div class="section">
+      <div class="section-main">
+        <table summary="" class="pageList js-pageList">
+          <colgroup>
+            <col style="width: 5%;">
+            <col style="width: 55%;">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>ページ名</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <th>モジュール</th>
+              <td><a href="./_template/module.html" target="_blank">/_template/module.html</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-main">
+        <table summary="" class="pageList js-pageList">
+          <colgroup>
+            <col style="width: 5%;">
+            <col style="width: 15%;">
+            <col style="width: 20%;">
+            <h2 class="js-accordHead">0923分</h2>
+            <col style="width: 20%;">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>大カテゴリ</th>
+              <th>小カテゴリ</th>
+              <th>ページ名</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>総合振込</td>
+              <td>削除・差戻し</td>
+              <th>対象取引選択画面</th>
+              <td><a href="./kf/ATCancelDataList.html" target="_blank">/kf/ATCancelDataList.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>内容確認画面</th>
+              <td><a href="./kf/ATCancelDataConfirm.html" target="_blank">/kf/ATCancelDataConfirm.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>承認済削除結果画面</th>
+              <td><a href="./kf/ATCancelDataResult.html" target="_blank">/kf/ATCancelDataResult.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>承認済差戻し結果画面</th>
+              <td><a href="./kf/ATCancelDataResultSendBack.html" target="_blank">/kf/ATCancelDataResultSendBack.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>振込先メンテナンス</td>
+              <th>振込先口座登録画面</th>
+              <td><a href="./kf/ATPayeeMtnList.html" target="_blank">/kf/ATPayeeMtnList.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>内容確認画面</th>
+              <td><a href="./kf/ATPayeeMtnDetailsExs.html" target="_blank">/kf/ATPayeeMtnDetailsExs.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>金融機関検索画面１</th>
+              <td><a href="./kf/ATPayeeMtnChoiceFF.html" target="_blank">/kf/ATPayeeMtnChoiceFF.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>金融機関検索画面２</th>
+              <td><a href="./kf/ATPayeeMtnRetrieveBank.html" target="_blank">/kf/ATPayeeMtnRetrieveBank.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>金融機関指定画面</th>
+              <td><a href="./kf/ATPayeeMtnListBank.html" target="_blank">/kf/ATPayeeMtnListBank.html</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="js-accordHead">0916分</h2>
+      <div class="section-main">
+        <table summary="" class="pageList js-pageList">
+          <colgroup>
+            <col style="width: 5%;">
+            <col style="width: 15%;">
+            <col style="width: 20%;">
+            <col style="width: 20%;">
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>大カテゴリ</th>
+              <th>小カテゴリ</th>
+              <th>ページ名</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>総合振込</td>
+              <td>取引状況照会</td>
+              <th>取引の選択画面</th>
+              <td><a href="./kf/ATTrnInqList.html" target="_blank">/kf/ATTrnInqList.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>照会画面</th>
+              <td><a href="./kf/ATTrnInqDetails.html" target="_blank">/kf/ATTrnInqDetails.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>振込データ詳細画面</th>
+              <td><a href="./kf/ATTrnInqShousai.html" target="_blank">/kf/ATTrnInqShousai.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>作成</td>
+              <th>振込データ作成画面</th>
+              <td><a href="./kf/ATRegDataTerms.html" target="_blank">/kf/ATRegDataTerms.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>振込指定日選択画面</th>
+              <td><a href="./kf/ATRegDataInputDtNew.html" target="_blank">/kf/ATRegDataInputDtNew.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>振込金額指定画面</th>
+              <td><a href="./kf/ATRegDataInputAmtNew.html" target="_blank">/kf/ATRegDataInputAmtNew.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>内容確認画面</th>
+              <td><a href="./kf/ATRegDataConfirm.html" target="_blank">/kf/ATRegDataConfirm.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>結果画面</th>
+              <td><a href="./kf/ATRegDataResult.html" target="_blank">/kf/ATRegDataResult.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>保留画面</th>
+              <td><a href="./kf/ATRegDataResultRsrv.html" target="_blank">/kf/ATRegDataResultRsrv.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>既存振込先の選択画面</th>
+              <td><a href="./kf/ATRegDataListExs.html" target="_blank">/kf/ATRegDataListExs.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>既存振込指定日選択画面</th>
+              <td><a href="./kf/ATRegDataInputDtExs.html" target="_blank">/kf/ATRegDataInputDtExs.html</a></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>既存振込金額指定画面</th>
+              <td><a href="./kf/ATRegDataInputAmtExs.html" target="_blank">/kf/ATRegDataInputAmtExs.html</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div><!--/.main -->
+
+</div><!--/.page -->
+
+<script src="./jquery-1.6.4.js"></script>
+<script>
+$(function() {
+
+  /**
+   * ページ
+   */
+  var PageView = (function() {
+    var constructor = function(el) {
+      this.$el = {};
+      this.$anchor = {};
+      this.$section = {};
+      this.isScroll = false;
+      this.scrollSpeed = 500;
+      this.init(el);
+      return this;
+    };
+    var proto = constructor.prototype;
+    proto.init = function(el) {
+      this.setEl(el);
+      this.setChildViewInstance();
+      this.setEvents();
+      return this;
+    };
+    proto.setEl = function(el) {
+      this.$el = $(el);
+      this.$anchor = this.$el.find('a[href^="#"]');
+      this.$section = this.$el.find('.section');
+      return this;
+    };
+    proto.setChildViewInstance = function() {
+      this.$section.each(function(i) {
+
+        /* セクション */
+        var sectionView = new SectionView();
+        sectionView.init({
+          el: this,
+          eq: i
+        });
+
+      });
+      return this;
+    };
+    proto.setEvents = function() {
+      var that = this;
+      this.$anchor.bind('click', function(e) {
+        e.preventDefault();
+        if(!that.isScroll) {
+          that.smoothScroll($(this).attr('href'));
+          that.isScroll = false;
+        }
+      });
+      return this;
+    };
+    proto.smoothScroll = function(href) {
+      this.isScroll = true;
+      var $target = $(href === '#' || href === '' ? 'html' : href);
+      $('html, body').animate({
+        scrollTop: $target.offset().top
+      }, this.scrollSpeed);
+      return this;
+    };
+    return constructor;
+  })();
+
+  /**
+   * セクション
+   */
+  var SectionView = (function() {
+    var constructor = function() {
+      this.$el = {};
+      this.$title = {};
+      this.$main = {};
+      this.$pageList = {};
+      this.$pageListTableRow = {};
+      this.classOpen = 'opened';
+      this.isOpen = false;
+      this.isAnimate = false;
+      this.eq = 0;
+      return this;
+    };
+    var proto = constructor.prototype;
+    proto.init = function(args) {
+      this.eq = (args.eq !== undefined) ? args.eq : this.eq;
+      this.isOpened = (this.eq > 1) ? false : true;
+      this.setEl(args.el);
+      this.onLoadFunction();
+      this.setEvents();
+      return this;
+    };
+    proto.setEl = function(el) {
+      this.$el = $(el);
+      this.$title = this.$el.find('.js-accordHead');
+      this.$main = this.$title.next();
+      this.$pageList = this.$el.find('.js-pageList');
+      this.$pageListTableRow = this.$pageList.find('tbody tr');
+      return this;
+    };
+    proto.onLoadFunction = function() {
+      if(this.$title.hasClass(this.classOpen)) {
+        this.isOpened = true;
+      }
+      if(!this.isOpened) {
+        this.$main.hide();
+      } else {
+        this.$title.addClass(this.classOpen);
+      }
+      this.setPageListNum();
+      return this;
+    };
+    proto.setPageListNum = function(table) {
+      this.$pageListTableRow.each(function(i) {
+        var $tr = $(this);
+        $tr.children().first().text(i+1);
+      });
+      return this;
+    };
+    proto.setEvents = function() {
+      var that = this;
+      this.$pageListTableRow.bind('click', function(e) {
+        e.preventDefault();
+        that.onClickPageListTableRow(this);
+      });
+      this.$title.bind('click', function() {
+        if(!that.isAnimate) {
+          that.animateAccordion();
+          that.isAnimate = false;
+        }
+      });
+      return this;
+    };
+    proto.animateAccordion = function() {
+      this.isAnimate = true;
+      this.$main.slideToggle();
+      this.$title.toggleClass(this.classOpen);
+      return this;
+    };
+    proto.onClickPageListTableRow = function(anchor) {
+      var $anchor = $(anchor).find('a');
+      var href = $anchor.attr('href');
+      var target = $anchor.attr('target');
+      //href = (this.eq > 1) ? href.replace('kf/', 'kf_old/') : href
+      if($anchor.length === 1) {
+        if(target) {
+          window.open(href, target);
+        } else {
+          location.href = href;
+        }
+      }
+      return this;
+    };
+    return constructor;
+  })();
+
+  /* ページ */
+  new PageView('#PageView');
+});
+</script>
+</body>
+</html>

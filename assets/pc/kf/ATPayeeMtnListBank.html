@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>八十二＜インターネットバンキング＞</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+</head>
+<body>
+<script>include('header02', function(){ menuCurrent(2); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
+			<li>振込先メンテナンス</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">給与振込み:振込先口座登録（振込先金融機関の指定）</h1>
+
+		<p class="txtM mtL">お振込先金融機関を選択してください。</p>
+		<table class="tbl01 mtS">
+			<col style="width: 39%;">
+			<col style="width: 39%;">
+			<col style="width: 12%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<th class="taL"><p class="txtM">あさひ銀行</p></th>
+					<td><p class="txtM">アサヒ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select0">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">アイワイバンク銀行</p></th>
+					<td><p class="txtM">アイワイバンク</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select1">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">青森銀行</p></th>
+					<td><p class="txtM">アオモリ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select2">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">秋田銀行</p></th>
+					<td><p class="txtM">アキタ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select3">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">足利銀行</p></th>
+					<td><p class="txtM">アシカガ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select4">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">阿波銀行</p></th>
+					<td><p class="txtM">アワ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select5">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">あおぞら銀行</p></th>
+					<td><p class="txtM">アオゾラ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select6">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">アメリカ銀行</p></th>
+					<td><p class="txtM">アメリカ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select7">選択</button></p>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">愛知銀行</p></th>
+					<td><p class="txtM">アイチ</p></td>
+					<td class="taC">
+						<form action="../kf/ATPayeeMtnRetrieveBranch.html" method="get">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="select8">選択</button></p>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="mtL">
+			<li class="dipIB"><a class="btn04" href="../kf/ATPayeeMtnRetrieveBank.html">戻る</a></li>
+			<li class="dipIB mlM"><a class="btn04 mlM" href="../kf/ATPayeeMtnDetailsExs.html">受取人情報設定に戻る</a></li>
+		</ul>
+
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>

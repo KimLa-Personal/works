@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>八十二＜インターネットバンキング＞</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+</head>
+<body>
+<script>include('header02', function(){ menuCurrent(2); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="../kf/ATSubMenu.html">給与振込</a></li>
+			<li>振込先メンテナンス</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">給与振込（振込先メンテナンス）振込先口座詳細</h1>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+				<!--
+				KbnMsg_s()
+				//-->
+				</script>
+					<span>必要事項を入力・修正して「登録」ボタンを押してください。<br />
+					なお、この振込先口座を削除する場合は「削除」ボタンを押してください。<br /></span>
+				<script type="text/javascript">
+				<!--
+				KbnMsg_e()
+				//-->
+			</script>
+		</div>
+
+		<p><a class="btn01 txtLL mtL" href="../kf/ATPayeeMtnChoiceFF.html">受取人口座変更</a></p>
+
+		<table class="tbl01 mtL">
+			<col style="width: 15%;">
+			<col style="width: 35%;">
+			<col style="width: 15%;">
+			<col style="width: 35%;">
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>受取人名（カナ）</strong></p></th>
+					<td colspan="3"><p class="txtM">テスト　タロウ</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>金融機関</strong></p></th>
+					<td><p class="txtM">阿波銀行</p></td>
+					<th class="taL"><p class="txtM"><strong>支店</strong></p></th>
+					<td><p class="txtM">本店営業部</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>預金種目</strong></p></th>
+					<td><p class="txtM">普通</p></td>
+					<th class="taL"><p class="txtM"><strong>口座番号</strong></p></th>
+					<td><p class="txtM">0459837</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="txtM mtL">※短縮文字（㈱・㈲など）、記号等は利用できません。</p>
+
+		<table class="tbl01 mtS">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>受取人名（漢字）</strong></p></th>
+					<td><p><input class="iptTxt" type="text" name="kanji" size="45" value="試験　太郎"></p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>従業員コード<br>(半角数字)</strong></p></th>
+					<td><p><input class="iptTxt" type="text" name="code" size="45" value="0000000001"></p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>グループ</strong></p></th>
+					<td>
+						<select class="slct txtM" name="group">
+							<option value="0" selected="selected">01　グループ名称０１</option>
+							<option value="1">02　グループ名称０２</option>
+							<option value="2">03　グループ名称０３</option>
+							<option value="3">04　グループ０４</option>
+							<option value="4">05　グループ０５</option>
+							<option value="5">06　グループ０６</option>
+							<option value="6">07　グループ０７</option>
+							<option value="7">08　グループ０８</option>
+							<option value="8">09　グループ０９</option>
+							<option value="9">10　グループ１０</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>最終更新日時</strong></p></th>
+					<td><p class="txtM">2004年03月25日21時39分</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="mtL taC">
+			<li class="dipIB vaM">
+				<form action="../kf/ATPayeeMtnConfirmReg.html" method="get">
+					<button class="btn04" type="submit" name="del">キャンセル</button>
+				</form>
+			</li>
+			<li class="dipIB vaM mlM taL">
+				<form action="../kf/ATPayeeMtnConfirmDel.html" method="get">
+					<button class="btn02" type="submit" name="reg">登録</button>
+				</form>
+			</li>
+			<li class="dipIB vaM mlM taL">
+				<form action="../kf/ATPayeeMtnList.html" method="get">
+					<button class="btn02" type="submit">削除</button>
+			</form>
+			</li>
+		</ul>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+				<!--
+				KbnHtml_s()
+				//-->
+				</script>
+				<script type="text/javascript">
+				<!--
+				KbnHtml_e()
+				//-->
+			</script>
+		</div>
+
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>
