@@ -2,16 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="Shift_JIS">
-<title>デザイン一覧</title>
+<title>画面一覧</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="keywords" content="">
 <meta name="description" content="">
+<meta name="keywords" content="">
 <style>
 * { margin: 0; padding: 0; }
 .page { max-width: 80%; min-width: 950px; margin: 50px auto; }
 .header { margin-bottom: 50px; }
-.section { margin-top: 30px; }
 h1 { padding: 0 5px;  font-size: 20px; font-weight: normal; }
+h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; font-weight: bold; }
+.section { margin-top: 30px; }
 .section-main { overflow: hidden; }
 .pageList { width: 100%; margin-top: -1px; border-collapse: collapse; }
 .pageList th, .pageList td { padding: 7px 10px; border: 1px solid #ddd; font-size: 12px; line-height: 1.8em; text-align: left; }
@@ -20,7 +21,6 @@ h1 { padding: 0 5px;  font-size: 20px; font-weight: normal; }
 .pageList tbody td:first-child + td, .pageList tbody td:first-child + td + td { font-weight: bold; }
 .pageList tbody th { font-weight: normal; }
 .pageList tbody tr { cursor: pointer; } .pageList tbody tr:hover { background: #f6feea; }
-h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; font-weight: bold; }
 .js-accordHead { position: relative; cursor: pointer; } .js-accordHead:hover { background: #f6feea; }
 .js-accordHead:after { content: ""; display: block; position: absolute; top: 12px; right: 15px; width: 7px; height: 7px; border-top: 3px solid #ccc; border-right: 3px solid #ccc; transform: rotate(135deg); }
 .js-accordHead.opened:after { top: 15px; transform: rotate(-45deg); }
@@ -298,11 +298,10 @@ $(function() {
       this.$section.each(function(i) {
 
         /* セクション */
-        var sectionView = new SectionView(i);
+        var sectionView = new SectionView();
         sectionView.init({
           el: this,
-          eq: i,
-          isOpened: (i > 1) ? false : true
+          eq: i
         });
 
       });
@@ -314,7 +313,7 @@ $(function() {
         e.preventDefault();
         if(!that.isScroll) {
           that.smoothScroll($(this).attr('href'));
-          that.isAnimate = false;
+          that.isScroll = false;
         }
       });
       return this;
@@ -322,9 +321,8 @@ $(function() {
     proto.smoothScroll = function(href) {
       this.isScroll = true;
       var $target = $(href === '#' || href === '' ? 'html' : href);
-      var position = $target.offset().top;
       $('html, body').animate({
-        scrollTop: position
+        scrollTop: $target.offset().top
       }, this.scrollSpeed);
       return this;
     };
@@ -349,8 +347,8 @@ $(function() {
     };
     var proto = constructor.prototype;
     proto.init = function(args) {
-      this.isOpened = (args.isOpened !== undefined) ? args.isOpened : this.isOpened;
-      this.eq = args.eq;
+      this.eq = (args.eq !== undefined) ? args.eq : this.eq;
+      this.isOpened = (this.eq > 1) ? false : true;
       this.setEl(args.el);
       this.onLoadFunction();
       this.setEvents();
@@ -376,6 +374,13 @@ $(function() {
       this.setPageListNum();
       return this;
     };
+    proto.setPageListNum = function(table) {
+      this.$pageListTableRow.each(function(i) {
+        var $tr = $(this);
+        $tr.children().first().text(i+1);
+      });
+      return this;
+    };
     proto.setEvents = function() {
       var that = this;
       this.$pageListTableRow.bind('click', function(e) {
@@ -387,13 +392,6 @@ $(function() {
           that.animateAccordion();
           that.isAnimate = false;
         }
-      });
-      return this;
-    };
-    proto.setPageListNum = function(table) {
-      this.$pageListTableRow.each(function(i) {
-        var $tr = $(this);
-        $tr.children().first().text(i+1);
       });
       return this;
     };
