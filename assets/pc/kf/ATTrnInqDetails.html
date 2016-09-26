@@ -2,12 +2,12 @@
 <html lang="ja">
 <head>
 <meta charset="Shift_JIS">
-<title>八十二銀行</title>
+<title>八十二＜インターネットバンキング＞</title>
 <meta name="robots" content="none">
 <meta name="viewport" content="width=1000">
 <meta name="MobileOptimized" content="0">
 <meta name="format-detection" content="telephone=no">
-<meta http-equiv="X-Ua-Compatible" content="IE=9">
+<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 <link rel="stylesheet" href="../emusc_IH.css">
 <script src="../jquery-1.6.4.js"></script>
 <script src="../emusc_IH.js"></script>
@@ -25,6 +25,22 @@
 			<li>取引状況照会</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">給与振込：取引状況照会</h1>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+			<!--
+			KbnMsg_s()
+			//-->
+			</script>
+				<span>お取引内容の一覧をカナ順で並び替える場合は、｢並び替え｣ボタンを押してください。</span><br>
+				<span>一覧全てを印刷する場合は、「一括印刷」ボタンを押してください。</span><br>
+				<span>ページ印刷をする場合は「ページ印刷」ボタンを押してください。</span><br>
+			<script type="text/javascript">
+			<!--
+			KbnMsg_e()
+			//-->
+			</script>
+		</div>
 
 		<table class="tbl01 mtL">
 			<col style="width: 28%;">
@@ -53,46 +69,56 @@
 			</tbody>
 		</table>
 
-		<div class="txtM mtL">
-			<script type="text/javascript">
-			<!--
-			KbnMsg_s()
-			//-->
-			</script>
-				<span>お取引内容の一覧をカナ順で並び替える場合は、｢並び替え｣ボタンを押してください。</span><br>
-				<span>一覧全てを印刷する場合は、「一括印刷」ボタンを押してください。</span><br>
-				<span>ページ印刷をする場合は「ページ印刷」ボタンを押してください。</span><br>
-			<script type="text/javascript">
-			<!--
-			KbnMsg_e()
-			//-->
-			</script>
+		<div class="colWrap01 mtL">
+			<p class="cw01Item slctWrap">
+				<span class="txtM">並び順：</span>
+				<select class="slct txtM">
+					<option value="">支店名</option>
+					<option value="">ダミーテキスト1</option>
+					<option value="">ダミーテキスト2</option>
+				</select>
+				<select class="slct txtM">
+					<option value="">昇順</option>
+					<option value="">降順</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">再表示</a></span>
+			</p>
+			<p class="cw01Item taR slctWrap">
+				<span class="txtM">絞込条件：</span>
+				<select class="slct txtM">
+					<option value="">すべて</option>
+					<option value="">完了</option>
+					<option value="">削除済</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">条件指定</a></span>
+			</p>
 		</div>
-
-		<div class="clearfix mtL">
-			<div class="fltL">
-				<p><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">並び替え（カナ順）</a></p>
+		<div class="colWrap01 mtS">
+			<p class="cw01Item slctWrap">
+				<span class="txtM">表示件数：</span>
+				<select class="slct txtM">
+					<option value="">10件</option>
+					<option value="">30件</option>
+					<option value="">50件</option>
+				</select>
+				<span class="vaT"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">再表示</a></span>
+			</p>
+			<div class="cw01Item taR pageList01">
+				<ol>
+					<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
+					<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
+					<li class="txtM pL01Txt">1/100ページ</li>
+				</ol>
 			</div>
-			<div class="fltR">
-				<p class="taR"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">一括印刷（CSVダウンロード）</a></p>
-			</div>
-		</div>
-
-		<div class="pageList01 mtL">
-			<ol>
-				<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
-				<li class="txtM pL01Txt">1/100ページ</li>
-			</ol>
 		</div>
 
 		<table class="tbl01 mtS">
@@ -181,646 +207,10 @@
 					<td class="taR"><p class="txtM">630円</p></td>
 					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
 				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000011</p></td>
-					<td class="taL"><p class="txtM">ウメダセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000012</p></td>
-					<td class="taL"><p class="txtM">エトウコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000013</p></td>
-					<td class="taL"><p class="txtM">アカシヤギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000014</p></td>
-					<td class="taL"><p class="txtM">エナリセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000015</p></td>
-					<td class="taL"><p class="txtM">オイダセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000016</p></td>
-					<td class="taL"><p class="txtM">オオカワデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000017</p></td>
-					<td class="taL"><p class="txtM">ユ）オオサキギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000018</p></td>
-					<td class="taL"><p class="txtM">オオシロギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000019</p></td>
-					<td class="taL"><p class="txtM">オオタコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000020</p></td>
-					<td class="taL"><p class="txtM">オオトモギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000021</p></td>
-					<td class="taL"><p class="txtM">オールギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000022</p></td>
-					<td class="taL"><p class="txtM">オオワダギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000023</p></td>
-					<td class="taL"><p class="txtM">オクダデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000024</p></td>
-					<td class="taL"><p class="txtM">オダコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000025</p></td>
-					<td class="taL"><p class="txtM">オダデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000026</p></td>
-					<td class="taL"><p class="txtM">（ユ）オニガワラデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000027</p></td>
-					<td class="taL"><p class="txtM">カ）カジヤスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000028</p></td>
-					<td class="taL"><p class="txtM">カジワラスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000029</p></td>
-					<td class="taL"><p class="txtM">カズスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000030</p></td>
-					<td class="taL"><p class="txtM">カトウギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000031</p></td>
-					<td class="taL"><p class="txtM">カドカワスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000032</p></td>
-					<td class="taL"><p class="txtM">カナスギスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000033</p></td>
-					<td class="taL"><p class="txtM">カナメセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000034</p></td>
-					<td class="taL"><p class="txtM">（カブ）カノウスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000035</p></td>
-					<td class="taL"><p class="txtM">ガンゾセイカ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000036</p></td>
-					<td class="taL"><p class="txtM">キクチギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000037</p></td>
-					<td class="taL"><p class="txtM">キタガワギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000038</p></td>
-					<td class="taL"><p class="txtM">キノシタギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000039</p></td>
-					<td class="taL"><p class="txtM">クシダギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000040</p></td>
-					<td class="taL"><p class="txtM">クラウンギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000041</p></td>
-					<td class="taL"><p class="txtM">コウダセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000042</p></td>
-					<td class="taL"><p class="txtM">コジマギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000043</p></td>
-					<td class="taL"><p class="txtM">ユ）サイトウセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000044</p></td>
-					<td class="taL"><p class="txtM">サニーギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000045</p></td>
-					<td class="taL"><p class="txtM">サニーセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000046</p></td>
-					<td class="taL"><p class="txtM">シバザキギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000047</p></td>
-					<td class="taL"><p class="txtM">シミズセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000048</p></td>
-					<td class="taL"><p class="txtM">スイタギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000049</p></td>
-					<td class="taL"><p class="txtM">セノコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000050</p></td>
-					<td class="taL"><p class="txtM">ソエジマデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000051</p></td>
-					<td class="taL"><p class="txtM">タカハシセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000052</p></td>
-					<td class="taL"><p class="txtM">（ユ）タキグシスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000053</p></td>
-					<td class="taL"><p class="txtM">カ）タケダコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000054</p></td>
-					<td class="taL"><p class="txtM">チノセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000055</p></td>
-					<td class="taL"><p class="txtM">チヨノフジスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000056</p></td>
-					<td class="taL"><p class="txtM">ツシマセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000057</p></td>
-					<td class="taL"><p class="txtM">ツノダセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000058</p></td>
-					<td class="taL"><p class="txtM">テジマコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000059</p></td>
-					<td class="taL"><p class="txtM">トダデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000060</p></td>
-					<td class="taL"><p class="txtM">（カブ）トヨトミスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000061</p></td>
-					<td class="taL"><p class="txtM">ナイトウスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000062</p></td>
-					<td class="taL"><p class="txtM">ナルトセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000063</p></td>
-					<td class="taL"><p class="txtM">ニイジマギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000064</p></td>
-					<td class="taL"><p class="txtM">ニシコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000065</p></td>
-					<td class="taL"><p class="txtM">ニッシンデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000066</p></td>
-					<td class="taL"><p class="txtM">ヌマタギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000067</p></td>
-					<td class="taL"><p class="txtM">ネモトセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000068</p></td>
-					<td class="taL"><p class="txtM">ノジマセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000069</p></td>
-					<td class="taL"><p class="txtM">ユ）ノモデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000070</p></td>
-					<td class="taL"><p class="txtM">ハマノコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000071</p></td>
-					<td class="taL"><p class="txtM">ピーチスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000072</p></td>
-					<td class="taL"><p class="txtM">ヒメノデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000073</p></td>
-					<td class="taL"><p class="txtM">フクシマスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000074</p></td>
-					<td class="taL"><p class="txtM">フクヤマセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000075</p></td>
-					<td class="taL"><p class="txtM">フタゴヤマギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000076</p></td>
-					<td class="taL"><p class="txtM">フリスクセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000077</p></td>
-					<td class="taL"><p class="txtM">ヘイケギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000078</p></td>
-					<td class="taL"><p class="txtM">（ユ）ホッタギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000079</p></td>
-					<td class="taL"><p class="txtM">カ）ホリカワセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000080</p></td>
-					<td class="taL"><p class="txtM">ホンダコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000081</p></td>
-					<td class="taL"><p class="txtM">マイタセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000082</p></td>
-					<td class="taL"><p class="txtM">マツイコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000083</p></td>
-					<td class="taL"><p class="txtM">マツウラデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000084</p></td>
-					<td class="taL"><p class="txtM">マツザカセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000085</p></td>
-					<td class="taL"><p class="txtM">マツシタギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000086</p></td>
-					<td class="taL"><p class="txtM">（カブ）ミナカタセイヤク</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000087</p></td>
-					<td class="taL"><p class="txtM">ムタデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000088</p></td>
-					<td class="taL"><p class="txtM">メグロコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000089</p></td>
-					<td class="taL"><p class="txtM">モリシゲギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000090</p></td>
-					<td class="taL"><p class="txtM">モリモトギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-
-				<tr>
-					<td class="taC"><p class="txtM">0000000091</p></td>
-					<td class="taL"><p class="txtM">モモチスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000092</p></td>
-					<td class="taL"><p class="txtM">ヤエズギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000093</p></td>
-					<td class="taL"><p class="txtM">ヤキモノギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000094</p></td>
-					<td class="taL"><p class="txtM">ヤマモトギケン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000095</p></td>
-					<td class="taL"><p class="txtM">ユ）ユウジンギンコウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000096</p></td>
-					<td class="taL"><p class="txtM">ヨコミネセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000097</p></td>
-					<td class="taL"><p class="txtM">ヨシダスイサン</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000098</p></td>
-					<td class="taL"><p class="txtM">ヨシダセイメイ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000099</p></td>
-					<td class="taL"><p class="txtM">ロクボウコウギョウ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
-				<tr>
-					<td class="taC"><p class="txtM">0000000100</p></td>
-					<td class="taL"><p class="txtM">（ユ）ワタナベデンキ</p></td>
-					<td class="taR"><p class="txtM">10,000円</p></td>
-					<td class="taR"><p class="txtM">630円</p></td>
-					<td class="taC"><p><a class="btn01 txtM btn01SizeS" href="../kf/ATTrnInqShousai.html">選択</a></p></td>
-				</tr>
 			</tbody>
 		</table>
+
+    <p class="taR mtM"><a class="btn01 txtM btn01SizeS btn01noMrk" href="#DUMMY">一括印刷（CSVダウンロード）</a></p>
 
 		<div class="txtM mtL">
 			<script type="text/javascript">
@@ -835,22 +225,17 @@
 			</script>
 		</div>
 
-		<p class="taR"><a class="btn03 txtM" href="#DUMMY">次ページへ</a></p>
-
-		<div class="pageList01 mtL">
+		<div class="pageList01 mtM">
 			<ol>
-				<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">2</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">3</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">前へ</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">1</a></li>
+				<li class="txtM pL01Txt">…</li>
 				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">4</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
+				<li class="current"><a class="btn03 txtM btn03SizeS" href="#DUMMY">5</a></li>
 				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">6</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">7</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">8</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">9</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">10</a></li>
-				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">最後へ</a></li>
-				<li class="txtM pL01Txt">1/100ページ</li>
+				<li class="txtM pL01Txt">…</li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">20</a></li>
+				<li><a class="btn03 txtM btn03SizeS" href="#DUMMY">次へ</a></li>
 			</ol>
 		</div>
 
@@ -885,11 +270,16 @@
 			</tbody>
 		</table>
 
-		<p class="mtL"><a class="btn04" href="../kf/ATTrnInqList.html">戻る</a></p>
-
 		<hr class="hr mtL">
 
-		<p class="mtM"><a class="btn04" href="../kf/ATSubMenu.html">メニューに戻る</a></p>
+		<ul>
+			<li class="dipIB mtM">
+        <a class="btn04 mlM" href="../kf/ATTrnInqList.html">戻る</a>
+      </li>
+			<li class="dipIB mlM">
+        <a class="btn04" href="../kf/ATSubMenu.html">給与振込メニューへ</a>
+      </li>
+		</ul>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
