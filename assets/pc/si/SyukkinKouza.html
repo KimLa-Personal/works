@@ -25,14 +25,40 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">お振込依頼（お引出し口座の選択）</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">
+			登録されている口座から、お振込資金のお引出し口座を選択して、「選択」ボタンを押してください。<br />
+			<span class="color01">なお、「当座」を選択した場合、平日15時以降、当日を指定日としたお振込みはご利用できません。</span>
+		</p>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<th class="taL"><p class="txtM">お引出し口座</p></th>
+					<td>
+						<select class="slct txtM">
+							<option value="0" selected="selected">本店営業部 (普通0000061)</option>
+							<option value="1">長野支店 (貯蓄0000103)</option>
+							<option value="2">本店営業部 (カードローン1234567)</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<form name="form1" method="get" action="FurikomiIrai_1.html" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" name="xtr" value="GWSyukkinKouza">
+			<input type="hidden" name="NLS" value="HBP">
+			<input type="hidden" name="Token" value="bd09f475d94bceb9">
+			<input type="hidden" name="FK" value="2">
+			<p class="taC mtL"><button class="btn02" type="submit" name="Jikkou.y">選択</button></p>
+		</form>
+
+		<hr class="hr mtL">
+
+		<p class="mtM"><a class="btn04" href="../tr/TRSubMenu.html">メニューに戻る</a></p>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

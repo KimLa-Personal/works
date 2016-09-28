@@ -13,6 +13,15 @@
 <script src="../emusc_IH.js"></script>
 <script src="../emusc_comp_IH.js"></script>
 <script src="../swkeyboard.js"></script>
+<script>
+  <!--
+  function setShitenIndex(s) {
+    document.List.ShitenIndex.value = s;
+    document.List.JS.value = 1;
+    return true;
+  }
+  // -->
+</script>
 </head>
 <body>
 <script>include('header02', function(){ menuCurrent(2); });</script>
@@ -25,14 +34,47 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">お振込依頼（お振込先支店の指定）</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">振込指定日：2004/03/26</p>
+		<p class="txtM mtS">金融機関名：<span class="dipIB txtLL">0006 あさひ銀行</span></p>
+
+		<p class="txtM mtL">振込先支店を選択してください。</p>
+
+		<form method="get" action="FurikomiIrai_2.html" name="List">
+			<input type="hidden" name="xtr" value="GWShitenSentaku">
+			<input type="hidden" name="Token" value="57e0082d87104b43">
+			<input type="hidden" name="NLS" value="HBP">
+			<input type="hidden" name="FK" value="1">
+			<input type="hidden" name="JS" value="">
+			<input type="hidden" name="ShitenIndex" value="">
+
+			<table class="tbl01 mtS">
+				<col style="width: 39%;">
+				<col style="width: 39%;">
+				<col style="width: 12%;">
+				<tbody class="tblBgEven">
+					<tr>
+						<th class="taL"><p class="txtM">幡ケ谷支店</p></th>
+						<td><p class="txtM">ハタガヤ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="Kakutei.y" onclick="setGinkouIndex(0)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">八王子支店</p></th>
+						<td><p class="txtM">ハチオウジ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="Kakutei.y" onclick="setGinkouIndex(1)">選択</button></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<ul class="mtL">
+			<li class="dipIB"><a class="btn04" href="../si/GinkouKensaku.html">戻る</a></li>
+			<li class="dipIB mlM"><a class="btn04 mlM" href="../si/GinkouSyubetsu.html">金融機関選択に戻る</a></li>
+		</ul>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

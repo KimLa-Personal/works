@@ -13,6 +13,51 @@
 <script src="../emusc_IH.js"></script>
 <script src="../emusc_comp_IH.js"></script>
 <script src="../swkeyboard.js"></script>
+<script>
+<!--
+	function jump()
+	{
+		//表示するURLを指定する
+		urls='FurikomiKekka.html';
+
+		//移動するまでの秒数を指定する
+		byou=3;
+		b=0;
+		byou*=1000;
+		b=setTimeout('location.href=urls',byou);
+	}
+//-->
+</script>
+<script>
+  <!--
+  var clicked = 0;
+  function submitCheck() {
+      if (clicked != 0) {
+          alert("\nボタンが２度押されました。既に、１回目の処理が実行中です。\n[OK]ボタンを押して、お待ちください。");
+          return false;
+      } else {
+          clicked = 1;
+          return true;
+      }
+  }
+
+  function resetCount() {
+      clicked = 0;
+  }
+
+  function testResults() {
+      if (document.Submit.pass.value.length != 7 ) {
+          alert ("\n正しい確認パスワードを入力してください。");
+          return false;
+      }
+      if (submitCheck() == false) {
+          return false;
+      }
+      execProgressBar();
+      return true
+  }
+  // -->
+</script>
 </head>
 <body>
 <script>include('header02', function(){ menuCurrent(2); });</script>
@@ -25,14 +70,142 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">振込・振替（お振込）内容確認</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<div class="txtM mtL">
+			<script type="text/javascript">
+				<!--
+				KbnMsg_s()
+				//-->
+				</script>
+				    <span>ご依頼のお振込内容をご確認ください。</span><br>
+				    <font color="red">※お受取人名も必ずご確認ください。</font><br>
+				<script type="text/javascript">
+				<!--
+				KbnMsg_e()
+				//-->
+			</script>
+		</div>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="2"><p class="txtM"><strong>お引出し口座</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM">支店名</p></th>
+					<td><p class="txtM">本店営業部</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">科目</p></th>
+					<td><p class="txtM">貯蓄</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">口座番号</p></th>
+					<td><p class="txtM">0000061</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">連絡先電話番号</p></th>
+					<td><p class="txtM">03-3312-8899</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">ご依頼人名</p></th>
+					<td><p class="txtM">ゴタンダアプリケ－シヨンカイハツグル－プ</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="2"><p class="txtM"><strong>お振込先口座</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM">金融機関名</p></th>
+					<td><p class="txtM">あさひ銀行</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">支店名</p></th>
+					<td><p class="txtM">八王子支店</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">科目</p></th>
+					<td><p class="txtM">普通</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">口座番号</p></th>
+					<td><p class="txtM">3260820</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">お受取人名</p></th>
+					<td><p class="txtM">ハコザキタロウ</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM">振込指定日</p></th>
+					<td><p class="txtM">2004年05月14日</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">振込金額</p></th>
+					<td><p class="txtM">10,000円</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM">振込手数料</p></th>
+					<td><p class="txtM">0円</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script language="javascript" src="progressBar.js"></script>
+
+		<div class="txtM mtL">
+			<script type="text/javascript">
+				<!--
+				KbnHtml_s()
+				//-->
+				</script>
+				ご依頼内容をご確認のうえ、確認パスワードを入力し、「実行」ボタンを押してください。
+				<script type="text/javascript">
+				<!--
+				KbnHtml_e()
+				//-->
+			</script>
+		</div>
+
+		<form name="Submit">
+			<table class="tbl03 mtM">
+				<col style="width: 15%;">
+				<col style="width: 85%;">
+				<tbody>
+					<tr>
+						<td><p class="txtM color01"><strong>確認パスワード</strong></p></td>
+						<td><p><input class="iptTxt vaM mrM" type="password" name="pass" size="15" value=""><span class="txtM dipIB vaM">7桁</span></p></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<form action="../si/FurikomiKekka.html" method="get">
+			<p class="taC mtL"><button class="btn02" type="submit" name="Jikkou.y" onclick="return testResults()">実行</button></p>
+		</form>
+
+		<ul class="mtL">
+			<li class="dipIB"><a class="btn04 mlM" href="../si/SyukkinKouza.html">出金口座選択に戻る</a></li>
+			<li class="dipIB mlM"><a class="btn04 mlM" href="../si/FurikomiIrai_1.html">ご依頼人情報設定に戻る</a></li>
+		</ul>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

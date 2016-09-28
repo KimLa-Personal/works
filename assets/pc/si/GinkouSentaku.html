@@ -13,6 +13,15 @@
 <script src="../emusc_IH.js"></script>
 <script src="../emusc_comp_IH.js"></script>
 <script src="../swkeyboard.js"></script>
+<script>
+  <!--
+  function setGinkouIndex(s) {
+    document.List.GinkouIndex.value = s;
+    document.List.JS.value = 1;
+    return true;
+  }
+  // -->
+</script>
 </head>
 <body>
 <script>include('header02', function(){ menuCurrent(2); });</script>
@@ -25,14 +34,94 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">お振込依頼（お振込先金融機関の指定）</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">振込指定日：2004/03/26</p>
+		<p class="txtM mtL">お振込先金融機関を選択してください。</p>
+
+		<form method="get" action="ShitenKensaku.html" name="List">
+			<input type="hidden" name="xtr" value="GWGinkouSentaku">
+			<input type="hidden" name="Token" value="22eaae79d5d790fc">
+			<input type="hidden" name="NLS" value="HBP">
+			<input type="hidden" name="FK" value="1">
+			<input type="hidden" name="JS" value="">
+			<input type="hidden" name="GinkouIndex" value="">
+
+			<table class="tbl01 mtS">
+				<col style="width: 39%;">
+				<col style="width: 39%;">
+				<col style="width: 12%;">
+				<tbody class="tblBgEven">
+					<tr>
+						<th class="taL"><p class="txtM">あさひ銀行</p></th>
+						<td><p class="txtM">アサヒ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(0)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">アイワイバンク銀行</p></th>
+						<td><p class="txtM">アイワイバンク</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(1)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">青森銀行</p></th>
+						<td><p class="txtM">アオモリ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(2)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">秋田銀行</p></th>
+						<td><p class="txtM">アキタ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(3)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">足利銀行</p></th>
+						<td><p class="txtM">アシカガ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(4)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">阿波銀行</p></th>
+						<td><p class="txtM">アワ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(5)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">あおぞら銀行</p></th>
+						<td><p class="txtM">アオゾラ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(6)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">アメリカ銀行</p></th>
+						<td><p class="txtM">アメリカ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(7)">選択</button></p>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">愛知銀行</p></th>
+						<td><p class="txtM">アイチ</p></td>
+						<td class="taC">
+							<p><button class="btn01 txtM btn01SizeS" type="submit" name="ShitenKensaku.y" onclick="setGinkouIndex(8)">選択</button></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<ul class="mtL">
+			<li class="dipIB"><a class="btn04" href="../si/GinkouKensaku.html">戻る</a></li>
+			<li class="dipIB mlM"><a class="btn04 mlM" href="../si/FurikomiIrai_1.html">ご依頼人情報設定に戻る</a></li>
+		</ul>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

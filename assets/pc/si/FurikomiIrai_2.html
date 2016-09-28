@@ -13,6 +13,71 @@
 <script src="../emusc_IH.js"></script>
 <script src="../emusc_comp_IH.js"></script>
 <script src="../swkeyboard.js"></script>
+<script>
+  <!--
+  var clicked = 0;
+  function submitCheck() {
+      if (clicked != 0) {
+          alert("\nボタンが２度押されました。既に、１回目の処理が実行中です。\n[OK]ボタンを押して、お待ちください。");
+          return false;
+      } else {
+          clicked = 1;
+          return true;
+      }
+  }
+
+  function resetCount() {
+      clicked = 0;
+  }
+
+  function testResults () {
+      if (document.Submit.ToKouzaBangou.value.length > 7 ||
+          document.Submit.ToKouzaBangou.value.length < 1) {
+          alert ("\n正しい口座番号を入力してください。");
+          document.Submit.ToKouzaBangou.focus();
+          return false;
+      }
+      if (document.Submit.TfrNckN.value.length == 0) {
+          alert ("\n正しい受取人名を入力してください。");
+          document.Submit.TfrNckN.focus();
+          return false;
+      }
+      if (document.Submit.TfrNckN.value.length > 40) {
+          alert ("\n受取人名は40文字以内で入力してください。");
+          document.Submit.TfrNckN.focus();
+          return false;
+      }
+      if (document.Submit.PreTxnAmt.value.length == 0) {
+          alert ("\n正しい振込金額を入力してください。");
+          document.Submit.PreTxnAmt.focus();
+          return false;
+      }
+      if (document.Submit.JissDisp.value == "0" && document.Submit.ZenIrai.value != "GWJissekiIchiran"){
+          CheckedNo = "";
+          if (document.Submit.ActOpt.checked){
+              CheckedNo = 0;
+          } else {
+              CheckedNo = "";
+              for(i=0; i < document.Submit.ActOpt.length; i++) {
+                  if (document.Submit.ActOpt[i].checked) {
+                      CheckedNo = i+1;
+                  }
+              }
+              if(CheckedNo == "") {
+                  alert("実績オプションが選択されていません");
+                  return false;
+              }
+              if(CheckedNo!= "") {
+              }
+          }
+      }
+      if (submitCheck() == false) {
+          return false;
+      }
+      return true;
+  }
+  // -->
+</script>
 </head>
 <body>
 <script>include('header02', function(){ menuCurrent(2); });</script>
@@ -25,14 +90,125 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">振込・振替（お振込）内容登録</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">お振込先口座の科目を選択し、お振込先の口座番号、お振込金額等を入力してください。</p>
+
+		<form name="Submit" action="FurikomiKakunin.html" method="get" name="Kouza" onSubmit="return testResults()">
+			<table class="tbl01 mtL">
+				<col style="width: 25%;">
+				<col style="width: 75%;">
+				<thead>
+					<tr>
+						<th class="taC" colspan="2"><p class="txtM"><strong>お引出し口座</strong></p></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="taL"><p class="txtM">支店名</p></th>
+						<td><p class="txtM">本店営業部</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">科目</p></th>
+						<td><p class="txtM">貯蓄</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">口座番号</p></th>
+						<td><p class="txtM">0000061</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">連絡先電話番号</p></th>
+						<td><p class="txtM">03-3312-8899</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">ご依頼人名</p></th>
+						<td><p class="txtM">ゴタンダアプリケ－シヨンカイハツグル－プ</p></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="tbl01 mtL">
+				<col style="width: 25%;">
+				<col style="width: 75%;">
+				<thead>
+					<tr>
+						<th class="taC" colspan="4"><p class="txtM"><strong>お振込先口座</strong></p></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="taL"><p class="txtM"><strong>金融機関名</strong></p></th>
+						<td class="taL"><p class="txtM">あさひ銀行</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM"><strong>支店名</strong></p></th>
+						<td class="taL"><p class="txtM">八王子支店</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM"><strong>科目</strong></p></th>
+						<td class="taL">
+							<select class="slct txtM" name="KamokuIndex" onchange="resetCount()">
+								<option value="0" selected="selected">普通</option>
+								<option value="1">当座</option>
+								<option value="2">貯蓄</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM"><strong>口座番号(半角数字)</strong></p></th>
+						<td class="taL"><p><input class="iptTxt" type="text" name="ToKouzaBangou" size="15" value="" onchange="resetCount()"></p></td>
+					</tr>
+					<tr>
+						<th class="taL tblBg02"><p class="txtM"><strong class="dipIB mrL">お受取人名</strong><a class="txtMrk01" href="javascript:openKouzaKakuninHelpWindow();">ご注意事項</a></p></th>
+						<td class="taL"><p class="txtM">お受取人名義は自動的に入力されます。</p></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="tbl01 mtL">
+				<col style="width: 25%;">
+				<col style="width: 75%;">
+				<tbody>
+					<tr>
+						<th class="taL"><p class="txtM">振込指定日</p></th>
+						<td><p class="txtM">2004年05月14日</p></td>
+					</tr>
+					<tr>
+						<th class="taL"><p class="txtM">振込金額(半角数字)</p></th>
+						<td><p><input class="iptTxt" type="text" name="PreTxnAmt" size="55" value="" onchange="resetCount()"><span class="dipIB txtM mlM">円</span></p></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<input type="hidden" value=0 name="JissDisp">
+			<input type="hidden" value="GWShitenSentaku" name="ZenIrai">
+
+			<div class="txtM mtL">
+				<script type="text/javascript">
+					<!--
+						KbnMsg_s()
+						//-->
+						</script>
+						  <span>
+						    振込手数料は、当方負担でのお手続きとなります。
+						  </span><br>
+						  <span>入力内容を確認して[決定]ボタンを押してください。</span><br>
+						<script type="text/javascript">
+						<!--
+						KbnMsg_e()
+						//-->
+				</script>
+			</div>
+
+			<p class="taC mtL"><button class="btn02" type="submit" name="Kettei.y">決定</button></p>
+		</form>
+
+		<ul class="mtL">
+			<li class="dipIB"><a class="btn04 mlM" href="../si/SyukkinKouza.html">引出口座選択に戻る</a></li>
+			<li class="dipIB mlM"><a class="btn04 mlM" href="../si/FurikomiIrai_1.html">ご依頼人情報設定に戻る</a></li>
+		</ul>
+
+		<p class="txtM mtL">※口座確認時間外の画面表示は<a href="../si/2_FurikomiIrai_2.html">こちら</a>を参照</p>
+		<p class="txtM mtS">※口座確認リボーク時の画面表示は<a href="../si/3_FurikomiIrai_2.html">こちら</a>を参照</p>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

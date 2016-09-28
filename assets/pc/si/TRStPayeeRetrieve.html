@@ -25,14 +25,61 @@
 			<li>出金口座選択</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">お振込依頼（総合振込登録先へのお振込）</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">総合振込登録先一覧を表示しますので、「振込先の抽出方法」と「並び順」を指定して<br>「決定」ボタンを押してください。</p>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptRadio"><input type="radio" name="radio01" checked="checked"><span><strong>利用者名</strong></span></label></p></td>
+					<td class="taL tblNoBdr">
+						<select class="slct txtM">
+							<option value="0" selected="selected">01&nbsp;グループ名称０１</option>
+							<option value="1" >02&nbsp;グループ名称０２</option>
+							<option value="2" >03&nbsp;グループ名称０３</option>
+							<option value="3" >04&nbsp;グループ名称０４</option>
+							<option value="4" >05&nbsp;</option>
+							<option value="5" >06&nbsp;</option>
+							<option value="6" >07&nbsp;</option>
+							<option value="7" >08&nbsp;</option>
+							<option value="8" >09&nbsp;</option>
+							<option value="9" >10&nbsp;</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptRadio"><input type="radio" name="radio01"><span><strong>顧客コード</strong></span></label></p></td>
+					<td class="taL tblNoBdr">
+						<p>
+							<input class="iptTxt" type="text" name="customCodeFrom" size="15" value="">
+							<span class="txtM dipIB mlM">～</span>
+							<input class="iptTxt mlM" type="text" name="customCodeTo" size="15" value="">
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr" colspan="2"><p class="txtM"><label class="iptRadio"><input type="radio" name="radio01"><span><strong>全先</strong></span></label></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><strong>並び替え</strong></p></td>
+					<td class="taL tblNoBdr">
+						<p class="txtM dipIB"><label class="iptRadio"><input type="radio" name="radio02" checked="checked"><span>顧客コード順</span></label></p>
+						<p class="txtM dipIB mlL"><label class="iptRadio"><input type="radio" name="radio02"><span>カナ順</span></label></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="btnSet mtL">
+			<li class="bsItem02"><a class="btn04" href="../si/FurikomiIrai_1.html">戻る</a></li>
+			<li class="bsItem03">
+				<form action="../si/TRStPayeeList.html" method="get">
+					<button class="btn02" type="submit">決定</button>
+				</form>
+			</li>
+		</ul>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->

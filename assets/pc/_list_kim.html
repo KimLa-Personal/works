@@ -260,9 +260,9 @@ h2 { padding: 8px 10px; border: 1px solid #ddd; font-size: 14px; color: #888; fo
             </tr>
             <tr>
               <td></td>
+              <td></td>
               <td>”[•tæ“o˜^</td>
-              <td>V‹K’Ç‰Á/“o˜^”[•tæ‘I‘ğ‰æ–Ê</td>
-              <th>Š®—¹Ú×</th>
+              <th>V‹K’Ç‰Á/“o˜^”[•tæ‘I‘ğ‰æ–Ê</th>
               <td><a href="./cz/RPPayeeMtnList.html" target="_blank">/cz/RPPayeeMtnList.html</a></td>
             </tr>
           </tbody>
@@ -571,14 +571,16 @@ $(function() {
       return this;
     };
     proto.onLoadFunction = function() {
-      if(this.$title.hasClass(this.classOpen)) {
-        this.isOpened = true;
-      }
-      if(!this.isOpened) {
-        this.$main.hide();
-      } else {
-        this.$title.addClass(this.classOpen);
-      }
+		if(this.$title) {
+			if(this.$title.hasClass(this.classOpen)) {
+				this.isOpened = true;
+			}
+			if(!this.isOpened) {
+				this.$main.hide();
+			} else {
+				this.$title.addClass(this.classOpen);
+			}
+		}
       this.setPageListNum();
       return this;
     };
@@ -595,7 +597,7 @@ $(function() {
         e.preventDefault();
         that.onClickPageListTableRow(this);
       });
-      this.$title.bind('click', function() {
+      this.$title.click(function() {
         if(!that.isAnimate) {
           that.animateAccordion();
           that.isAnimate = false;

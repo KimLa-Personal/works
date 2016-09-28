@@ -13,6 +13,48 @@
 <script src="../emusc_IH.js"></script>
 <script src="../emusc_comp_IH.js"></script>
 <script src="../swkeyboard.js"></script>
+<script>
+function switchCheck()
+{
+ for(var ix = 0; ix < form1.elements.length; ++ix){
+  if( form1.elements[ix].type == "checkbox" && form1.elements[ix].checked==true );
+   form1.elements[ix].checked =false;
+ }
+}
+function clearCheck()
+{
+ for(var ix = 0; ix < form1.elements.length; ++ix){
+  if( form1.elements[ix].type == "checkbox" && form1.elements[ix].checked==false )
+   form1.elements[ix].checked = true;
+ }
+}
+    softpop = false;
+    var skw;
+    var tmpdomain;
+    var path;
+    var passObj;
+    function openSoftKey(){
+      if (skw != null && !skw.closed) {
+        skw.close();
+      }
+      var height = 350;
+      var width = 400;
+      var top = Math.floor((screen.availHeight - height - 30) * Math.random());
+      var left = Math.floor((screen.availWidth - width - 20) * Math.random());
+      path = "RandomTable.html";
+      skw = window.open(path, "_blank",
+                        "height=" + height + ",width=" + width + ",top=" + top + ",left=" + left + ",resizable=1");
+      softpop = true;
+    }
+function chgButtonStatus() {
+
+    if (document.getElementById("cbspw").checked==true) {
+        document.getElementById("createpw").removeAttribute("disabled");
+    } else {
+        document.getElementById("createpw").setAttribute("disabled","disabled");
+	}
+}
+</script>
 </head>
 <body>
 <script>include('header02', function(){ menuCurrent(0); });</script>
@@ -25,14 +67,312 @@
 			<li>利用者メンテナンス</li>
 		</ol>
 		<h1 class="tit03 tit03HasBdr mtM">利用者メンテナンス（登録・変更・削除）</h1>
-		<ol class="progressList01 mtS">
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li class="current"><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミーテキスト</span></li>
-			<li><span class="txtM">ダミー</span></li>
-		</ol>
 
-		<p class="txtM mtL">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+		<p class="txtM mtL">必要事項を入力して「登録」ボタンを押してください｡ <br>なお、利用者を削除する場合は「削除」ボタンを押してください。</p>
+
+		<div class="colorBox03 mtL">
+			<p class="cb03Inr txtL">利用者コード: 0040</p>
+		</div>
+
+		<p class="txtM mtL">登録項目にはチェックをして入力してください。</p>
+		<table class="tbl01 mtS">
+			<col style="width: 20%;">
+			<col style="width: 30%;">
+			<col style="width: 50%;">
+			<tbody class="tblBgEven">
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span><strong>利用者名</strong></span></label></p></td>
+					<td class="taL tblNoBdr" colspan="2"><p><input class="iptTxt" type="text" name="DUMMY" size="73" value="社員１"></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p><label class="iptCheck"><input type="checkbox"><span><strong class="txtM dipIB">ログオンパスワード</strong><br><span class="txtS dipIB mtS">（半角英数字6文字）</span></span></label></p></td>
+					<td class="taL tblNoBdr"><p><input class="iptTxt" type="text" name="DUMMY" size="25" value=""></p></td>
+					<td class="taL tblNoBdr"><p><strong class="txtM dipIB vaM">確認</strong><input class="iptTxt vaM mlM" type="text" name="DUMMY" size="25" value=""></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p><label class="iptCheck"><input type="checkbox"><span><strong class="txtM dipIB">ログオンパスワード</strong><br><span class="txtS dipIB mtS">（半角英数字7文字）</span></span></label></p></td>
+					<td class="taL tblNoBdr"><p><input class="iptTxt" type="text" name="DUMMY" size="25" value=""></p></td>
+					<td class="taL tblNoBdr"><p><strong class="txtM dipIB vaM">確認</strong><input class="iptTxt vaM mlM" type="text" name="DUMMY" size="25" value=""></p></td>
+				</tr>
+				<tr>
+					<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span><strong>可変パスワード</strong></span></label></p></td>
+					<td class="taL tblNoBdr" colspan="2"><p><button class="btn01 txtM btn01SizeS btn01noMrk" type="button" disabled="disabled">可変パスワード表作成</button></p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="list01 mtS">
+			<li><span class="lst01Mrk txtM">※</span><span class="lst01Txt txtM">利用者名には「全角文字（英・数・カナ・漢字）」が、ログオンパスワード・確認パスワードには「半角英数字」が使用可能です。</span></li>
+			<li><span class="lst01Mrk txtM">※</span><span class="lst01Txt txtM">「利用者用可変パスワード表」は「可変パスワード表作成」ボタンを押す都度、変更されます。最後に作成したものを利用者へ交付してください。</span></li>
+		</ul>
+
+		<form name="form1">
+
+			<p class="txtM color01 mtL">権限の設定:利用を許可する業務を「チェック」してください。</p>
+			<table class="tbl01 mtS">
+				<tbody class="tblBgEven">
+					<tr>
+						<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox" name="BLINQ" checked="checked"><span><strong>残高照会</strong></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox" name="DTINQ" checked="checked"><span><strong>入出金明細照会</strong></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox" name="TRKOM" checked="checked"><span><strong>振込（振込・状況照会・振込先の新規登録・変更・削除）</strong></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox" name="TRKAE" checked="checked"><span><strong>振替（振替・状況照会）</strong></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL tblNoBdr"><p class="txtM"><label class="iptCheck"><input type="checkbox" name="MPORC"><span><strong>各種料金払込</strong></span></label></p></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="btnBox01 mtL">
+				<p class="bb01Txt txtM">※「振込承認機能」を利用者に許可することはできません。</p>
+				<p class="bb01Btn"><button type="button" class="btn01 txtM btn01SizeS btn01noMrk" onclick="clearCheck()">すべてを選択</button></p>
+				<p class="bb01Btn"><button type="button" class="btn01 txtM btn01SizeS btn01noMrk mlM" onclick="switchCheck()">すべてを解除</button></p>
+			</div>
+
+			<table class="tbl01 mtL">
+				<col style="width: 15%;">
+				<col style="width: 25%;">
+				<col style="width: 30%;">
+				<col style="width: 23%;">
+				<col style="width: 7%;">
+				<tbody class="tblBgEven">
+					<tr>
+						<th class="taL" rowspan="10"><p class="txtM"><strong>総振</strong></p></th>
+						<td class="taL" rowspan="6"><p class="txtM">業務関連</p></td>
+						<td class="taL" rowspan="3"><p class="txtM">データ作成（承認前）</p></td>
+						<td class="taL"><p class="txtM">作成</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">変更</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">削除</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">データ承認・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">承認済データ削除・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">状況照会</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">マスター関連</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振込先登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">グループ登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">ファイル伝送</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振込データのアップロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">振込先口座のダウンロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<th class="taL" rowspan="10"><p class="txtM"><strong>給振</strong></p></th>
+						<td class="taL" rowspan="6"><p class="txtM">業務関連</p></td>
+						<td class="taL" rowspan="3"><p class="txtM">データ作成（承認前）</p></td>
+						<td class="taL"><p class="txtM">作成</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">変更</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">削除</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">データ承認・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">承認済データ削除・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">状況照会</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">マスター関連</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振込先登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">グループ登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">ファイル伝送</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振込データのアップロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">振込先口座のダウンロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<th class="taL" rowspan="10"><p class="txtM"><strong>自動集金</strong></p></th>
+						<td class="taL" rowspan="6"><p class="txtM">業務関連</p></td>
+						<td class="taL" rowspan="3"><p class="txtM">データ作成（承認前）</p></td>
+						<td class="taL"><p class="txtM">作成</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">変更</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">削除</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">データ承認・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">承認済データ削除・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">状況照会</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">マスター関連</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振替先登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">グループ登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">ファイル伝送</p></td>
+						<td class="taL" colspan="2"><p class="txtM">口座振替データのアップロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">振替先口座のダウンロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<th class="taL" rowspan="10"><p class="txtM"><strong>ワイドネット</strong></p></th>
+						<td class="taL" rowspan="6"><p class="txtM">業務関連</p></td>
+						<td class="taL" rowspan="3"><p class="txtM">データ作成（承認前）</p></td>
+						<td class="taL"><p class="txtM">作成</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">変更</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">削除</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">データ承認・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">承認済データ削除・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">状況照会</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">マスター関連</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振替先登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">グループ登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">ファイル伝送</p></td>
+						<td class="taL" colspan="2"><p class="txtM">口座振替データのアップロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">振替先口座のダウンロード</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox" checked="checked"><span></span></label></p></td>
+					</tr>
+
+					<tr>
+						<th class="taL" rowspan="7"><p class="txtM"><strong>地方税</strong></p></th>
+						<td class="taL" rowspan="6"><p class="txtM">業務関連</p></td>
+						<td class="taL" rowspan="3"><p class="txtM">データ作成（承認前）</p></td>
+						<td class="taL"><p class="txtM">作成</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">変更</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL"><p class="txtM">削除</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">データ承認・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">承認済データ削除・差戻し</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" colspan="2"><p class="txtM">状況照会</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+					<tr>
+						<td class="taL" rowspan="2"><p class="txtM">マスター関連</p></td>
+						<td class="taL" colspan="2"><p class="txtM">振込先登録</p></td>
+						<td class="taC"><p class="txtM"><label class="iptCheck"><input type="checkbox"><span></span></label></p></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<ul class="mtM taC mtL">
+			<li class="dipIB vaM">
+				<form action="../um/UserMtnConfirmReg.html" method="get">
+					<button class="btn02" type="submit">登録</button>
+				</form>
+			</li>
+			<li class="dipIB vaM mlM taL">
+				<form action="../um/UserMtnConfirmDel.html" method="get">
+					<button class="btn01 txtM btn01SizeS btn01noMrk" type="submit">削除</button>
+				</form>
+			</li>
+		</ul>
+
+		<p class="mtL"><a class="btn04" href="../um/UserMtnList.html">戻る</a></p>
 
 	</div>
 	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
