@@ -16,30 +16,7 @@ li {
 input,textarea {
 	padding: 0;
 	vertical-align: middle;
-	overflow: auto;
-	line-height: 1;
 }
-/*
-input[type="submit"],
-input[type="button"] {
-	border-radius: 0;
-	-webkit-box-sizing: content-box;
-	-webkit-appearance: button;
-	appearance: button;
-	border: none;
-	box-sizing: border-box;
-	cursor: pointer;
-	background-color: transparent;
-}
-input[type="submit"]::-webkit-search-decoration,
-input[type="button"]::-webkit-search-decoration {
-	display: none;
-}
-input[type="submit"]::focus,
-input[type="button"]::focus {
-	outline-offset: -2px;
-}
-*/
 select {
 	padding: 0px;
 	line-height: 1;
@@ -135,6 +112,7 @@ a:hover {
 	margin: 0 auto;
 	position: relative;
 	border-bottom: solid 1px #c2e7bf;
+	min-height: 77px;
 }
 #header:before {
 	content: "";
@@ -343,16 +321,24 @@ a:hover {
 #footer {
 	width: 100%;
 	zoom: 1;
-	margin-top:50px;
-	padding:100px 0 50px;
+	margin-top: 150px;
+	padding: 0 0 50px;
 	position: relative;
-	background:url(images/footer_bg.png) no-repeat center top;
 	font-size: 13px;
 	line-height: 1.4;
-	color:#fff;
+	color: #fff;
 	text-align: center;
-	border-bottom:5px solid #fe1c0c;
+	border-bottom: 5px solid #fe1c0c;
 	background-color: #575654 ;
+}
+#footer:before {
+	content: "";
+	background:url(images/footer_bg.png) no-repeat center top;
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	left: 0;
+	top: -100px;
 }
 #footerLinkList01 {
 	margin: 0 auto;
@@ -389,15 +375,15 @@ a:hover {
 	font-size: 13px;
 }
 #footer p.txt01 {
-	margin: 2em 0 0 !important;
+	padding-top: 2em;
 	line-height: 2;
 }
 #footer p.txt02 {
-	margin: 2em 0 0 !important;
+	padding-top: 2em;
 	line-height: 1.2;
 }
 #txtCopyright {
-	margin: 2em 0 0 !important;
+	padding-top: 2em;
 	font-size: 12px;
 	line-height: 1.2;
 }
@@ -430,9 +416,16 @@ a:hover {
 	height: 42px;
 	background: url(images/btn_pagetop.png) no-repeat left top;
 }
+.info {
+	width: 980px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 15px 10px 0 8px;
+}
 #wrapper {
 	width: 980px;
 	margin: 0 auto;
+	display: table;
 }
 #wrapper:after {
 	content: "";
@@ -455,9 +448,6 @@ a:hover {
 #wrapper > #sub {
 	width: 220px;
 	padding: 30px 0 0 20px;
-}
-#wrapper > .info {
-	padding: 15px 10px 0 8px;
 }
 #breadcrumb {
 	letter-spacing:  -0.4em;
@@ -1008,6 +998,48 @@ th.tblBg02 {
 }
 .setColorB .tbl03 th { background-color: #172a88; color: #fff; }
 .setColorC .tbl03 th { background-color: #ffff00; color: #172a88; }
+.tbl04{
+	border-top: solid 3px #39b02f;
+	border-left: solid 2px #39b02f;
+	width: 100%;
+}
+.tbl04 td, .tbl04 th {
+	border-right: solid 2px #39b02f;
+	border-bottom: solid 2px #39b02f;
+	padding: 12px 15px;
+	background-color: #fff;
+	text-align: left;
+	color: #333;
+}
+.tbl04 th{
+	background-color: #39b02f;
+	color: #fff;
+}
+.btn01 input,
+.btn02 input,
+.btn03 input,
+.btn04 input {
+	border-radius: 0;
+	-webkit-box-sizing: content-box;
+	-webkit-appearance: button;
+	appearance: button;
+	border: none;
+	box-sizing: border-box;
+	cursor: pointer;
+	background-color: transparent;
+}
+.btn01 input::-webkit-search-decoration,
+.btn02 input::-webkit-search-decoration,
+.btn03 input::-webkit-search-decoration,
+.btn04 input::-webkit-search-decoration {
+	display: none;
+}
+.btn01 input::focus,
+.btn02 input::focus,
+.btn03 input::focus,
+.btn04 input::focus {
+	outline-offset: -2px;
+}
 .btn01 {
 	display: inline-block;
 	min-width: 200px;
@@ -1023,6 +1055,9 @@ th.tblBg02 {
 	-webkit-box-shadow:3px 3px 0px 0px #535c5e;
 	box-shadow:3px 3px 0px 0px #535c5e;
 	cursor: pointer;
+}
+.btn01 input {
+	font-weight: bold;
 }
 .btn01:hover {
 	margin: 1px 0 0 3px;
@@ -1073,6 +1108,10 @@ a.btn01 {
 	border-width: 0px 1px 1px 0px;
 	display: inline-block;
 	cursor: pointer;
+}
+.btn02 input {
+	font-weight: bold;
+	color: #fff;
 }
 .btn02:hover {
 	background-color: #39b02f;
@@ -1154,11 +1193,15 @@ a.btn04 {
 .iptTxt,
 .txtArea {
 	padding: 10px;
-	font-size: 107.1%;
+	font-size: 116.7%;
 	border: 1px solid #ccc;
 	line-height: 1;
-	min-height: 34px;
-	box-sizing: border-box;
+	height: 1em;
+	box-sizing: content-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: inline-block;
 }
 .txtArea {
 	margin: -1px 0;
@@ -1218,7 +1261,7 @@ a.btn04 {
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-	margin-top: 5px;	
+	margin-top: 5px;
 }
 .iptCheck input:checked + span:before {
 	border-width: 1px;

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>八十二＜インターネットバンキング＞</title>
+<meta name="robots" content="none">
+<meta name="viewport" content="width=1000">
+<meta name="MobileOptimized" content="0">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="X-Ua-Compatible" content="IE=edge">
+<link rel="stylesheet" href="../emusc_IH.css">
+<script src="../jquery-1.6.4.js"></script>
+<script src="../emusc_IH.js"></script>
+<script src="../emusc_comp_IH.js"></script>
+<script src="../swkeyboard.js"></script>
+<script>
+<!--
+	function jump()
+	{
+		//表示するURLを指定する
+		urls='FurikomiKekka.html';
+
+		//移動するまでの秒数を指定する
+		byou=3;
+		b=0;
+		byou*=1000;
+		b=setTimeout('location.href=urls',byou);
+	}
+
+//-->
+</script>
+<script>
+  <!--
+  var clicked = 0;
+  function submitCheck() {
+      if (clicked != 0) {
+          alert("\nボタンが２度押されました。既に、１回目の処理が実行中です。\n[OK]ボタンを押して、お待ちください。");
+          return false;
+      } else {
+          clicked = 1;
+          return true;
+      }
+  }
+
+  function resetCount() {
+      clicked = 0;
+  }
+
+  function testResults() {
+      if (document.Submit.pass.value.length != 7 ) {
+          alert ("\n正しい確認パスワードを入力してください。");
+          return false;
+      }
+      if (submitCheck() == false) {
+          return false;
+      }
+      execProgressBar();
+      return true
+  }
+  // -->
+</script>
+</head>
+<body>
+<script>include('header02', function(){ menuCurrent(2); });</script>
+<div id="wrapper">
+	<!-- =========================== ↓↓ 画面毎に修正 ↓↓ =========================== -->
+	<div id="main" class="contents">
+		<ol id="breadcrumb" class="txtM">
+			<li><a href="../au/kt/Initial.html">ホーム</a></li>
+			<li><a href="../tr/TRSubMenu.html">振込・振替</a></li>
+			<li>振込登録先一覧</li>
+		</ol>
+		<h1 class="tit03 tit03HasBdr mtM">振込・振替（振込先登録）登録結果</h1>
+    <ol class="progressList01 mtS">
+			<li><span class="txtM">振込先金融機関選択</span></li>
+      <li><span class="txtM">支店検索</span></li>
+			<li><span class="txtM">新規登録</span></li>
+      <li><span class="txtM">登録確認</span></li>
+      <li class="current"><span class="txtM">登録結果</span></li>
+		</ol>
+
+		<div class="txtM mtL">
+      <script type="text/javascript">
+      <!--
+      KbnMsg_s()
+      //-->
+      </script>
+      <span>以下のお振込先口座を登録しました。</span><br>
+      <script type="text/javascript">
+      <!--
+      KbnMsg_e()
+      //-->
+      </script>
+		</div>
+
+		<table class="tbl01 mtL">
+			<col style="width: 25%;">
+			<col style="width: 75%;">
+			<thead>
+				<tr>
+					<th class="taC" colspan="4"><p class="txtM"><strong>お振込先口座</strong></p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>金融機関名</strong></p></th>
+					<td class="taL"><p class="txtM">あさひ銀行</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>支店名</strong></p></th>
+					<td class="taL"><p class="txtM">八王子支店</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>科目</strong></p></th>
+					<td class="taL"><p class="txtM">普通</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>口座番号(半角数字)</strong></p></th>
+					<td class="taL"><p class="txtM">3260820</p></td>
+				</tr>
+				<tr>
+					<th class="taL"><p class="txtM"><strong>お受取人名(全角カナ４０文字以内)</strong></p></th>
+					<td class="taL"><p class="txtM">ナガノタロウ</p></td>
+				</tr>
+        <tr>
+					<th class="taL"><p class="txtM"><strong>グループ</strong></p></th>
+					<td class="taL"><p class="txtM">01</p></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="txtM mtL">
+      <script type="text/javascript">
+      <!--
+      KbnHtml_s()
+      //-->
+      </script>
+      <script type="text/javascript">
+      <!--
+      KbnHtml_e()
+      //-->
+      </script>
+		</div>
+
+		<hr class="hr mtL">
+
+		<p class="mtL"><label class="btn04"><input type="button" name="DUMMY" tabindex="100" onclick="javascript:location.href='../si/JissekiDelIchiran.html';" value="一覧へ"></label></p>
+
+	</div>
+	<!-- =========================== ↑↑ 画面毎に修正 ↑↑ =========================== -->
+</div>
+<script>include('footer01');</script>
+</body>
+</html>
